@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>婚姻与互联网思维 | YDiego</title>
+  <title>webpack打包优化 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天去学校参加校友会，除了念稿子让人昏昏欲睡，自助餐还是挺不错的（要不是为了顾及形象，咳咳。），还有万建峰老师关于互联网思维的简短讲座也让人印象深刻。 他举了个简单的择偶例子，他问现场一位女生，请她聊聊对对象的基本要求，比如身高、体重、颜值、学历、身家等等，当然这也是一般人所考虑的。   后来发生这么段对话：">
-<meta name="keywords" content="记录">
+  <meta name="description" content="关于vue项目webpack打包的一些优化前言一方面是随着项目的推进，项目中的内容愈加丰富，随之带来的项目体积也跟着愈发庞大，打包所完成的时间也变得开始以&amp;apos;分&amp;apos;作单位；另一方面是随着技术的不断迭代，最新版本的webpack4的打包速度较webpack3也是有了质的提升。 如何优化 修改配置 减少检索 并行压缩 拆分 缓存 开发环境下减少无意义操作   升级工具  新版配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="婚姻与互联网思维">
-<meta property="og:url" content="https://toxicyu.github.io/2016/10/22/婚姻与互联网思维/index.html">
+<meta property="og:title" content="webpack打包优化">
+<meta property="og:url" content="https://toxicyu.github.io/2018/12/12/webpack打包优化/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="今天去学校参加校友会，除了念稿子让人昏昏欲睡，自助餐还是挺不错的（要不是为了顾及形象，咳咳。），还有万建峰老师关于互联网思维的简短讲座也让人印象深刻。 他举了个简单的择偶例子，他问现场一位女生，请她聊聊对对象的基本要求，比如身高、体重、颜值、学历、身家等等，当然这也是一般人所考虑的。   后来发生这么段对话：">
+<meta property="og:description" content="关于vue项目webpack打包的一些优化前言一方面是随着项目的推进，项目中的内容愈加丰富，随之带来的项目体积也跟着愈发庞大，打包所完成的时间也变得开始以&amp;apos;分&amp;apos;作单位；另一方面是随着技术的不断迭代，最新版本的webpack4的打包速度较webpack3也是有了质的提升。 如何优化 修改配置 减少检索 并行压缩 拆分 缓存 开发环境下减少无意义操作   升级工具  新版配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-10-25T03:50:42.000Z">
+<meta property="og:updated_time" content="2018-12-12T09:45:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="婚姻与互联网思维">
-<meta name="twitter:description" content="今天去学校参加校友会，除了念稿子让人昏昏欲睡，自助餐还是挺不错的（要不是为了顾及形象，咳咳。），还有万建峰老师关于互联网思维的简短讲座也让人印象深刻。 他举了个简单的择偶例子，他问现场一位女生，请她聊聊对对象的基本要求，比如身高、体重、颜值、学历、身家等等，当然这也是一般人所考虑的。   后来发生这么段对话：">
+<meta name="twitter:title" content="webpack打包优化">
+<meta name="twitter:description" content="关于vue项目webpack打包的一些优化前言一方面是随着项目的推进，项目中的内容愈加丰富，随之带来的项目体积也跟着愈发庞大，打包所完成的时间也变得开始以&amp;apos;分&amp;apos;作单位；另一方面是随着技术的不断迭代，最新版本的webpack4的打包速度较webpack3也是有了质的提升。 如何优化 修改配置 减少检索 并行压缩 拆分 缓存 开发环境下减少无意义操作   升级工具  新版配置">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,32 +148,95 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-婚姻与互联网思维" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-webpack打包优化" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      婚姻与互联网思维
+      webpack打包优化
     </h1>
   
 
         
-        <a href="/2016/10/22/婚姻与互联网思维/" class="archive-article-date">
-  	<time datetime="2016-10-22T14:23:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-22</time>
+        <a href="/2018/12/12/webpack打包优化/" class="archive-article-date">
+  	<time datetime="2018-12-12T09:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天去学校参加校友会，除了念稿子让人昏昏欲睡，自助餐还是挺不错的（要不是为了顾及形象，咳咳。），还有万建峰老师关于互联网思维的简短讲座也让人印象深刻。</p>
-<p>他举了个简单的择偶例子，他问现场一位女生，请她聊聊对对象的基本要求，比如身高、体重、颜值、学历、身家等等，当然这也是一般人所考虑的。</p>
-<p>  后来发生这么段对话：<br><a id="more"></a><br>  万：“你希望你以后对象有没有胡子？”。<br>  女：“没有！”。<br>  万：“这样啊，那看来你要去清宫里找啦！”。<br>  众人笑。<br>  女：“有！”。<br>  万：“那你接受有络腮胡的吗？”。<br>  女：“不！”。<br>  万：“那你接受长络腮胡但是剃干净的还是不剃干净的？”。<br>  女：“(⊙o⊙)…额，剃干净的吧。”。<br>  众人笑。。。</p>
-<p>   女生可能会有这样一个想法，“这个世界上肯定有一个比我现任长得帅，有钱，温柔。。的白马王子！”。而男生，这个类似的想法每7分钟想一次。（笑）</p>
-<p>   然后国外某XX研究得出结论，70%的人婚前二者居住的距离不会超过该地区总区域的30%。先不说这个结论靠不靠谱，已知的很多婚姻由朋友、亲戚、同学等人介绍，所有可以说配对的选择对象有限在这些人中，如果选择对象遍及世界，相信结果就会完全不一样了吧？比如某某欧巴、小鲜肉。</p>
-<p>   而互联网就是将用户的选择进一步提升，好比现在的明星直播，在以前，明星只能通过电视等媒体上看到，现在一个直播就能任何人通过网络让其他人知道，人人都能成为明星。</p>
+        <h2 id="关于vue项目webpack打包的一些优化"><a href="#关于vue项目webpack打包的一些优化" class="headerlink" title="关于vue项目webpack打包的一些优化"></a>关于vue项目webpack打包的一些优化</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><pre><code>一方面是随着项目的推进，项目中的内容愈加丰富，随之带来的项目体积也跟着愈发庞大，打包所完成的时间也变得开始以&apos;分&apos;作单位；另一方面是随着技术的不断迭代，最新版本的webpack4的打包速度较webpack3也是有了质的提升。
+</code></pre><h3 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h3><ol>
+<li>修改配置<ul>
+<li>减少检索</li>
+<li>并行压缩</li>
+<li>拆分</li>
+<li>缓存</li>
+<li>开发环境下减少无意义操作</li>
+</ul>
+</li>
+<li><p>升级工具</p>
+<ul>
+<li>新版配置上的一些改动<a id="more"></a>
+<h4 id="一-减少检索"><a href="#一-减少检索" class="headerlink" title="一: 减少检索"></a>一: 减少检索</h4></li>
+</ul>
+<p>在使用实际项目开发中，为了提升开发效率，很明显你会使用很多成熟第三方库；即便自己写的代码，模块间相互引用，为了方便也会使用相对路劲，或者别名(alias)；这中间如果能使得 Webpack 更快寻找到目标，将对打包速度产生很是积极的影响。于此，我们需要做的即：减小文件搜索范围，从而提升速度；实现这一点，可以有如下两法：</p>
+<p>1.resolve.modules</p>
+</li>
+</ol>
+<p>为了找到需要的目标文件，工具都会用一定的方式去查找，webpack也不例外，通常我们使用的的模块会来源于<code>node_modules</code>或项目根目录的某个文件比如<code>src</code>,如果我们告诉webpack我们需要的东西在哪，那就减少了查找所花费的实际，相对的速度自然也就提升了,就像window下对整个盘搜索文件和对指定目录下搜索一样，对于<code>alias</code>配置来说也是如此<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params">dir</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> path.join(__dirname, <span class="string">'..'</span>, dir)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        extensions: [<span class="string">'.js'</span>, <span class="string">'.vue'</span>, <span class="string">'.json'</span>],</span><br><span class="line">        modules: [</span><br><span class="line">            resolve(<span class="string">'src'</span>),</span><br><span class="line">            resolve(<span class="string">'node_modules'</span>)</span><br><span class="line">            ],</span><br><span class="line">        alias: &#123;</span><br><span class="line">            <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span>,</span><br><span class="line">            <span class="string">'src'</span>: resolve(<span class="string">'src'</span>),</span><br><span class="line">            <span class="string">'assets'</span>: resolve(<span class="string">'src/assets'</span>),</span><br><span class="line">            <span class="string">'components'</span>: resolve(<span class="string">'src/components'</span>),</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            <span class="string">'store'</span>: resolve(<span class="string">'src/store'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>设置 include &amp; exclude</p>
+<p> webpack的loader中可对每个子项设置以下属性：</p>
+</li>
+</ol>
+<ul>
+<li>test：必须满足的条件（正则表达式，不要加引号，匹配要处理的文件）</li>
+<li>exclude：不能满足的条件（排除不处理的目录）</li>
+<li>include：导入的文件将由加载程序转换的路径或文件数组（把要处理的目录包括进来）</li>
+<li>loader：一串“！”分隔的装载机（2.0版本以上，”-loader”不可以省略）</li>
+<li><p>loaders：作为字符串的装载器阵列</p>
+<p>  通过上面的属性描述，在合理的设置 <code>include &amp; exclude</code>下，将会极大地提升 Webpack 打包优化速度</p>
+</li>
+</ul>
+<h4 id="二：并行压缩"><a href="#二：并行压缩" class="headerlink" title="二：并行压缩"></a>二：并行压缩</h4><p>webpack默认提供了UglifyJS插件来压缩JS代码，但是它使用的是单线程压缩代码，也就是说多个js文件需要被压缩，它需要一个个文件进行压缩。如果不是一个个文件压缩，而是这些文件同时压缩，这样的话速度还不是鸟枪换大炮，岂不美哉！</p>
+<p>于是提到插件ParallelUglifyPlugin，ParallelUglifyPlugin插件会开启多个子进程，把对多个文件压缩的工作分别给多个子进程去完成，但是实际上每个子进程还是通过UglifyJS去压缩代码，这样一来就用原来的串行变成了并行，速度飞起。</p>
+<p>简单配置如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> DefinePlugin = <span class="built_in">require</span>(<span class="string">'webpack/lib/DefinePlugin'</span>);</span><br><span class="line"><span class="keyword">const</span> ParallelUglifyPlugin = <span class="built_in">require</span>(<span class="string">'webpack-parallel-uglify-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> ParallelUglifyPlugin(&#123;</span><br><span class="line">      cacheDir: <span class="string">''</span>, <span class="comment">//默认不会缓存，开启缓存需设置一个目录路径</span></span><br><span class="line">      uglifyJS: &#123;</span><br><span class="line">        output: &#123;</span><br><span class="line">          <span class="comment">// 最紧凑的输出</span></span><br><span class="line">          beautify: <span class="literal">false</span>,</span><br><span class="line">          <span class="comment">// 删除所有的注释</span></span><br><span class="line">          comments: <span class="literal">false</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        compress: &#123;</span><br><span class="line">          <span class="comment">// 在UglifyJs删除没有用到的代码时不输出警告</span></span><br><span class="line">          warnings: <span class="literal">false</span>,</span><br><span class="line">          <span class="comment">// 删除所有的 `console` 语句，可以兼容ie浏览器</span></span><br><span class="line">          drop_console: <span class="literal">true</span>,</span><br><span class="line">          <span class="comment">// 内嵌定义了但是只用到一次的变量</span></span><br><span class="line">          collapse_vars: <span class="literal">true</span>,</span><br><span class="line">          <span class="comment">// 提取出出现多次但是没有定义成变量去引用的静态值</span></span><br><span class="line">          reduce_vars: <span class="literal">true</span>,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注：</p>
+<h4 id="三：拆分"><a href="#三：拆分" class="headerlink" title="三：拆分"></a>三：拆分</h4><p>正常项目中常用到第三方库，但这些第三方库我们基本上或者说根本不会去改动，这会导致每次打包时加入它们的话是极大的性能浪费。</p>
+<p>由此引出了<code>DllPlugin</code>和<code>DllReferencePlugin</code>这练个个简单粗暴但又及其有效的优化插件，通过这个插件将所有公共库打包成一个<code>dll.js</code>文件,同时生成一个模块引用文件<code>manifest.json</code>,这样一来通过在打包配置文件中加入以下配置后就只打包我们需要处理的部分而不会处理这些公共库了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DllReferencePlugin(&#123;</span><br><span class="line">        context: __dirname,</span><br><span class="line">        manifest: <span class="built_in">require</span>(<span class="string">'manifest.json文件目录'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>生成<code>dll.js</code>的配置如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        vendor: [<span class="string">'vue/dist/vue.esm.js'</span>,<span class="string">'vue-router'</span>, <span class="string">'babel-polyfill'</span>,<span class="string">'axios'</span>,<span class="string">'echarts'</span>,<span class="string">'element-ui'</span>] <span class="comment">// 等等</span></span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname, <span class="string">'../dist'</span>),</span><br><span class="line">        filename: <span class="string">'[name].dll.js'</span>,</span><br><span class="line">        library: <span class="string">'[name]_library'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.DllPlugin(&#123;</span><br><span class="line">            path: path.join(__dirname, <span class="string">'../dist'</span>, <span class="string">'[name]-manifest.json'</span>),</span><br><span class="line">            name: <span class="string">'[name]_library'</span></span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">            compress: &#123;</span><br><span class="line">                warnings: <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">            <span class="string">'process.env'</span>: &#123;</span><br><span class="line">                NODE_ENV: <span class="string">'"production"'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>另外如果公共库是通过cdn形式的话则可以通过配置<code>externals</code>来实现，以jq为例,这样就能在代码中安逸的使用<code>import $ from &#39;jquery&#39;</code>和<code>const $ = require(&#39;jquery&#39;);</code>了：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">externals:&#123; </span><br><span class="line">    jquery: <span class="string">'jQuery'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h4 id="四：缓存"><a href="#四：缓存" class="headerlink" title="四：缓存"></a>四：缓存</h4><p>如果有现成的轮子，就没必要再去造一个全新的一模一样的，因此除了前面提到的<code>exclude</code>、<code>include</code>之外，还要充分利用缓存，进一步提升性能。</p>
+<p>比如<code>babel-loader</code>就提供了<code>cacheDirectory</code>选项：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use: [&#123;</span><br><span class="line">    loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">        cacheDirectory: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="五：开发环境下减少无意义操作"><a href="#五：开发环境下减少无意义操作" class="headerlink" title="五：开发环境下减少无意义操作"></a>五：开发环境下减少无意义操作</h4><p>很多配置，在开发阶段是不需要去做的，我们可以区分出开发和线上的两套配置，这样在需要上线的时候再全量编译即可，而且webpack支持监听模式，需要重新编译时可以进行增量构建，基本秒建,只需在开发环境启动热更新替换即可</p>
+<p>砍砍砍: 代码压缩、目录内容清理、计算文件hash、提取CSS文件等</p>
+<h3 id="升级工具"><a href="#升级工具" class="headerlink" title="升级工具"></a>升级工具</h3><p>我们使用技术来为我们服务，而技术的更新为我们提供更好的服务。最新版的webpack4所带来的性能提升是巨大的，根据社区公布的性能测试结果来看，构建时间降低了<code>60%-98%</code>,并且号称零配置(就是某些选项自带默认值了)，霍，果断升升升啊。</p>
+<p><br>然而升级是爽快的，过程是痛苦的</p>
+<h4 id="环境及依赖更新"><a href="#环境及依赖更新" class="headerlink" title="环境及依赖更新"></a>环境及依赖更新</h4><p>随着webpack的更新，很多loader也必须随之更新才能适应最新版本的webpack，比如vue项目下的 <code>babel-loader</code>、<code>file-loader</code>、<code>vue-loader</code>、<code>vue-style-loader</code>。很多时候报错了更新下对应的依赖基本上能解决</p>
+<h4 id="破坏性变更"><a href="#破坏性变更" class="headerlink" title="破坏性变更"></a>破坏性变更</h4><p>更新后的webpack不在支持部分插件和loader，其中最明显的就是重复代码分离以及文件分离(<code>webpack.optimize.CommonsChunkPlugin</code>,<code>extract-text-webpack-plugin</code>)</p>
+<ol>
+<li><p>压缩JS及CSS文件</p>
+<p> webpack4取消了内置插件，所以之前的一些方法就不能再用了，如果只是想简单的压缩，而不做任何配置的话，使用<code>optimization.minimizer: true</code>即可,或者使用<code>UglifyJsPlugin</code>及<code>OptimizeCSSPlugin</code>插件来代替之前的内置插件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">"uglifyjs-webpack-plugin"</span>)</span><br><span class="line"><span class="keyword">const</span> OptimizeCSSPlugin = <span class="built_in">require</span>(<span class="string">'optimize-css-assets-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    optimization: &#123;</span><br><span class="line">        minimizer: [</span><br><span class="line">            <span class="comment">// js mini</span></span><br><span class="line">            <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">            cache: <span class="literal">true</span>,</span><br><span class="line">            parallel: <span class="literal">true</span>,</span><br><span class="line">            sourceMap: <span class="literal">false</span> </span><br><span class="line">            &#125;),</span><br><span class="line">            <span class="comment">// css mini</span></span><br><span class="line">            <span class="keyword">new</span> OptimizeCSSPlugin(&#123;&#125;)</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件分离</p>
+<p> 之前版本使用<code>CommonsChunkPlugin</code>来进行文件分离，新版webpack4中这块就可以完全从<code>plugins</code>选项中删除了,改成了在<code>optimization</code>选项中实现,记得<code>cacheGroups</code>中的key对应着打包的名字</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">splitChunks: &#123;</span><br><span class="line">    chunks: <span class="string">'async'</span>,</span><br><span class="line">    <span class="comment">// 大于30KB才单独分离成chunk</span></span><br><span class="line">    minSize: <span class="number">30000</span>,</span><br><span class="line">    maxAsyncRequests: <span class="number">5</span>,</span><br><span class="line">    maxInitialRequests: <span class="number">3</span>,</span><br><span class="line">    name: <span class="literal">true</span>,</span><br><span class="line">    cacheGroups: &#123;</span><br><span class="line">        <span class="keyword">default</span>: &#123;</span><br><span class="line">            priority: <span class="number">-20</span>,</span><br><span class="line">            reuseExistingChunk: <span class="literal">true</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        vendors: &#123;</span><br><span class="line">            name: <span class="string">'vendors'</span>,</span><br><span class="line">            test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">            priority: <span class="number">-10</span>,</span><br><span class="line">            chunks: <span class="string">"all"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> css文件分离这块也同样需要修改，干掉原来的<code>extract-text-webpack-plugin</code>,改用<code>mini-css-extract-plugin</code></p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack3</span></span><br><span class="line"><span class="keyword">new</span> ExtractTextPlugin(&#123;</span><br><span class="line">    filename: utils.assetsPath(<span class="string">'css/[name].[contenthash:7].css'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// webpack4</span></span><br><span class="line"><span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">    filename: utils.assetsPath(<span class="string">'css/[name].[contenthash:7].css'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vue-loader 15</p>
+<p> vue项目升级到webpack4之后，<code>vue-loader</code>也必须更新到15以上的版本，并且需要显式的引入<code>vue-loader</code>插件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> VueLoaderPlugin = <span class="built_in">require</span>(<span class="string">'vue-loader/lib/plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> VueLoaderPlugin()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>针对上面两种不同的方案分别对两个项目做了升级，期间也踩了不少坑，当然结果是喜人的，其中修改配置后的项目打包速度从开始的<code>90多秒</code>优化到了修改后的<code>50多秒</code>，而升级webpack版本的项目则是从开始的<code>15秒</code>到升级后的<code>6秒</code>。实际上能做的工作肯定不止这样，优化道路任重道远。</p>
 
       
 
@@ -204,17 +266,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -265,7 +316,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2016/10/22/婚姻与互联网思维/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2018/12/12/webpack打包优化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +330,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/10/25/Google-Share-API/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Google Share API
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/10/19/codefreecamp-Basic-Algorithm-Scripting/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">codefreecamp-Basic Algorithm Scripting</div>
+    <a href="/2017/04/07/关于弹窗滚动问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于弹窗滚动问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

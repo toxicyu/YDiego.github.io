@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,6 +12,7 @@
 <meta property="og:title" content="YDiego">
 <meta property="og:url" content="https://toxicyu.github.io/index.html">
 <meta property="og:site_name" content="YDiego">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YDiego">
   
@@ -32,7 +33,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -145,7 +146,69 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-关于弹窗滚动问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-webpack打包优化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/12/webpack打包优化/">webpack打包优化</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/12/webpack打包优化/" class="archive-article-date">
+  	<time datetime="2018-12-12T09:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于vue项目webpack打包的一些优化"><a href="#关于vue项目webpack打包的一些优化" class="headerlink" title="关于vue项目webpack打包的一些优化"></a>关于vue项目webpack打包的一些优化</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><pre><code>一方面是随着项目的推进，项目中的内容愈加丰富，随之带来的项目体积也跟着愈发庞大，打包所完成的时间也变得开始以&apos;分&apos;作单位；另一方面是随着技术的不断迭代，最新版本的webpack4的打包速度较webpack3也是有了质的提升。
+</code></pre><h3 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h3><ol>
+<li>修改配置<ul>
+<li>减少检索</li>
+<li>并行压缩</li>
+<li>拆分</li>
+<li>缓存</li>
+<li>开发环境下减少无意义操作</li>
+</ul>
+</li>
+<li><p>升级工具</p>
+<ul>
+<li>新版配置上的一些改动
+        
+          <a class="article-more-a" href="/2018/12/12/webpack打包优化/#more">more >></a>
+        
+      
+
+      
+    </li></ul></li></ol></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/12/webpack打包优化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-关于弹窗滚动问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -166,9 +229,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>之前做了很多关于弹窗的，发现在显示弹窗之后，弹窗的底部还是可以滚动，后来的解决方案是在<code>html</code>加个class解决</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.alpha</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.alpha</span> <span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.alpha</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.alpha</span> <span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但是这个有个问题，就是如果页面已经滚动了一定距离之后加上这个样式的话，会返回到顶部。</p>
-<p>其实解决方案很简单，2行css就能解决了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.sample</span> &#123;</div><div class="line">  <span class="attribute">height</span>: auto;</div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其实解决方案很简单，2行css就能解决了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sample</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>解决了返回顶部的问题。</p>
 
       
@@ -208,7 +271,7 @@
 
 
   
-    <article id="post-nginx配置gzip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nginx配置gzip" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -235,7 +298,7 @@
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -269,7 +332,7 @@
 
 
   
-    <article id="post-nginx配https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-nginx配https" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -292,7 +355,7 @@
         <p>调研了一波关于https的配置，然后今天也成功在服务器上配置，再次记录下整个配置过程。</p>
 <p>服务器系统用的是cenos7</p>
 <p>确保系统上有nginx跟openssl之后，就可以开始https的配置了。</p>
-<p>1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">openssl genrsa -out privkey.key 2048</div><div class="line">openssl genrsa -out privkey.key 1024</div></pre></td></tr></table></figure></p>
+<p>1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out privkey.key 2048</span><br><span class="line">openssl genrsa -out privkey.key 1024</span><br></pre></td></tr></table></figure></p>
 <p>2.然后根据这个密钥生成证书请求文件：</p>
         
           <a class="article-more-a" href="/2017/03/28/nginx配https/#more">more >></a>
@@ -334,7 +397,7 @@
 
 
   
-    <article id="post-服务器上配置nginx-laravel遇到的几个问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-服务器上配置nginx-laravel遇到的几个问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -355,7 +418,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>折腾了下新到手的服务器，从裸机到能正常访问，相比mac下的homebrew，linux上面装也是遇到了几个问题，不过所幸都解决了。在此记录下。<br>OS：centos 7 </p>
-<h2 id="1-composer-install"><a href="#1-composer-install" class="headerlink" title="1.composer install"></a>1.composer install</h2><p>composer 安装依赖的时候爆了以下错误<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">the requested PHP extension dom is missing from your system.</div></pre></td></tr></table></figure></p>
+<h2 id="1-composer-install"><a href="#1-composer-install" class="headerlink" title="1.composer install"></a>1.composer install</h2><p>composer 安装依赖的时候爆了以下错误<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">the requested PHP extension dom is missing from your system.</span><br></pre></td></tr></table></figure></p>
 <p>看报错跟stackoverflow上说查看extension是否启用什么的，不过这些个ini文件太多，干脆就直接装一个得了，事实证明是正确的，相比查看那么多ini文件，省下了不少时间，当然也有可能是已经安装了却没启用。</p>
 <p>解决方案：<br>
         
@@ -364,7 +427,7 @@
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -398,7 +461,7 @@
 
 
   
-    <article id="post-laravel5-4运行gulp报sass错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-laravel5-4运行gulp报sass错误" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -421,10 +484,10 @@
         <p>laravel提供了Laravel Elixir 用于提供常见的css与javascript预处理，甚至包含了测试工具，并且这些配置基本都已经帮你配置好了，只需要安装他所需的依赖即可简单快速的使用，省去了很多配置上的时间成本。</p>
 <p>具体安装流程和使用官网有很详细的介绍，这里就不在啰嗦。</p>
 <p>下面是在服务器上使用中遇到的一个问题，在本地中反而没事，全局的gulp和node-sass版本都是一样，除了node的版本不同，本地的是5.10，服务器上用yum下载的是6.9 ，怀疑可能跟node版本有关。</p>
-<p>错误信息如下：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error <span class="keyword">in</span> plugin <span class="string">'run-sequence(sass)'</span></div></pre></td></tr></table></figure></p>
-<p>网上查了很多文章，有的说是sass自身问题，却没具体说什么问题，期间也尝试了几个解决方案,重新安装sass跟run-sequence<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm rebuild node-sass   npm install --save-dev run-sequence</div></pre></td></tr></table></figure></p>
+<p>错误信息如下：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error <span class="keyword">in</span> plugin <span class="string">'run-sequence(sass)'</span></span><br></pre></td></tr></table></figure></p>
+<p>网上查了很多文章，有的说是sass自身问题，却没具体说什么问题，期间也尝试了几个解决方案,重新安装sass跟run-sequence<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm rebuild node-sass   npm install --save-dev run-sequence</span><br></pre></td></tr></table></figure></p>
 <p>发现结果还是一样，最后还是在stackoverflow上找到了解决方案：</p>
-<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install node-sass --no-bin-links</div></pre></td></tr></table></figure>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-sass --no-bin-links</span><br></pre></td></tr></table></figure>
 </code></pre>
       
 
@@ -467,7 +530,7 @@
 
 
   
-    <article id="post-requestAnimationFrame-tween缓动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-requestAnimationFrame-tween缓动" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -488,7 +551,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>requestAnimationFrame的兼容代码与tween缓动函数</p>
-<h3 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> lastTime = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> vendors = [<span class="string">'webkit'</span>, <span class="string">'moz'</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; vendors.length &amp;&amp; !<span class="built_in">window</span>.requestAnimationFrame; ++x) &#123;</div><div class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="built_in">window</span>[vendors[x]+<span class="string">'RequestAnimationFrame'</span>];</div><div class="line">        <span class="built_in">window</span>.cancelAnimationFrame =</div><div class="line">          <span class="built_in">window</span>[vendors[x]+<span class="string">'CancelAnimationFrame'</span>] || <span class="built_in">window</span>[vendors[x]+<span class="string">'CancelRequestAnimationFrame'</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.requestAnimationFrame)</div><div class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">callback, element</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> currTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">            <span class="keyword">var</span> timeToCall = <span class="built_in">Math</span>.max(<span class="number">0</span>, <span class="number">16</span> - (currTime - lastTime));</div><div class="line">            <span class="keyword">var</span> id = <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; callback(currTime + timeToCall); &#125;,</div><div class="line">              timeToCall);</div><div class="line">            lastTime = currTime + timeToCall;</div><div class="line">            <span class="keyword">return</span> id;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.cancelAnimationFrame)</div><div class="line">        <span class="built_in">window</span>.cancelAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">            clearTimeout(id);</div><div class="line">        &#125;;</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<h3 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> lastTime = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> vendors = [<span class="string">'webkit'</span>, <span class="string">'moz'</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; vendors.length &amp;&amp; !<span class="built_in">window</span>.requestAnimationFrame; ++x) &#123;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="built_in">window</span>[vendors[x]+<span class="string">'RequestAnimationFrame'</span>];</span><br><span class="line">        <span class="built_in">window</span>.cancelAnimationFrame =</span><br><span class="line">          <span class="built_in">window</span>[vendors[x]+<span class="string">'CancelAnimationFrame'</span>] || <span class="built_in">window</span>[vendors[x]+<span class="string">'CancelRequestAnimationFrame'</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.requestAnimationFrame)</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">callback, element</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> currTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">            <span class="keyword">var</span> timeToCall = <span class="built_in">Math</span>.max(<span class="number">0</span>, <span class="number">16</span> - (currTime - lastTime));</span><br><span class="line">            <span class="keyword">var</span> id = <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; callback(currTime + timeToCall); &#125;,</span><br><span class="line">              timeToCall);</span><br><span class="line">            lastTime = currTime + timeToCall;</span><br><span class="line">            <span class="keyword">return</span> id;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">window</span>.cancelAnimationFrame)</span><br><span class="line">        <span class="built_in">window</span>.cancelAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">            clearTimeout(id);</span><br><span class="line">        &#125;;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2017/02/23/requestAnimationFrame-tween缓动/#more">more >></a>
         
@@ -529,7 +592,7 @@
 
 
   
-    <article id="post-iPhone中overflow滑动速度慢、卡顿" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iPhone中overflow滑动速度慢、卡顿" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -549,9 +612,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在混合app开发中，有时候要在当前页面打开新的弹窗，这个弹窗宽高为屏幕宽高，有时候其中的内容会大于这个范围，使用<code>overflow:auto</code>或<code>overflow:scroll</code>实现滚动效果，但是在iPhone上测试的时候发现，滑动效果差强人意,一点都不流畅，后来查了下，一行代码搞定<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-overflow-scrolling</span>: <span class="selector-tag">touch</span>;</div></pre></td></tr></table></figure></p>
+        <p>在混合app开发中，有时候要在当前页面打开新的弹窗，这个弹窗宽高为屏幕宽高，有时候其中的内容会大于这个范围，使用<code>overflow:auto</code>或<code>overflow:scroll</code>实现滚动效果，但是在iPhone上测试的时候发现，滑动效果差强人意,一点都不流畅，后来查了下，一行代码搞定<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-overflow-scrolling</span>: <span class="selector-tag">touch</span>;</span><br></pre></td></tr></table></figure></p>
 <p>额外说点，在新的弹窗滑到底部的时候会发现，如果弹窗底部的内容够长，他还是会继续滑动，这里可以使用以下css方法解决,打开遮罩层的时候加上，防止遮罩的时候页面也一起滚动</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.alpha</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.alpha</span> <span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.alpha</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.alpha</span> <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>不过，这也会有个小问题，就是在取消遮罩的时候，不管原来页面是在哪个位置，都会回到最顶部。</p>
 <p>貌似iscroll.js可以解决这个问题，暂时还没用到。</p>
 
@@ -592,7 +655,7 @@
 
 
   
-    <article id="post-flex伸缩布局盒模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-flex伸缩布局盒模型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -655,7 +718,7 @@
 
 
   
-    <article id="post-mysqldump数据备份" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysqldump数据备份" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -677,12 +740,12 @@
       
         <p>场景：<br>线下开发的时候发现很多数据都是旧数据，而且后来某些表的字段做了修改，使用接口的时候对不上，于是决定从线上拷一份数据。<br>于是用到mysql的mysqldump</p>
 <p>使用方法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">mysqldump -uroot -pPassword [database name] &gt; [dump file]  //导出</div><div class="line"></div><div class="line">mysql [database name] &lt; [dump file]  //导入</div><div class="line"></div><div class="line">mysql -h[ip] -username -ppassword [database name] &gt; [dump file] //从线上导</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysqldump -uroot -pPassword [database name] &gt; [dump file]  //导出</span><br><span class="line"></span><br><span class="line">mysql [database name] &lt; [dump file]  //导入</span><br><span class="line"></span><br><span class="line">mysql -h[ip] -username -ppassword [database name] &gt; [dump file] //从线上导</span><br></pre></td></tr></table></figure>
 <p>不过应为数据库只能从内网访问。<br>所以在服务器上使用导出命令然后scp到本地</p>
 <p>附上scp命令和服务器定时备份脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp -P22 root@[ip]:/[path] . //复制文件到当前目录下</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P22 root@[ip]:/[path] . //复制文件到当前目录下</span><br></pre></td></tr></table></figure>
 <p>定时备份脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">!bin/bash</span></div><div class="line"><span class="meta">#</span><span class="bash"><span class="built_in">cd</span> [path] </span></div><div class="line">cd [back path]</div><div class="line">find data/ -mtime +7 -type f |xargs rm -f</div><div class="line">name=$(date +%s)</div><div class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">cd</span> [path] </span></span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -721,68 +784,6 @@
 
 
   
-    <article id="post-html5-contenteditable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/html5-contenteditable/">html5-contenteditable</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/03/html5-contenteditable/" class="archive-article-date">
-  	<time datetime="2017-01-03T06:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在提交评论的时候我们常用input框活着textarea框输入内容，但是二者都有个问题，就是不能自适应高度，input只能在一行内输入，并且不能使用回车换行，textarea可以换行，但是超出设置高度后会产生滚动条，当内容较多的时候二者的体验都不太好，这时候就要用到html5的contenteditable属性了，它可以使设置了这个属性的标签变为可编辑状态，<code>contenteditabled=&#39;true&#39;</code>,结果就跟富文本编辑器一样了。但是当你打了一大段字，中间使用了几次换行后会发现，内容中多了很多并不需要的标签,在chrome中，只要设置<code>contenteditabled=&#39;plaintext-only&#39;</code>,这个问题就能解决，不过也只是在chrome中。其他浏览器并不支持。</p>
-<p>既然浏览器没提供这个功能，那就把标签去掉，使用正则表达式可以实现这一功能</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str = str.replace(<span class="regexp">/&lt;[^&gt;].*?&gt;/g</span>,<span class="string">""</span>);</div></pre></td></tr></table></figure>
-<p>但是同样有个问题就是，最后的内容又挤成一块了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/03/html5-contenteditable/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -797,7 +798,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -876,15 +877,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -892,7 +885,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,11 +901,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,11 +913,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,13 +927,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -979,7 +980,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

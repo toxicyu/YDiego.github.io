@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>nginx配置gzip | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2017/04/04/nginx配置gzip/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="对于移动用户来说，app页面打开速度对用户体验来说非常重要，除了基本的压缩文件大小之外，还可以使用服务器提供的gzip功能来进一步压缩，比如原来的100k文件经过gzip压缩之后能达到40k左右，大大减少了资源的大小。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://toxicyu.github.io/img/before.png">
 <meta property="og:image" content="https://toxicyu.github.io/img/after.png">
 <meta property="og:updated_time" content="2017-04-04T08:14:38.000Z">
@@ -40,7 +41,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -151,7 +152,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-nginx配置gzip" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-nginx配置gzip" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -172,7 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>对于移动用户来说，app页面打开速度对用户体验来说非常重要，除了基本的压缩文件大小之外，还可以使用服务器提供的gzip功能来进一步压缩，比如原来的100k文件经过gzip压缩之后能达到40k左右，大大减少了资源的大小。<br><a id="more"></a><br>以下是nginx上的gzip配置以及配置说明,基本都能在nginx官网上找到。</p>
-<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gzip on;</div><div class="line">gzip_min_length 1k;</div><div class="line">gzip_buffers 4 16k;</div><div class="line">gzip_http_version 1.0;</div><div class="line">gzip_comp_level 2;</div><div class="line">gzip_types text/plain application/javascript text/css application/xml image/jpeg image/gif image/png;</div><div class="line">gzip_disable <span class="string">"MSIE [1-6]\."</span>;<span class="string">"]"</span></div></pre></td></tr></table></figure>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gzip on;</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line">gzip_buffers 4 16k;</span><br><span class="line">gzip_http_version 1.0;</span><br><span class="line">gzip_comp_level 2;</span><br><span class="line">gzip_types text/plain application/javascript text/css application/xml image/jpeg image/gif image/png;</span><br><span class="line">gzip_disable <span class="string">"MSIE [1-6]\."</span>;<span class="string">"]"</span></span><br></pre></td></tr></table></figure>
 </code></pre><h3 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h3><p>语法: gzip on|off<br>默认值: gzip off<br>作用域: http, server, location, if (x) location<br>开启或者关闭gzip模块</p>
 <h3 id="gzip-min-length"><a href="#gzip-min-length" class="headerlink" title="gzip_min_length"></a>gzip_min_length</h3><p>语法: gzip_min_length length<br>默认值：gzip_min_length 20<br>作用域: http, server, location<br>根据响应数据的最小值来决定是否gzip压缩</p>
 <h3 id="gzip-buffers"><a href="#gzip-buffers" class="headerlink" title="gzip_buffers"></a>gzip_buffers</h3><p>语法: gzip_buffers number size<br>默认值: gzip_buffers 4 4k/8k<br>作用域: http, server, location<br>设置系统获取几个单位的缓存用于存储gzip的压缩结果数据流。 例如 4 4k 代表以4k为单位，按照原始数据大小以4k为单位的4倍申请内存。 4 8k 代表以8k为单位，按照原始数据大小以8k为单位的4倍申请内存。<br>如果没有设置，默认值是申请跟原始数据相同大小的内存空间去存储gzip压缩结果。</p>
@@ -286,18 +287,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/28/nginx配https/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/07/关于弹窗滚动问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          nginx配https
+          关于弹窗滚动问题
         
       </div>
     </a>
   
   
-    <a href="/2017/04/07/关于弹窗滚动问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于弹窗滚动问题</div>
+    <a href="/2017/03/28/nginx配https/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nginx配https</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -323,7 +324,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -402,15 +403,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -418,7 +411,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -430,11 +427,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,11 +439,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,13 +453,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -505,7 +506,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

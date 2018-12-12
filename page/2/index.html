@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,6 +12,7 @@
 <meta property="og:title" content="YDiego">
 <meta property="og:url" content="https://toxicyu.github.io/page/2/index.html">
 <meta property="og:site_name" content="YDiego">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YDiego">
   
@@ -32,7 +33,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -145,7 +146,69 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-vim命令收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-html5-contenteditable" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/03/html5-contenteditable/">html5-contenteditable</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/03/html5-contenteditable/" class="archive-article-date">
+  	<time datetime="2017-01-03T06:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在提交评论的时候我们常用input框活着textarea框输入内容，但是二者都有个问题，就是不能自适应高度，input只能在一行内输入，并且不能使用回车换行，textarea可以换行，但是超出设置高度后会产生滚动条，当内容较多的时候二者的体验都不太好，这时候就要用到html5的contenteditable属性了，它可以使设置了这个属性的标签变为可编辑状态，<code>contenteditabled=&#39;true&#39;</code>,结果就跟富文本编辑器一样了。但是当你打了一大段字，中间使用了几次换行后会发现，内容中多了很多并不需要的标签,在chrome中，只要设置<code>contenteditabled=&#39;plaintext-only&#39;</code>,这个问题就能解决，不过也只是在chrome中。其他浏览器并不支持。</p>
+<p>既然浏览器没提供这个功能，那就把标签去掉，使用正则表达式可以实现这一功能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = str.replace(<span class="regexp">/&lt;[^&gt;].*?&gt;/g</span>,<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+<p>但是同样有个问题就是，最后的内容又挤成一块了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/03/html5-contenteditable/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-vim命令收集" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -216,7 +279,7 @@
 
 
   
-    <article id="post-freeCamp-nodeJS-server" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-freeCamp-nodeJS-server" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -237,8 +300,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>codefreecamp上的教程，具体实现使用的nodeschool中的learnyounode，因为都是英文，中间还是去参考了下其他示例。</p>
-<h3 id="HELLO-WORLD"><a href="#HELLO-WORLD" class="headerlink" title="HELLO WORLD"></a>HELLO WORLD</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//-------------------- HELLO WORLD</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'HELLO WORLD'</span>);</div></pre></td></tr></table></figure>
-<h3 id="BABY-STEPS"><a href="#BABY-STEPS" class="headerlink" title="BABY STEPS"></a>BABY STEPS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//-------------------- BABY STEPS</span></div><div class="line">输出参数和，process。argv前两个参数对应node和运行的js文件路径，后面才是真正用到的参数</div><div class="line"><span class="built_in">console</span>.log(process.argv.slice(<span class="number">2</span>).reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur</span>)</span>&#123;<span class="keyword">return</span> (+pre)+(+cur);&#125;));</div></pre></td></tr></table></figure>
+<h3 id="HELLO-WORLD"><a href="#HELLO-WORLD" class="headerlink" title="HELLO WORLD"></a>HELLO WORLD</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- HELLO WORLD</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'HELLO WORLD'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="BABY-STEPS"><a href="#BABY-STEPS" class="headerlink" title="BABY STEPS"></a>BABY STEPS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- BABY STEPS</span></span><br><span class="line">输出参数和，process。argv前两个参数对应node和运行的js文件路径，后面才是真正用到的参数</span><br><span class="line"><span class="built_in">console</span>.log(process.argv.slice(<span class="number">2</span>).reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur</span>)</span>&#123;<span class="keyword">return</span> (+pre)+(+cur);&#125;));</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2017/01/03/freeCamp-nodeJS-server/#more">more >></a>
         
@@ -283,7 +346,7 @@
 
 
   
-    <article id="post-2016总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2016总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -350,7 +413,7 @@
 
 
   
-    <article id="post-Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -370,12 +433,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://dev.mobify.com/blog/domain-sharding-bad-news-mobile-performance/">地址</a></p>
+        <p><a href="http://dev.mobify.com/blog/domain-sharding-bad-news-mobile-performance/" target="_blank" rel="noopener">地址</a></p>
 <p>In this post we’ll review the results of a real-world test with over three million samples showing that domain sharding is at best neutral and at worst harmful for mobile websites.</p>
 <p>在本帖里,我们将通过超过三百万个样品实际测试的结果来说明域分片对于移动网站来说充其量是中立的和最坏的。</p>
 <p>If you’re already familiar with sharding, you may want to skip straight to our results. Otherwise, we’ll begin with a brief introduction to the subject.</p>
 <p>如果你已经熟悉分片,你可以跳过直接我们的结果。那么,我们开始简要介绍这个主题把。</p>
-<h3 id="What-is-Domain-Sharding"><a href="#What-is-Domain-Sharding" class="headerlink" title="What is Domain Sharding?"></a>What is Domain Sharding?</h3><p>Traditionally, web browsers place a limit on the number of simultaneous connections a browser can make to one domain. These limits were established in 1999 in the <a href="http://www.ietf.org/rfc/rfc2616.txt">HTTP/1.1 specification</a> by the <a href="http://www.ietf.org/">Internet Engineering Task Force (IETF)</a>. The intent of the limit was to avoid overloading web servers and to reduce internet congestion. The commonly used limit is no more than two simultaneous connections with any server or proxy.</p>
+<h3 id="What-is-Domain-Sharding"><a href="#What-is-Domain-Sharding" class="headerlink" title="What is Domain Sharding?"></a>What is Domain Sharding?</h3><p>Traditionally, web browsers place a limit on the number of simultaneous connections a browser can make to one domain. These limits were established in 1999 in the <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="noopener">HTTP/1.1 specification</a> by the <a href="http://www.ietf.org/" target="_blank" rel="noopener">Internet Engineering Task Force (IETF)</a>. The intent of the limit was to avoid overloading web servers and to reduce internet congestion. The commonly used limit is no more than two simultaneous connections with any server or proxy.</p>
 <p>传统上的web浏览器会限制一个域的并发连接数。这些限制是互联网工程任务组(IETF)于1999年在HTTP / 1.1规范中成立。目的是为了避免重载web服务器和减少网络拥塞。常用的上限在任何服务器或代理中不超过两个并发连接。</p>
 <p>Domain sharding is a technique to accelerate page load times by tricking browsers into opening more simultaneous connections than are normally allowed. It’s a widely-used optimization tactic that enables browsers to make better use of high-bandwidth internet connections.</p>
         
@@ -418,7 +481,7 @@
 
 
   
-    <article id="post-codefreecamp-Intermediate-Algorithm-Scripting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-codefreecamp-Intermediate-Algorithm-Scripting" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -483,7 +546,7 @@
 
 
   
-    <article id="post-switch按钮与input" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-switch按钮与input" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -567,7 +630,7 @@
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -601,7 +664,7 @@
 
 
   
-    <article id="post-react问题汇总" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react问题汇总" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -623,9 +686,9 @@
       
         <p>  记录下react开发过程中遇到的一些问题，不定时更新。</p>
 <p>  1.dom节点的一些属性需要用驼峰命名法，比如div的contenteditable属性，在react中要写成contentEditable，否则渲染的时候不会出现，就跟class需要写成className一样。</p>
-<p>  2.渲染html使用dangerouslySetInnerHTML,语法<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMarkup</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> &#123;<span class="attr">__html</span>: <span class="string">'First &amp;middot; Second'</span>&#125;; &#125;;</div><div class="line">&lt;div dangerouslySetInnerHTML=&#123;createMarkup()&#125; /&gt;)'')</div></pre></td></tr></table></figure></p>
+<p>  2.渲染html使用dangerouslySetInnerHTML,语法<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMarkup</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> &#123;<span class="attr">__html</span>: <span class="string">'First &amp;middot; Second'</span>&#125;; &#125;;</span><br><span class="line">&lt;div dangerouslySetInnerHTML=&#123;createMarkup()&#125; /&gt;)<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
 <p>  也可以配合markdown使用</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">var</span> Comment = React.createClass(&#123;</div><div class="line">  <span class="attr">rawMarkup</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> md = <span class="keyword">new</span> Remarkable();</div><div class="line">    <span class="keyword">var</span> rawMarkup = md.render(<span class="keyword">this</span>.props.children.toString());</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">__html</span>: rawMarkup &#125;;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div className="comment"&gt;</div><div class="line">        &lt;h2 className="commentAuthor"&gt;</div><div class="line">          &#123;this.props.author&#125;</div><div class="line">        &lt;/h2&gt;</div><div class="line">        &lt;span dangerouslySetInnerHTML=&#123;this.rawMarkup()&#125; /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> Comment = React.createClass(&#123;</span><br><span class="line">  rawMarkup: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> md = <span class="keyword">new</span> Remarkable();</span><br><span class="line">    <span class="keyword">var</span> rawMarkup = md.render(<span class="keyword">this</span>.props.children.toString());</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">__html</span>: rawMarkup &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"comment"</span>&gt;</span><br><span class="line">        &lt;h2 className=<span class="string">"commentAuthor"</span>&gt;</span><br><span class="line">          &#123;<span class="keyword">this</span>.props.author&#125;</span><br><span class="line">        &lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span dangerouslySetInnerHTML=&#123;this.rawMarkup()&#125; /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2016/11/21/react问题汇总/#more">more >></a>
         
@@ -670,7 +733,7 @@
 
 
   
-    <article id="post-流逝·改变" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-流逝·改变" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -730,7 +793,7 @@
 
 
   
-    <article id="post-webpack换行符问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-webpack换行符问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -798,66 +861,6 @@
 
 
   
-    <article id="post-鼠标点击数字上升特效" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/03/鼠标点击数字上升特效/">鼠标点击数字上升特效</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/03/鼠标点击数字上升特效/" class="archive-article-date">
-  	<time datetime="2016-11-03T02:07:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>直接上代码把。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*-----------数字上升特效-------------*/</span></div><div class="line"><span class="keyword">var</span> _click_count = <span class="number">0</span>;</div><div class="line">$(<span class="string">"body"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">//var n=Math.round(Math.random()*100);//随机数</span></div><div class="line">  <span class="keyword">var</span> $i = $(<span class="string">"&lt;b&gt;"</span>).text(<span class="string">"+"</span> + (++_click_count)); <span class="comment">//添加到页面的元素</span></div><div class="line">  <span class="keyword">var</span> x = e.pageX,</div><div class="line">    y = e.pageY; <span class="comment">//鼠标点击的位置</span></div><div class="line">  $i.css(&#123;</div><div class="line">    <span class="string">"z-index"</span>: <span class="number">99999</span>,</div><div class="line">    <span class="string">"top"</span>: y - <span class="number">15</span>,</div><div class="line">    <span class="string">"left"</span>: x,</div><div class="line">    <span class="string">"position"</span>: <span class="string">"absolute"</span>,</div><div class="line">    <span class="string">"color"</span>: <span class="string">"#00BCF3"</span></div><div class="line">  &#125;);</div><div class="line">  $(<span class="string">"body"</span>).append($i);</div><div class="line">  $i.animate(&#123;</div><div class="line">      <span class="string">"top"</span>: y - <span class="number">180</span>,</div><div class="line">      <span class="string">"opacity"</span>: <span class="number">0.5</span></div><div class="line">    &#125;,</div><div class="line">    <span class="number">1500</span>,</div><div class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      $i.remove();</div><div class="line">    &#125;</div><div class="line">  );</div><div class="line">  e.stopPropagation();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/03/鼠标点击数字上升特效/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -872,7 +875,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -951,15 +954,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -967,7 +962,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -979,11 +978,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,11 +990,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1005,13 +1004,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -1054,7 +1057,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

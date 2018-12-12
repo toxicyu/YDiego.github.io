@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>react问题汇总 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2016/11/21/react问题汇总/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="记录下react开发过程中遇到的一些问题，不定时更新。   1.dom节点的一些属性需要用驼峰命名法，比如div的contenteditable属性，在react中要写成contentEditable，否则渲染的时候不会出现，就跟class需要写成className一样。   2.渲染html使用dangerouslySetInnerHTML,语法  12function createMark">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-12-28T07:00:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react问题汇总">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react问题汇总" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react问题汇总" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -170,17 +171,17 @@
       
         <p>  记录下react开发过程中遇到的一些问题，不定时更新。</p>
 <p>  1.dom节点的一些属性需要用驼峰命名法，比如div的contenteditable属性，在react中要写成contentEditable，否则渲染的时候不会出现，就跟class需要写成className一样。</p>
-<p>  2.渲染html使用dangerouslySetInnerHTML,语法<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMarkup</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> &#123;<span class="attr">__html</span>: <span class="string">'First &amp;middot; Second'</span>&#125;; &#125;;</div><div class="line">&lt;div dangerouslySetInnerHTML=&#123;createMarkup()&#125; /&gt;)'')</div></pre></td></tr></table></figure></p>
+<p>  2.渲染html使用dangerouslySetInnerHTML,语法<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMarkup</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> &#123;<span class="attr">__html</span>: <span class="string">'First &amp;middot; Second'</span>&#125;; &#125;;</span><br><span class="line">&lt;div dangerouslySetInnerHTML=&#123;createMarkup()&#125; /&gt;)<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
 <p>  也可以配合markdown使用</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">var</span> Comment = React.createClass(&#123;</div><div class="line">  <span class="attr">rawMarkup</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> md = <span class="keyword">new</span> Remarkable();</div><div class="line">    <span class="keyword">var</span> rawMarkup = md.render(<span class="keyword">this</span>.props.children.toString());</div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">__html</span>: rawMarkup &#125;;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div className="comment"&gt;</div><div class="line">        &lt;h2 className="commentAuthor"&gt;</div><div class="line">          &#123;this.props.author&#125;</div><div class="line">        &lt;/h2&gt;</div><div class="line">        &lt;span dangerouslySetInnerHTML=&#123;this.rawMarkup()&#125; /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">var</span> Comment = React.createClass(&#123;</span><br><span class="line">  rawMarkup: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> md = <span class="keyword">new</span> Remarkable();</span><br><span class="line">    <span class="keyword">var</span> rawMarkup = md.render(<span class="keyword">this</span>.props.children.toString());</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">__html</span>: rawMarkup &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="string">"comment"</span>&gt;</span><br><span class="line">        &lt;h2 className=<span class="string">"commentAuthor"</span>&gt;</span><br><span class="line">          &#123;<span class="keyword">this</span>.props.author&#125;</span><br><span class="line">        &lt;<span class="regexp">/h2&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span dangerouslySetInnerHTML=&#123;this.rawMarkup()&#125; /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>  3.用ES6写法时，事件需要绑定，比如<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a onClick=&#123;<span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>)&#125;&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<p>  3.用ES6写法时，事件需要绑定，比如<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a onClick=&#123;<span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>)&#125;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
 <p>  4.当使用’/a/:id’这样的路由时，遇到这样一种情况，’/a/1’页面中原来有个默认display:none的标签点击使他显示后，切换到’/a/2’页面，这时候2页面同位置的标签为显示状态?疑问<br>  下面是这个页面路由切换的写法：</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">  componentDidMount()&#123;</div><div class="line">    <span class="keyword">this</span>.initData();</div><div class="line">  &#125; </div><div class="line"></div><div class="line">componentDidUpdate(prevProps, prevState) &#123;</div><div class="line">  <span class="keyword">if</span> (prevProps.params.id !== <span class="keyword">this</span>.props.params.id) &#123;</div><div class="line">    <span class="keyword">this</span>.initData();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  componentDidMount()&#123;</span><br><span class="line">    <span class="keyword">this</span>.initData();</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">  <span class="keyword">if</span> (prevProps.params.id !== <span class="keyword">this</span>.props.params.id) &#123;</span><br><span class="line">    <span class="keyword">this</span>.initData();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  猜测  切换路由后 假设1页面有10条数据，2页面有11条，那到二页面的时候原来的10条数据的dom结构没变 只是改了其中的数据，然后后面再插入一条新的dom，所以导致上面那个问题<br>  –16/12/03<br>  解决方案：原来是使用js控制显示状态，应该由react 的state属性来控制。具体原因还是不值。   –16/12/05</p>
-<p>  5.MathJax<br>    原来的使用方法是在页面上引用cdn，等页面渲染完它自动处理，在react单页面中这个方式显然不行，既然是等页面渲染完成，那么根据这个思路，在组件mounted后去加载这个cdn文件就好了，不过这个方式要注意缓存，比如使用jq的ajax<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    <span class="attr">url</span>:<span class="string">'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'</span>,</div><div class="line">    <span class="attr">dataType</span>:<span class="string">"script"</span>,</div><div class="line">    <span class="attr">cache</span>:<span class="literal">true</span></div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>  5.MathJax<br>    原来的使用方法是在页面上引用cdn，等页面渲染完它自动处理，在react单页面中这个方式显然不行，既然是等页面渲染完成，那么根据这个思路，在组件mounted后去加载这个cdn文件就好了，不过这个方式要注意缓存，比如使用jq的ajax<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url:<span class="string">'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'</span>,</span><br><span class="line">    dataType:<span class="string">"script"</span>,</span><br><span class="line">    cache:<span class="literal">true</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
 <p>  –16/12/05</p>
-<p>  6.事件<br>    es6写法中，组件的事件需要带上bind函数，最好是在构造函数就就绑定<br>    <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href='javascript:;' onclick = &#123;this.handleClick.bind(this)&#125;&gt;click me&lt;/a&gt;</div><div class="line">//建议在构造函数中bind</div><div class="line">constructor(props)&#123;</div><div class="line">    super(props)</div><div class="line">    this.handleClick = this.handleClick.bind(this);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>  6.事件<br>    es6写法中，组件的事件需要带上bind函数，最好是在构造函数就就绑定<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">'javascript:;'</span> onclick = &#123;<span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>)&#125;&gt;click me&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/建议在构造函数中bind</span></span><br><span class="line"><span class="regexp">constructor(props)&#123;</span></span><br><span class="line"><span class="regexp">    super(props)</span></span><br><span class="line"><span class="regexp">    this.handleClick = this.handleClick.bind(this);</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <pre><code>--16/12/26
 </code></pre>
       
@@ -290,18 +291,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/20/流逝·改变/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/25/switch按钮与input/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          流逝·改变
+          switch按钮与input
         
       </div>
     </a>
   
   
-    <a href="/2016/11/25/switch按钮与input/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">switch按钮与input</div>
+    <a href="/2016/11/20/流逝·改变/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">流逝·改变</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +328,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -406,15 +407,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -422,7 +415,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -434,11 +431,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,11 +443,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,13 +457,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -509,7 +510,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

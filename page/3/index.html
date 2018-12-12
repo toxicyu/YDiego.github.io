@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,6 +12,7 @@
 <meta property="og:title" content="YDiego">
 <meta property="og:url" content="https://toxicyu.github.io/page/3/index.html">
 <meta property="og:site_name" content="YDiego">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YDiego">
   
@@ -32,7 +33,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -145,7 +146,67 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-解忧杂货店" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-鼠标点击数字上升特效" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/03/鼠标点击数字上升特效/">鼠标点击数字上升特效</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/03/鼠标点击数字上升特效/" class="archive-article-date">
+  	<time datetime="2016-11-03T02:07:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>直接上代码把。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-----------数字上升特效-------------*/</span></span><br><span class="line"><span class="keyword">var</span> _click_count = <span class="number">0</span>;</span><br><span class="line">$(<span class="string">"body"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//var n=Math.round(Math.random()*100);//随机数</span></span><br><span class="line">  <span class="keyword">var</span> $i = $(<span class="string">"&lt;b&gt;"</span>).text(<span class="string">"+"</span> + (++_click_count)); <span class="comment">//添加到页面的元素</span></span><br><span class="line">  <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">    y = e.pageY; <span class="comment">//鼠标点击的位置</span></span><br><span class="line">  $i.css(&#123;</span><br><span class="line">    <span class="string">"z-index"</span>: <span class="number">99999</span>,</span><br><span class="line">    <span class="string">"top"</span>: y - <span class="number">15</span>,</span><br><span class="line">    <span class="string">"left"</span>: x,</span><br><span class="line">    <span class="string">"position"</span>: <span class="string">"absolute"</span>,</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"#00BCF3"</span></span><br><span class="line">  &#125;);</span><br><span class="line">  $(<span class="string">"body"</span>).append($i);</span><br><span class="line">  $i.animate(&#123;</span><br><span class="line">      <span class="string">"top"</span>: y - <span class="number">180</span>,</span><br><span class="line">      <span class="string">"opacity"</span>: <span class="number">0.5</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="number">1500</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $i.remove();</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line">  e.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/03/鼠标点击数字上升特效/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-解忧杂货店" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -210,7 +271,7 @@
 
 
   
-    <article id="post-一道常被人轻视的前端JS面试题（转）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-一道常被人轻视的前端JS面试题（转）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -272,7 +333,7 @@
 
 
   
-    <article id="post-Google-Share-API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Google-Share-API" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -292,14 +353,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>新版Chrome 55 支持Web Share API  ，现在可以用js代码调用系统的“分享”对话框了！！<a href="https://developers.google.com/web/updates/2016/10/navigator-share">网页链接</a></p>
+        <p>新版Chrome 55 支持Web Share API  ，现在可以用js代码调用系统的“分享”对话框了！！<a href="https://developers.google.com/web/updates/2016/10/navigator-share" target="_blank" rel="noopener">网页链接</a></p>
 <p>考虑到翻墙，把原文转来。</p>
-<p>Good news, everybody! <a href="https://twitter.com/mgiuca">Matt Giuca</a> on the Chrome team has been working on a simple API called <a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md">Web Share</a> that allows websites to invoke the native sharing capabilities of the host platform.</p>
-<p>There have been a number of ways to invoke native sharing capabilities on the platform, but they all have significant drawbacks. There was <a href="https://en.wikipedia.org/wiki/Paul_Kinlan">Web Intents</a> (dead), there is protocol handling via <code>registerProtocolHandler</code> but this has zero support on mobile, there is direct sharing to a well-known service URL such as Twitter’s, and there is also the <a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/">Android intent: URL syntax</a> (which was, unfortunately, Android-only, and required apps to opt-in).</p>
+<p>Good news, everybody! <a href="https://twitter.com/mgiuca" target="_blank" rel="noopener">Matt Giuca</a> on the Chrome team has been working on a simple API called <a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md" target="_blank" rel="noopener">Web Share</a> that allows websites to invoke the native sharing capabilities of the host platform.</p>
+<p>There have been a number of ways to invoke native sharing capabilities on the platform, but they all have significant drawbacks. There was <a href="https://en.wikipedia.org/wiki/Paul_Kinlan" target="_blank" rel="noopener">Web Intents</a> (dead), there is protocol handling via <code>registerProtocolHandler</code> but this has zero support on mobile, there is direct sharing to a well-known service URL such as Twitter’s, and there is also the <a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/" target="_blank" rel="noopener">Android intent: URL syntax</a> (which was, unfortunately, Android-only, and required apps to opt-in).</p>
 <p>The Web Share API is important because it gives the user control of how and where the data is shared.</p>
-<p>In Chrome 55 (Beta as of October 2016), we’ve enabled an <a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md">Origin Trial</a> that lets you integrate the Web Share API into your site. The “Origin Trial” means this API is only available to sites in an opt-in basis; instead you need to register to get access during the trial phase. Over this time, the API may undergo breaking changes, which is why we are looking for as much feedback as possible.</p>
-<p>The Web Share API is a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">promise</a>-based, single method API that takes an object with properties named title, text and url.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">    <span class="attr">title</span>: <span class="built_in">document</span>.title,</div><div class="line">    <span class="attr">text</span>: <span class="string">"Hello World"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="built_in">window</span>.location.href</div><div class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Successful share'</span>))</div><div class="line">.catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Error sharing:'</span>, error));</div></pre></td></tr></table></figure>
+<p>In Chrome 55 (Beta as of October 2016), we’ve enabled an <a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md" target="_blank" rel="noopener">Origin Trial</a> that lets you integrate the Web Share API into your site. The “Origin Trial” means this API is only available to sites in an opt-in basis; instead you need to register to get access during the trial phase. Over this time, the API may undergo breaking changes, which is why we are looking for as much feedback as possible.</p>
+<p>The Web Share API is a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises" target="_blank" rel="noopener">promise</a>-based, single method API that takes an object with properties named title, text and url.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigator.share(&#123;</span><br><span class="line">    title: <span class="built_in">document</span>.title,</span><br><span class="line">    text: <span class="string">"Hello World"</span>,</span><br><span class="line">    url: <span class="built_in">window</span>.location.href</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Successful share'</span>))</span><br><span class="line">.catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Error sharing:'</span>, error));</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2016/10/25/Google-Share-API/#more">more >></a>
         
@@ -340,7 +401,7 @@
 
 
   
-    <article id="post-婚姻与互联网思维" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-婚姻与互联网思维" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -369,7 +430,7 @@
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -403,7 +464,7 @@
 
 
   
-    <article id="post-codefreecamp-Basic-Algorithm-Scripting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-codefreecamp-Basic-Algorithm-Scripting" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -424,7 +485,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>来自codefreecamp上的算法题，比较初级</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Check for Palindromes 翻转字符串 </span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">palindrome</span>(<span class="params">str</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> s,s1;</div><div class="line">        s=s1=str.replace(<span class="regexp">/[\s,.(\)\\/\-_]/g</span>,<span class="string">""</span>).toLowerCase();</div><div class="line">        <span class="keyword">var</span> arr=s1.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</div><div class="line">        <span class="comment">// Good luck!</span></div><div class="line">        <span class="built_in">console</span>.log(s1);</div><div class="line">        <span class="keyword">if</span>(arr==s)</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    palindrome(eye);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Check for Palindromes 翻转字符串 </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">palindrome</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> s,s1;</span><br><span class="line">        s=s1=str.replace(<span class="regexp">/[\s,.(\)\\/\-_]/g</span>,<span class="string">""</span>).toLowerCase();</span><br><span class="line">        <span class="keyword">var</span> arr=s1.split(<span class="string">""</span>).reverse().join(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">// Good luck!</span></span><br><span class="line">        <span class="built_in">console</span>.log(s1);</span><br><span class="line">        <span class="keyword">if</span>(arr==s)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    palindrome(eye);</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2016/10/19/codefreecamp-Basic-Algorithm-Scripting/#more">more >></a>
         
@@ -469,7 +530,7 @@
 
 
   
-    <article id="post-记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-记录" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -542,7 +603,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -621,15 +682,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +690,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,11 +706,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,11 +718,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,13 +732,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -724,7 +785,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

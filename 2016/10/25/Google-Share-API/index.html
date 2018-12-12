@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>Google Share API | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2016/10/25/Google-Share-API/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="新版Chrome 55 支持Web Share API  ，现在可以用js代码调用系统的“分享”对话框了！！网页链接 考虑到翻墙，把原文转来。 Good news, everybody! Matt Giuca on the Chrome team has been working on a simple API called Web Share that allows websites to in">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-10-25T03:39:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Google Share API">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Google-Share-API" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Google-Share-API" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -168,49 +169,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>新版Chrome 55 支持Web Share API  ，现在可以用js代码调用系统的“分享”对话框了！！<a href="https://developers.google.com/web/updates/2016/10/navigator-share" target="_blank" rel="external">网页链接</a></p>
+        <p>新版Chrome 55 支持Web Share API  ，现在可以用js代码调用系统的“分享”对话框了！！<a href="https://developers.google.com/web/updates/2016/10/navigator-share" target="_blank" rel="noopener">网页链接</a></p>
 <p>考虑到翻墙，把原文转来。</p>
-<p>Good news, everybody! <a href="https://twitter.com/mgiuca" target="_blank" rel="external">Matt Giuca</a> on the Chrome team has been working on a simple API called <a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md" target="_blank" rel="external">Web Share</a> that allows websites to invoke the native sharing capabilities of the host platform.</p>
-<p>There have been a number of ways to invoke native sharing capabilities on the platform, but they all have significant drawbacks. There was <a href="https://en.wikipedia.org/wiki/Paul_Kinlan" target="_blank" rel="external">Web Intents</a> (dead), there is protocol handling via <code>registerProtocolHandler</code> but this has zero support on mobile, there is direct sharing to a well-known service URL such as Twitter’s, and there is also the <a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/" target="_blank" rel="external">Android intent: URL syntax</a> (which was, unfortunately, Android-only, and required apps to opt-in).</p>
+<p>Good news, everybody! <a href="https://twitter.com/mgiuca" target="_blank" rel="noopener">Matt Giuca</a> on the Chrome team has been working on a simple API called <a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md" target="_blank" rel="noopener">Web Share</a> that allows websites to invoke the native sharing capabilities of the host platform.</p>
+<p>There have been a number of ways to invoke native sharing capabilities on the platform, but they all have significant drawbacks. There was <a href="https://en.wikipedia.org/wiki/Paul_Kinlan" target="_blank" rel="noopener">Web Intents</a> (dead), there is protocol handling via <code>registerProtocolHandler</code> but this has zero support on mobile, there is direct sharing to a well-known service URL such as Twitter’s, and there is also the <a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/" target="_blank" rel="noopener">Android intent: URL syntax</a> (which was, unfortunately, Android-only, and required apps to opt-in).</p>
 <p>The Web Share API is important because it gives the user control of how and where the data is shared.</p>
-<p>In Chrome 55 (Beta as of October 2016), we’ve enabled an <a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md" target="_blank" rel="external">Origin Trial</a> that lets you integrate the Web Share API into your site. The “Origin Trial” means this API is only available to sites in an opt-in basis; instead you need to register to get access during the trial phase. Over this time, the API may undergo breaking changes, which is why we are looking for as much feedback as possible.</p>
-<p>The Web Share API is a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises" target="_blank" rel="external">promise</a>-based, single method API that takes an object with properties named title, text and url.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">    <span class="attr">title</span>: <span class="built_in">document</span>.title,</div><div class="line">    <span class="attr">text</span>: <span class="string">"Hello World"</span>,</div><div class="line">    <span class="attr">url</span>: <span class="built_in">window</span>.location.href</div><div class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Successful share'</span>))</div><div class="line">.catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Error sharing:'</span>, error));</div></pre></td></tr></table></figure>
+<p>In Chrome 55 (Beta as of October 2016), we’ve enabled an <a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md" target="_blank" rel="noopener">Origin Trial</a> that lets you integrate the Web Share API into your site. The “Origin Trial” means this API is only available to sites in an opt-in basis; instead you need to register to get access during the trial phase. Over this time, the API may undergo breaking changes, which is why we are looking for as much feedback as possible.</p>
+<p>The Web Share API is a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises" target="_blank" rel="noopener">promise</a>-based, single method API that takes an object with properties named title, text and url.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigator.share(&#123;</span><br><span class="line">    title: <span class="built_in">document</span>.title,</span><br><span class="line">    text: <span class="string">"Hello World"</span>,</span><br><span class="line">    url: <span class="built_in">window</span>.location.href</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Successful share'</span>))</span><br><span class="line">.catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Error sharing:'</span>, error));</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>Once invoked it will bring up the native picker (see video) and allow you to share the data with the app chosen by the user. You need to supply at least one of ‘text’ or ‘url’ but may supply both if you like.</p>
 <p>This API has a few constraints:</p>
 <ul>
-<li>You need to host your site in a <a href="https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features" target="_blank" rel="external">secure context</a> (typically HTTPS).</li>
+<li>You need to host your site in a <a href="https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features" target="_blank" rel="noopener">secure context</a> (typically HTTPS).</li>
 <li>You only need to supply one of text or url, not both.</li>
 <li>You can only invoke the API as a result of a user gesture. (For example, you can’t call <code>navigator.share()</code> in an onload handler.)</li>
 <li>The property values that you pass into the API must all be strings.</li>
 </ul>
 <h3 id="How-to-get-this-working"><a href="#How-to-get-this-working" class="headerlink" title="How to get this working"></a>How to get this working</h3><p>The process is pretty simple:</p>
 <ol>
-<li>Get the <a href="https://play.google.com/store/apps/details?id=com.chrome.beta" target="_blank" rel="external">Chrome Beta Channel on Android</a> (required as of October 2016, but won’t be necessary once Chrome 55 reaches stable).</li>
-<li><a href="https://goo.gl/GR5YLI" target="_blank" rel="external">Sign up</a> for the Origin Trial.</li>
-<li><a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md#how-do-i-enable-an-experimental-feature-on-my-origin" target="_blank" rel="external">Insert</a> the Origin Trial tokens into your site.</li>
+<li>Get the <a href="https://play.google.com/store/apps/details?id=com.chrome.beta" target="_blank" rel="noopener">Chrome Beta Channel on Android</a> (required as of October 2016, but won’t be necessary once Chrome 55 reaches stable).</li>
+<li><a href="https://goo.gl/GR5YLI" target="_blank" rel="noopener">Sign up</a> for the Origin Trial.</li>
+<li><a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md#how-do-i-enable-an-experimental-feature-on-my-origin" target="_blank" rel="noopener">Insert</a> the Origin Trial tokens into your site.</li>
 <li>Call <code>navigator.share()</code> in response to a user gesture.</li>
 <li>That’s it, done. Share to your hearts content!</li>
 </ol>
-<h3 id="Be-progressive"><a href="#Be-progressive" class="headerlink" title="Be progressive"></a>Be progressive</h3><p>The API is not available on all platforms, so you will have to gracefully handle the scenarios where you don’t have the ability to call it. I try to progressively enhance as much as possible, and the process that I follow on my <a href="https://paul.kinlan.me/" target="_blank" rel="external">blog</a> is to:</p>
+<h3 id="Be-progressive"><a href="#Be-progressive" class="headerlink" title="Be progressive"></a>Be progressive</h3><p>The API is not available on all platforms, so you will have to gracefully handle the scenarios where you don’t have the ability to call it. I try to progressively enhance as much as possible, and the process that I follow on my <a href="https://paul.kinlan.me/" target="_blank" rel="noopener">blog</a> is to:</p>
 <ol>
-<li>Use your preferred sharing service via a simple <code>&lt;a&gt;</code> (<a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/" target="_blank" rel="external">intent: URL with Twitter fallback is an example I use</a>).</li>
+<li>Use your preferred sharing service via a simple <code>&lt;a&gt;</code> (<a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/" target="_blank" rel="noopener">intent: URL with Twitter fallback is an example I use</a>).</li>
 <li>Check the availability of the API <code>(navigator.share !== undefined)</code>.</li>
 <li>Wait for the element to be available intercept and prevent the default behavior of the click.</li>
 <li>Call <code>navigator.share()</code>.</li>
 </ol>
 <h3 id="Share-the-correct-URL"><a href="#Share-the-correct-URL" class="headerlink" title="Share the correct URL"></a>Share the correct URL</h3><p>You should also think about the URL that you want to share. In many cases the user will be on a mobile device and your site might have an “m.” url, or a url that is custom to user’s context. You can use the fact that there might be a canonical URL on your page to provide a better experience to the user. For example, you might do:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="built_in">document</span>.location.href;</div><div class="line"><span class="keyword">var</span> canonicalElement = <span class="built_in">document</span>.querySelector(<span class="string">'link[rel=canonical]'</span>);</div><div class="line"><span class="keyword">if</span>(canonicalElement !== <span class="literal">undefined</span>) &#123;</div><div class="line">    url = canonicalElement.href;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Where-can-I-get-more-information"><a href="#Where-can-I-get-more-information" class="headerlink" title="Where can I get more information"></a>Where can I get more information</h3><p>You can get all the relevant information at <a href="https://www.chromestatus.com/features/5668769141620736" target="_blank" rel="external">ChromeStatus</a>, but to save you a click, here are the important links:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">document</span>.location.href;</span><br><span class="line"><span class="keyword">var</span> canonicalElement = <span class="built_in">document</span>.querySelector(<span class="string">'link[rel=canonical]'</span>);</span><br><span class="line"><span class="keyword">if</span>(canonicalElement !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    url = canonicalElement.href;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Where-can-I-get-more-information"><a href="#Where-can-I-get-more-information" class="headerlink" title="Where can I get more information"></a>Where can I get more information</h3><p>You can get all the relevant information at <a href="https://www.chromestatus.com/features/5668769141620736" target="_blank" rel="noopener">ChromeStatus</a>, but to save you a click, here are the important links:</p>
 <ul>
-<li><a href="https://crbug.com/620973" target="_blank" rel="external">Launch tracking bug in Chrome</a></li>
-<li><a href="https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/1BOhy5av8MQ/8LqNvS5TAQAJ" target="_blank" rel="external">Intent to implement</a></li>
-<li><a href="https://github.com/mgiuca/web-share/blob/master/demos/share.html" target="_blank" rel="external">Sample</a></li>
-<li><a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md" target="_blank" rel="external">Share explainer</a></li>
-<li><a href="https://discourse.wicg.io/t/web-share-api-for-sharing-content-to-arbitrary-destination/1561/3" target="_blank" rel="external">Discussion on Discourse</a></li>
+<li><a href="https://crbug.com/620973" target="_blank" rel="noopener">Launch tracking bug in Chrome</a></li>
+<li><a href="https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/1BOhy5av8MQ/8LqNvS5TAQAJ" target="_blank" rel="noopener">Intent to implement</a></li>
+<li><a href="https://github.com/mgiuca/web-share/blob/master/demos/share.html" target="_blank" rel="noopener">Sample</a></li>
+<li><a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md" target="_blank" rel="noopener">Share explainer</a></li>
+<li><a href="https://discourse.wicg.io/t/web-share-api-for-sharing-content-to-arbitrary-destination/1561/3" target="_blank" rel="noopener">Discussion on Discourse</a></li>
 </ul>
-<p>Future work will also level the playing field for web apps, by allowing them to register to be a “<a href="https://github.com/WICG/web-share-target" target="_blank" rel="external">share receiver</a>“, enabling web-to-app sharing, app-to-web sharing and web-to-web sharing. Personally, I am incredibly excited about this.</p>
+<p>Future work will also level the playing field for web apps, by allowing them to register to be a “<a href="https://github.com/WICG/web-share-target" target="_blank" rel="noopener">share receiver</a>“, enabling web-to-app sharing, app-to-web sharing and web-to-web sharing. Personally, I am incredibly excited about this.</p>
 
       
 
@@ -315,18 +316,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/10/22/婚姻与互联网思维/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/02/一道常被人轻视的前端JS面试题（转）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          婚姻与互联网思维
+          一道常被人轻视的前端JS面试题（转）
         
       </div>
     </a>
   
   
-    <a href="/2016/11/02/一道常被人轻视的前端JS面试题（转）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一道常被人轻视的前端JS面试题（转）</div>
+    <a href="/2016/10/22/婚姻与互联网思维/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">婚姻与互联网思维</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -352,7 +353,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -431,15 +432,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -447,7 +440,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,11 +456,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,11 +468,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,13 +482,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -534,7 +535,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

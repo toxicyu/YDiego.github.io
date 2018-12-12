@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>flex伸缩布局盒模型 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2017/02/14/flex伸缩布局盒模型/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="新年第一发，貌似今天还是个特殊的日子？但是 It doesn’t matter, i have code！ 这段时间一直在搞混合APP开发，话说hotcss确实好用啊！ 对于响应式布局,09年的时候，W3C提出了一个新的布局方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。这里简要的介绍下关于flex的各个属">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-02-14T03:23:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flex伸缩布局盒模型">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flex伸缩布局盒模型" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-flex伸缩布局盒模型" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -172,16 +173,16 @@
 <p>这段时间一直在搞混合APP开发，话说hotcss确实好用啊！</p>
 <p>对于响应式布局,09年的时候，W3C提出了一个新的布局方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。这里简要的介绍下关于flex的各个属性以及用法。</p>
 <a id="more"></a>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>所有容器都能指定Flex布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.container&#123;</div><div class="line">        //厂商前缀  如 webkit内核的</div><div class="line">        display:-webkit-flex;</div><div class="line">        display:flex;</div><div class="line">        display:inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>所有容器都能指定Flex布局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">        //厂商前缀  如 webkit内核的</span><br><span class="line">        display:-webkit-flex;</span><br><span class="line">        display:flex;</span><br><span class="line">        display:inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>flex</strong>：none | &lt;’ flex-grow ‘&gt; &lt;’ flex-shrink ‘&gt; ? || &lt;’ flex-basis ‘&gt;</p>
 <h2 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h2><p><strong>none</strong>：none关键字的计算值为: 0 0 auto<br><code>&lt;&#39; flex-grow &#39;&gt;</code>：<br>用来指定扩展比率，即剩余空间是正值时此「flex子项」相对于「flex容器」里其他「flex子项」能分配到空间比例。<br>在「flex」属性中该值如果被省略则默认为「1」<br><code>&lt;&#39; flex-shrink &#39;&gt;</code>：<br>用来指定收缩比率，即剩余空间是负值时此「flex子项」相对于「flex容器」里其他「flex子项」能收缩的空间比例。<br>在收缩的时候收缩比率会以伸缩基准值加权<br>在「flex」属性中该值如果被省略则默认为「1」<br><code>&lt;&#39; flex-basis &#39;&gt;</code>：<br>用来指定伸缩基准值，即在根据伸缩比率计算出剩余空间的分布之前，「flex子项」长度的起始数值。<br>在「flex」属性中该值如果被省略则默认为「0%」<br>在「flex」属性中该值如果被指定为「auto」，则伸缩基准值的计算值是自身的 &lt;’ width ‘&gt; 设置，如果自身的宽度没有定义，则长度取决于内容。</p>
 <h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p><strong>复合属性。设置或检索弹性盒模型对象的子元素如何分配空间。</strong><br>如果缩写「flex: 1」, 则其计算值为「1 1 0%」<br>如果缩写「flex: auto」, 则其计算值为「1 1 auto」<br>如果「flex: none」, 则其计算值为「0 0 auto」<br>如果「flex: 0 auto」或者「flex: initial」, 则其计算值为「0 1 auto」，即「flex」初始值</p>
 <p><strong>一般对于子项，我们只需设置<code>「flex: n」</code>来等比例分配容器的宽度给子项，那么其它参数如何使用呢？</strong></p>
 <p><strong>示例：如下情况,如果每个子项都设置了独立宽度，且加起来的宽度值大于容器宽度，那么每个元素的计算宽是多少</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;flex&quot;&gt;</div><div class="line">    &lt;li&gt;a&lt;/li&gt;</div><div class="line">    &lt;li&gt;b&lt;/li&gt;</div><div class="line">    &lt;li&gt;c&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">.flex&#123;display:flex;width:800px;margin:0;padding:0;list-style:none;&#125;</div><div class="line">.flex :nth-child(1)&#123;flex:1 1 300px;&#125;</div><div class="line">.flex :nth-child(2)&#123;flex:2 2 200px;&#125;</div><div class="line">.flex :nth-child(3)&#123;flex:3 3 400px;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;flex&quot;&gt;</span><br><span class="line">    &lt;li&gt;a&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;b&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;c&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">.flex&#123;display:flex;width:800px;margin:0;padding:0;list-style:none;&#125;</span><br><span class="line">.flex :nth-child(1)&#123;flex:1 1 300px;&#125;</span><br><span class="line">.flex :nth-child(2)&#123;flex:2 2 200px;&#125;</span><br><span class="line">.flex :nth-child(3)&#123;flex:3 3 400px;&#125;</span><br></pre></td></tr></table></figure>
 <p>本例定义了父容器宽（即主轴宽）为800px，由于子元素设置了伸缩基准值flex-basis，相加300+200+400=900，那么子元素将会溢出900-800=100px；<br>由于同时设置了收缩因子，所以加权综合可得300<em>1+200</em>2+400<em>3=1900px；<br>于是我们可以计算a,b,c将被移除的溢出量是多少：<br>a被移除溢出量：(300</em>1/1900)<em>100，即约等于16px<br>b被移除溢出量：(200</em>2/1900)<em>100，即约等于21px<br>c被移除溢出量：(400</em>3/1900)*100，即约等于63px<br>最后a,b,c的实际宽度分别为：300-16=284px, 200-21=179px, 400-63=337px</p>
 <p><strong>仍然是上面这个例子，不过将容器的宽度改成了1500px，这个时候子项总宽度小于容器宽度</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;flex&quot;&gt;</div><div class="line">    &lt;li&gt;a&lt;/li&gt;</div><div class="line">    &lt;li&gt;b&lt;/li&gt;</div><div class="line">    &lt;li&gt;c&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">.flex&#123;display:flex;width:1500px;margin:0;padding:0;list-style:none;&#125;</div><div class="line">.flex :nth-child(1)&#123;flex:1 1 300px;&#125;</div><div class="line">.flex :nth-child(2)&#123;flex:2 2 200px;&#125;</div><div class="line">.flex :nth-child(3)&#123;flex:3 3 400px;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;flex&quot;&gt;</span><br><span class="line">    &lt;li&gt;a&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;b&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;c&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">.flex&#123;display:flex;width:1500px;margin:0;padding:0;list-style:none;&#125;</span><br><span class="line">.flex :nth-child(1)&#123;flex:1 1 300px;&#125;</span><br><span class="line">.flex :nth-child(2)&#123;flex:2 2 200px;&#125;</span><br><span class="line">.flex :nth-child(3)&#123;flex:3 3 400px;&#125;</span><br></pre></td></tr></table></figure>
 <p>本例定义了父容器宽（即主轴宽）为1500px，由于子元素设置了伸缩基准值flex-basis，相加300+200+400=900，那么容器将有1500-900=600px的剩余宽度；<br>于是我们可以计算a,b,c将被扩展量是多少：<br>a的扩展量：(1/(1+2+3))<em>600，即约等于100px<br>b的扩展量：(2/(1+2+3))</em>600，即约等于200px<br>c的扩展量：(3/(1+2+3))*600，即约等于300px<br>最后a,b,c的实际宽度分别为：300+100=400px, 200+200=400px, 400+300=700px</p>
 <p>后续还有容器的属性和子项的属性，慢慢补上把- -。</p>
 <p>参考了一些博客，人家写的可真详细啊！</p>
@@ -289,18 +290,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/05/mysqldump数据备份/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/16/iPhone中overflow滑动速度慢、卡顿/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          mysqldump数据备份
+          iPhone中overflow滑动速度慢、卡顿
         
       </div>
     </a>
   
   
-    <a href="/2017/02/16/iPhone中overflow滑动速度慢、卡顿/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iPhone中overflow滑动速度慢、卡顿</div>
+    <a href="/2017/01/05/mysqldump数据备份/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysqldump数据备份</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -326,7 +327,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -405,15 +406,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -421,7 +414,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -433,11 +430,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,11 +442,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,13 +456,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -508,7 +509,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

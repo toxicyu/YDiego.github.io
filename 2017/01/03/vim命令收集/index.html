@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>vim命令收集 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2017/01/03/vim命令收集/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="基本空格键 向右移动一格 x 删除后面的字符 X 删除前一个字符  删除3个字符就是3x   dd:删除一行   D 删除到行尾  caw:改写单词  c 相当于 d 变为编辑模式 J:删除换行符，使下一行并上来。     nJ:连接后面的n行 u:撤销上一次操作      U:撤销当前行的所有修改 ctrl+r:对撤消的撤消">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-01-03T04:57:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim命令收集">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vim命令收集" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vim命令收集" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -210,7 +211,7 @@
 <p>-： 移到上一行的行首</p>
 <p>f:搜索命令，小写时向后搜索（用来定位）如 fx：定位到下一个x上。   Fx：定位到上一个x上，重复时，可用;或,  不过 , 表示反方向</p>
 <p>%：跳到相对应的括号上，编程时常用</p>
-<p>33G：跳转到33行   此时按``可以返回到原来行</p>
+<p>33G：跳转到33行   此时按<code></code>可以返回到原来行</p>
 <p>gg:文件头   G： 文件尾</p>
 <p>30%：跳转到文件的30%处</p>
 <p>“H”意为Home, “M”为Middle, “L”为Last.  当前屏幕的上中下位置，大小写皆可</p>
@@ -231,7 +232,7 @@
 <p>:set hlsearch  高亮显示查找结果</p>
 <p>:set nohlsearch  取消高亮</p>
 <p>:nohlsearch  去掉当前显示的高完（一次性）</p>
-<p> `` 上次光标停靠的行</p>
+<p> <code></code> 上次光标停靠的行</p>
 <p>% 匹配到相应括号处</p>
 <p>.&gt;&gt;向右移动本行一段距离     &lt;&lt;   向左移动本行一段距离    3&lt;&lt;    把下面3行（包括本行），向左移动一段距离     :20,30&gt;&gt;  把20行到30行向右移动一段距离</p>
 <p>滚动整屏：</p>
@@ -258,7 +259,7 @@
 <p>tx:同fx，只是光标置于x之前。 Tx类似。</p>
 <p>dfi：向右删除第一个i的位置（包括i)  dti：同dfi，只是不包括i</p>
 <p>Ctrl+G 查看当前行信息</p>
-<p>nG跳转后，可使用``回到上一次的位置，’’功能一样，不过只是回到前次位置所在行的开头，而不是确定的位置上。</p>
+<p>nG跳转后，可使用<code></code>回到上一次的位置，’’功能一样，不过只是回到前次位置所在行的开头，而不是确定的位置上。</p>
 <h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p>:%s/str1/str2/g   替换每一行的 str1为 str2</p>
 <p>:10,20s/str1/str2/g   替换从行10到行20之间的 str1为 str2</p>
 <p>:10,$s/str1/str2/g   替换从行10到最后一行之间的 str1为 str2</p>
@@ -386,18 +387,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/03/freeCamp-nodeJS-server/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/03/html5-contenteditable/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          freeCamp-nodeJS-server
+          html5-contenteditable
         
       </div>
     </a>
   
   
-    <a href="/2017/01/03/html5-contenteditable/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html5-contenteditable</div>
+    <a href="/2017/01/03/freeCamp-nodeJS-server/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">freeCamp-nodeJS-server</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -423,7 +424,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -502,15 +503,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +511,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,11 +527,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +539,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,13 +553,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -605,7 +606,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2016/12/14/Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="地址 In this post we’ll review the results of a real-world test with over three million samples showing that domain sharding is at best neutral and at worst harmful for mobile websites. 在本帖里,我们将通过超过三百万个">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-12-14T14:34:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -168,24 +169,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://dev.mobify.com/blog/domain-sharding-bad-news-mobile-performance/" target="_blank" rel="external">地址</a></p>
+        <p><a href="http://dev.mobify.com/blog/domain-sharding-bad-news-mobile-performance/" target="_blank" rel="noopener">地址</a></p>
 <p>In this post we’ll review the results of a real-world test with over three million samples showing that domain sharding is at best neutral and at worst harmful for mobile websites.</p>
 <p>在本帖里,我们将通过超过三百万个样品实际测试的结果来说明域分片对于移动网站来说充其量是中立的和最坏的。</p>
 <p>If you’re already familiar with sharding, you may want to skip straight to our results. Otherwise, we’ll begin with a brief introduction to the subject.</p>
 <p>如果你已经熟悉分片,你可以跳过直接我们的结果。那么,我们开始简要介绍这个主题把。</p>
-<h3 id="What-is-Domain-Sharding"><a href="#What-is-Domain-Sharding" class="headerlink" title="What is Domain Sharding?"></a>What is Domain Sharding?</h3><p>Traditionally, web browsers place a limit on the number of simultaneous connections a browser can make to one domain. These limits were established in 1999 in the <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="external">HTTP/1.1 specification</a> by the <a href="http://www.ietf.org/" target="_blank" rel="external">Internet Engineering Task Force (IETF)</a>. The intent of the limit was to avoid overloading web servers and to reduce internet congestion. The commonly used limit is no more than two simultaneous connections with any server or proxy.</p>
+<h3 id="What-is-Domain-Sharding"><a href="#What-is-Domain-Sharding" class="headerlink" title="What is Domain Sharding?"></a>What is Domain Sharding?</h3><p>Traditionally, web browsers place a limit on the number of simultaneous connections a browser can make to one domain. These limits were established in 1999 in the <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="noopener">HTTP/1.1 specification</a> by the <a href="http://www.ietf.org/" target="_blank" rel="noopener">Internet Engineering Task Force (IETF)</a>. The intent of the limit was to avoid overloading web servers and to reduce internet congestion. The commonly used limit is no more than two simultaneous connections with any server or proxy.</p>
 <p>传统上的web浏览器会限制一个域的并发连接数。这些限制是互联网工程任务组(IETF)于1999年在HTTP / 1.1规范中成立。目的是为了避免重载web服务器和减少网络拥塞。常用的上限在任何服务器或代理中不超过两个并发连接。</p>
 <p>Domain sharding is a technique to accelerate page load times by tricking browsers into opening more simultaneous connections than are normally allowed. It’s a widely-used optimization tactic that enables browsers to make better use of high-bandwidth internet connections.</p>
 <a id="more"></a>
 <p>域分片技术通过欺骗浏览器打开比通常允许更多的并发连接从而加快页面加载时间。这是一个广泛使用的优化策略,使浏览器能够更好地利用高带宽的网络连接。</p>
-<p>The <a href="https://developers.google.com/speed/articles/web-metrics" target="_blank" rel="external">average web page references 44 different resources</a> such as image files, stylesheets and JavaScript. Each of these resources need to be loaded for the page to render correctly, so domain sharding seems like a useful technique for increasing load times and, therefore, improving user experience.</p>
+<p>The <a href="https://developers.google.com/speed/articles/web-metrics" target="_blank" rel="noopener">average web page references 44 different resources</a> such as image files, stylesheets and JavaScript. Each of these resources need to be loaded for the page to render correctly, so domain sharding seems like a useful technique for increasing load times and, therefore, improving user experience.</p>
 <p>当一般的web页面引用44不同的资源,如图像，css样式表和js文件。这些资源需要加并在页面上正确呈现,所以域分片似乎是一个有用的技术去提高加载时间和改善用户体验。</p>
 <p>However, there are two key reasons why domain sharding is no longer a best practice, and why web developers should particularly avoid it on mobile or responsive websites:</p>
 <p>然而,有两个关键的原因导致域分片不再是一个最佳实践,以及为什么web开发人员应该特别避免它在移动或响应网站使用:</p>
 <ol>
-<li><p>Additional network connections above and beyond the recommended limits are not “free”. Each connection comes with a setup overhead in the form of a <a href="http://en.wikipedia.org/wiki/Domain_Name_System#Address_resolution_mechanism" target="_blank" rel="external">DNS lookup</a> and a <a href="http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml" target="_blank" rel="external">TCP 3-Way handshake</a>, as well as <a href="http://en.wikipedia.org/wiki/Slow-start" target="_blank" rel="external">TCP slow start</a>. For mobile browsers, the resulting latency is much higher than for desktop users. Additionally, this connection setup consumes extra CPU, memory and battery power–all considerations on mobile devices with scarce resources.</p>
+<li><p>Additional network connections above and beyond the recommended limits are not “free”. Each connection comes with a setup overhead in the form of a <a href="http://en.wikipedia.org/wiki/Domain_Name_System#Address_resolution_mechanism" target="_blank" rel="noopener">DNS lookup</a> and a <a href="http://www.inetdaemon.com/tutorials/internet/tcp/3-way_handshake.shtml" target="_blank" rel="noopener">TCP 3-Way handshake</a>, as well as <a href="http://en.wikipedia.org/wiki/Slow-start" target="_blank" rel="noopener">TCP slow start</a>. For mobile browsers, the resulting latency is much higher than for desktop users. Additionally, this connection setup consumes extra CPU, memory and battery power–all considerations on mobile devices with scarce resources.</p>
 </li>
-<li><p>Many mobile browsers implement <a href="http://en.wikipedia.org/wiki/HTTP_pipelining" target="_blank" rel="external">HTTP pipelining</a> and no longer observe the old <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="external">HTTP/1.1 connection rules</a>.</p>
+<li><p>Many mobile browsers implement <a href="http://en.wikipedia.org/wiki/HTTP_pipelining" target="_blank" rel="noopener">HTTP pipelining</a> and no longer observe the old <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="noopener">HTTP/1.1 connection rules</a>.</p>
 </li>
 </ol>
 <p>1.额外的超出推荐限制数的网络连接并非“免费”。每个连接都会附带dns域名解析和TCP三通握手上的开销,就跟TCP慢启动一样。这对于移动浏览器来说,这个开销造成延迟远远高于桌面用户。而且,这种连接设置会消耗额外的CPU、内存和电池在移动设备上。</p>
@@ -232,7 +233,7 @@
 <p>正如你看到的，移动浏览器也不再遵循原来那个两个链接的限制规则</p>
 <p>So, is domain sharding still necessary? We wanted a definitive answer, so we ran some real-world tests.</p>
 <p>所以，就目前来看，域分片还有需要吗？我们需要一个明确的答案，所以我们会通过跑一些真实数据来测试。</p>
-<h3 id="Real-World-Testing-of-Domain-Sharding-on-Mobile-Devices"><a href="#Real-World-Testing-of-Domain-Sharding-on-Mobile-Devices" class="headerlink" title="Real-World Testing of Domain Sharding on Mobile Devices"></a>Real-World Testing of Domain Sharding on Mobile Devices</h3><p>Our test required downloading 15 images, each about 10 KB in size. By using a portion of our <a href="http://mobify.com/cloud" target="_blank" rel="external">Mobify Cloud</a> network, we were able to test using real users on real networks and real phones distributed around the planet with almost 3-million unique samples.</p>
+<h3 id="Real-World-Testing-of-Domain-Sharding-on-Mobile-Devices"><a href="#Real-World-Testing-of-Domain-Sharding-on-Mobile-Devices" class="headerlink" title="Real-World Testing of Domain Sharding on Mobile Devices"></a>Real-World Testing of Domain Sharding on Mobile Devices</h3><p>Our test required downloading 15 images, each about 10 KB in size. By using a portion of our <a href="http://mobify.com/cloud" target="_blank" rel="noopener">Mobify Cloud</a> network, we were able to test using real users on real networks and real phones distributed around the planet with almost 3-million unique samples.</p>
 <p>我们的测试会下载15个图片,每个大约10 KB大小。通过使用Mobify Cloud,我们能够使用真实用户在真实网络和分布在地球上的真实手机来测试300万不同的样本。</p>
 <p>The test was limited to visitors using high-end smartphones such as iOS 5, Android 2.2+, BlackBerry OS 7 and newer devices. The backend was serviced by our global Content Delivery Network, so mobile visitors received data from a web server running in one of our 35 worldwide data centers with the images in memory geographically close to their location.</p>
 <p>测试仅限于使用高端智能手机（例如iOS 5，Android 2.2+，BlackBerry OS 7和更高版本的设备）的访问者。后端由我们的Content Delivery Network提供服务，因此手机访问者将会从距离他们最近的全球35个数据中心之一的网络服务器接收数据。</p>
@@ -386,18 +387,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/29/codefreecamp-Intermediate-Algorithm-Scripting/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/01/2016总结/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          codefreecamp-Intermediate-Algorithm-Scripting
+          2016总结
         
       </div>
     </a>
   
   
-    <a href="/2017/01/01/2016总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2016总结</div>
+    <a href="/2016/11/29/codefreecamp-Intermediate-Algorithm-Scripting/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">codefreecamp-Intermediate-Algorithm-Scripting</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -423,7 +424,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -502,15 +503,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +511,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,11 +527,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +539,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,13 +553,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -605,7 +606,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

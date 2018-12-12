@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>html5-contenteditable | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2017/01/03/html5-contenteditable/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="在提交评论的时候我们常用input框活着textarea框输入内容，但是二者都有个问题，就是不能自适应高度，input只能在一行内输入，并且不能使用回车换行，textarea可以换行，但是超出设置高度后会产生滚动条，当内容较多的时候二者的体验都不太好，这时候就要用到html5的contenteditable属性了，它可以使设置了这个属性的标签变为可编辑状态，contenteditabled=&amp;#3">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-01-03T06:36:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html5-contenteditable">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-html5-contenteditable" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-html5-contenteditable" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -170,7 +171,7 @@
       
         <p>在提交评论的时候我们常用input框活着textarea框输入内容，但是二者都有个问题，就是不能自适应高度，input只能在一行内输入，并且不能使用回车换行，textarea可以换行，但是超出设置高度后会产生滚动条，当内容较多的时候二者的体验都不太好，这时候就要用到html5的contenteditable属性了，它可以使设置了这个属性的标签变为可编辑状态，<code>contenteditabled=&#39;true&#39;</code>,结果就跟富文本编辑器一样了。但是当你打了一大段字，中间使用了几次换行后会发现，内容中多了很多并不需要的标签,在chrome中，只要设置<code>contenteditabled=&#39;plaintext-only&#39;</code>,这个问题就能解决，不过也只是在chrome中。其他浏览器并不支持。</p>
 <p>既然浏览器没提供这个功能，那就把标签去掉，使用正则表达式可以实现这一功能</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str = str.replace(<span class="regexp">/&lt;[^&gt;].*?&gt;/g</span>,<span class="string">""</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = str.replace(<span class="regexp">/&lt;[^&gt;].*?&gt;/g</span>,<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
 <p>但是同样有个问题就是，最后的内容又挤成一块了。</p>
 
       
@@ -276,18 +277,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/03/vim命令收集/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/05/mysqldump数据备份/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vim命令收集
+          mysqldump数据备份
         
       </div>
     </a>
   
   
-    <a href="/2017/01/05/mysqldump数据备份/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysqldump数据备份</div>
+    <a href="/2017/01/03/vim命令收集/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vim命令收集</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +314,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -392,15 +393,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -408,7 +401,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -420,11 +417,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -432,11 +429,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,13 +443,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -495,7 +496,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     

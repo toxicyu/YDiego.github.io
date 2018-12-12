@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>laravel5.4运行gulp报sass错误 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,6 +15,7 @@
 <meta property="og:url" content="https://toxicyu.github.io/2017/03/20/laravel5-4运行gulp报sass错误/index.html">
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="laravel提供了Laravel Elixir 用于提供常见的css与javascript预处理，甚至包含了测试工具，并且这些配置基本都已经帮你配置好了，只需要安装他所需的依赖即可简单快速的使用，省去了很多配置上的时间成本。 具体安装流程和使用官网有很详细的介绍，这里就不在啰嗦。 下面是在服务器上使用中遇到的一个问题，在本地中反而没事，全局的gulp和node-sass版本都是一样，除了node">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-04-04T08:11:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel5.4运行gulp报sass错误">
@@ -37,7 +38,7 @@
   
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -148,7 +149,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-laravel5-4运行gulp报sass错误" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-laravel5-4运行gulp报sass错误" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -171,10 +172,10 @@
         <p>laravel提供了Laravel Elixir 用于提供常见的css与javascript预处理，甚至包含了测试工具，并且这些配置基本都已经帮你配置好了，只需要安装他所需的依赖即可简单快速的使用，省去了很多配置上的时间成本。</p>
 <p>具体安装流程和使用官网有很详细的介绍，这里就不在啰嗦。</p>
 <p>下面是在服务器上使用中遇到的一个问题，在本地中反而没事，全局的gulp和node-sass版本都是一样，除了node的版本不同，本地的是5.10，服务器上用yum下载的是6.9 ，怀疑可能跟node版本有关。</p>
-<p>错误信息如下：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Error <span class="keyword">in</span> plugin <span class="string">'run-sequence(sass)'</span></div></pre></td></tr></table></figure></p>
-<p>网上查了很多文章，有的说是sass自身问题，却没具体说什么问题，期间也尝试了几个解决方案,重新安装sass跟run-sequence<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm rebuild node-sass   npm install --save-dev run-sequence</div></pre></td></tr></table></figure></p>
+<p>错误信息如下：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error <span class="keyword">in</span> plugin <span class="string">'run-sequence(sass)'</span></span><br></pre></td></tr></table></figure></p>
+<p>网上查了很多文章，有的说是sass自身问题，却没具体说什么问题，期间也尝试了几个解决方案,重新安装sass跟run-sequence<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm rebuild node-sass   npm install --save-dev run-sequence</span><br></pre></td></tr></table></figure></p>
 <p>发现结果还是一样，最后还是在stackoverflow上找到了解决方案：</p>
-<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install node-sass --no-bin-links</div></pre></td></tr></table></figure>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install node-sass --no-bin-links</span><br></pre></td></tr></table></figure>
 </code></pre>
       
 
@@ -283,18 +284,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/23/requestAnimationFrame-tween缓动/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          requestAnimationFrame tween缓动
+          服务器上配置nginx+laravel遇到的几个问题
         
       </div>
     </a>
   
   
-    <a href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">服务器上配置nginx+laravel遇到的几个问题</div>
+    <a href="/2017/02/23/requestAnimationFrame-tween缓动/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">requestAnimationFrame tween缓动</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -320,7 +321,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 YDiego
+    		&copy; 2018 YDiego
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -399,15 +400,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -415,7 +408,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,11 +424,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,11 +436,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,13 +450,17 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
@@ -502,7 +503,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前就职于Fordeal&lt;br&gt;小前端一枚&lt;br&gt;年轻无为，混吃等死o(╯□╰)o</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">YDiego&lt;br&gt;&lt;br&gt;目前在家coding&lt;br&gt;</div>
   	  	
     	</section>
     
