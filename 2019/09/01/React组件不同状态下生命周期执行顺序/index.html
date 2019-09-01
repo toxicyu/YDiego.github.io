@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>nginx配https | YDiego</title>
+  <title>React组件不同状态下生命周期执行顺序 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="调研了一波关于https的配置，然后今天也成功在服务器上配置，再次记录下整个配置过程。 服务器系统用的是cenos7 确保系统上有nginx跟openssl之后，就可以开始https的配置了。 1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：    12openssl genrsa -out privkey.">
-<meta name="keywords" content="nginx">
+  <meta name="description" content="初次挂载： getDefaultProps、getInitialState、componentWillMount、render、componentDidMount 卸载：componentWillUnmount 重新挂载： getInitialState、componentWillMount、render、componentDidMount 组件更新：componentWillReceivePr">
+<meta name="keywords" content="react,js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx配https">
-<meta property="og:url" content="https://toxicyu.github.io/2017/03/28/nginx配https/index.html">
+<meta property="og:title" content="React组件不同状态下生命周期执行顺序">
+<meta property="og:url" content="https://toxicyu.github.io/2019/09/01/React组件不同状态下生命周期执行顺序/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="调研了一波关于https的配置，然后今天也成功在服务器上配置，再次记录下整个配置过程。 服务器系统用的是cenos7 确保系统上有nginx跟openssl之后，就可以开始https的配置了。 1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：    12openssl genrsa -out privkey.">
+<meta property="og:description" content="初次挂载： getDefaultProps、getInitialState、componentWillMount、render、componentDidMount 卸载：componentWillUnmount 重新挂载： getInitialState、componentWillMount、render、componentDidMount 组件更新：componentWillReceivePr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-04-04T08:13:05.000Z">
+<meta property="og:updated_time" content="2019-09-01T07:49:06.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx配https">
-<meta name="twitter:description" content="调研了一波关于https的配置，然后今天也成功在服务器上配置，再次记录下整个配置过程。 服务器系统用的是cenos7 确保系统上有nginx跟openssl之后，就可以开始https的配置了。 1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：    12openssl genrsa -out privkey.">
+<meta name="twitter:title" content="React组件不同状态下生命周期执行顺序">
+<meta name="twitter:description" content="初次挂载： getDefaultProps、getInitialState、componentWillMount、render、componentDidMount 卸载：componentWillUnmount 重新挂载： getInitialState、componentWillMount、render、componentDidMount 组件更新：componentWillReceivePr">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,42 +149,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-nginx配https" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-React组件不同状态下生命周期执行顺序" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      nginx配https
+      React组件不同状态下生命周期执行顺序
     </h1>
   
 
         
-        <a href="/2017/03/28/nginx配https/" class="archive-article-date">
-  	<time datetime="2017-03-28T07:24:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
+        <a href="/2019/09/01/React组件不同状态下生命周期执行顺序/" class="archive-article-date">
+  	<time datetime="2019-09-01T07:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>调研了一波关于https的配置，然后今天也成功在服务器上配置，再次记录下整个配置过程。</p>
-<p>服务器系统用的是cenos7</p>
-<p>确保系统上有nginx跟openssl之后，就可以开始https的配置了。</p>
-<p>1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out privkey.key 2048</span><br><span class="line">openssl genrsa -out privkey.key 1024</span><br></pre></td></tr></table></figure></p>
-<p>2.然后根据这个密钥生成证书请求文件：</p>
-<a id="more"></a>
-<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key privkey.key -out server.csr</span><br></pre></td></tr></table></figure>
-</code></pre><p>执行完这个命令之后，会要求你填写基本信息，如国家(CN))、城市(HangZhou))等，注意common name字段的值是要跟你的域名一致，等到填完邮箱后还有三个可选填的信息，可直接回车跳过。</p>
-<p>3.生成证书之后，根据这个生成的证书去证书提供商申请，这里我选用的<a href="https://www.ssls.com/" target="_blank" rel="noopener">ssls</a> ，3年15刀，相比国内的证书动辄几千已经是相当便宜了，当然这个https比较简单，没有那种安全绿色信息的PositiveSSL，能保证不提示不安全就好了。具体的申请过程，按照步骤相信肯定是没问！当然也可以选择免费的，比如腾讯云，Let’s Encrypt，StartSSL，沃通（Wosign）。后两个看了很多人的说法是不太推荐。而且很多免费的都是需要买过他们的服务才行..</p>
-<p>4.当证书申请成功之后，证书提供商会给你几个证书文件，把这几个文件上传到服务器后，将他与之前生成的<code>server.csr</code>文件合并，不同的证书提供商提供的证书文件可能也不同，区别在文件数量跟文件名上，有些吧CA文件合并了。我遇到的就是后者，怎么合并可以参考以下方式，或者根据证书提供商的说明来。<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat example_com.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &gt;&gt; ssl-bundle.crt</span><br></pre></td></tr></table></figure></p>
-<p>或者<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat example_com.crt bundle.crt &gt;&gt; ssl-bundle.crt</span><br></pre></td></tr></table></figure></p>
-<p>5.在完成证书合并之后就可以开始nginx配置了，打开nginx.conf文件，添加以下内容,其中除了带ssl的内容根据自己服务器配置。</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"></span><br><span class="line">    listen 443;</span><br><span class="line"></span><br><span class="line">    ssl on;</span><br><span class="line"></span><br><span class="line">    ssl_certificate /YOURPATH/YOURCRT.crt;</span><br><span class="line"></span><br><span class="line">    ssl_certificate_key /YOURKEY/YOURKEY.key;</span><br><span class="line"></span><br><span class="line">    ssl_session_timeout  5m;</span><br><span class="line">    </span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    </span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line"></span><br><span class="line">    access_log /var/log/nginx/nginx.vhost.access.log;</span><br><span class="line"></span><br><span class="line">    error_log /var/log/nginx/nginx.vhost.error.log;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line"></span><br><span class="line">        root /var/www/;</span><br><span class="line"></span><br><span class="line">        index index.html;</span><br><span class="line"></span><br><span class="line">    &#125;   </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><p>6.最后，<figure class="highlight"><figcaption><span>-s reload ```,开始享受https！</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">7.最后的最后，可能会出现类似</span><br><span class="line">    ``` bash</span><br><span class="line">        SSL: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch</span><br></pre></td></tr></table></figure></p>
-<p>这样的问题，要么是某个crt文件没合并，要么格式之类的问题，参试下以下解决方案<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -modulus -<span class="keyword">in</span> certificate.crt | openssl md5</span><br><span class="line"></span><br><span class="line">openssl rsa -noout -modulus -<span class="keyword">in</span> privateKey.key | openssl md5</span><br></pre></td></tr></table></figure></p>
-<p>以上就是就是配置https的全过程。</p>
+        <ol>
+<li>初次挂载： <code>getDefaultProps</code>、<code>getInitialState</code>、<code>componentWillMount</code>、<code>render</code>、<code>componentDidMount</code></li>
+<li>卸载：<code>componentWillUnmount</code></li>
+<li>重新挂载： <code>getInitialState</code>、<code>componentWillMount</code>、<code>render</code>、<code>componentDidMount</code></li>
+<li>组件更新：<code>componentWillReceiveProps</code>、<code>shouldCompnentUpdate</code>、<code>componentWillUpdate</code>、<code>componentDidUpdate</code></li>
+</ol>
+<p>为什么重新挂载的时候没有<code>getDefaultProps</code>,因为React的生命周期主要通过3个阶段进行管理：MOUNTING,RECEIVE_PROPS和UNMOUNTING,3个阶段分别对应3个方法：mountComponent,updateComponent和ummountComponent;其中mountComponent负责管理生命周期中的<code>getInitialState</code>、<code>componentWillMount</code>、<code>render</code>、<code>componentDidMount</code>，由于<code>getDefaultProps</code>是通过构造函数进行管理，也是整个生命周期中最先开始执行的，而mountComponent无法调用到<code>getDefaultProps</code>，所以为什么<code>getDefaultProps</code>只执行一次的原因。</p>
 
       
 
@@ -219,7 +210,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -275,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2017/03/28/nginx配https/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2019/09/01/React组件不同状态下生命周期执行顺序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +284,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/04/nginx配置gzip/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          nginx配置gzip
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">服务器上配置nginx+laravel遇到的几个问题</div>
+    <a href="/2019/08/08/ReactHook/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Hook</div>
       <i class="icon-circle-right"></i>
     </a>
   
