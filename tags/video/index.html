@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>freeCamp-nodeJS-server | YDiego</title>
+  <title>Tag: video | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="codefreecamp上的教程，具体实现使用的nodeschool中的learnyounode，因为都是英文，中间还是去参考了下其他示例。 HELLO WORLD12//-------------------- HELLO WORLDconsole.log(&apos;HELLO WORLD&apos;); BABY STEPS123//-------------------- BABY STEPS输出参数和，pr">
-<meta name="keywords" content="codefreecamp,node">
-<meta property="og:type" content="article">
-<meta property="og:title" content="freeCamp-nodeJS-server">
-<meta property="og:url" content="https://toxicyu.github.io/2017/01/03/freeCamp-nodeJS-server/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="YDiego">
+<meta property="og:url" content="https://toxicyu.github.io/tags/video/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="codefreecamp上的教程，具体实现使用的nodeschool中的learnyounode，因为都是英文，中间还是去参考了下其他示例。 HELLO WORLD12//-------------------- HELLO WORLDconsole.log(&apos;HELLO WORLD&apos;); BABY STEPS123//-------------------- BABY STEPS输出参数和，pr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-03T04:10:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="freeCamp-nodeJS-server">
-<meta name="twitter:description" content="codefreecamp上的教程，具体实现使用的nodeschool中的learnyounode，因为都是英文，中间还是去参考了下其他示例。 HELLO WORLD12//-------------------- HELLO WORLDconsole.log(&apos;HELLO WORLD&apos;); BABY STEPS123//-------------------- BABY STEPS输出参数和，pr">
+<meta name="twitter:title" content="YDiego">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,178 +144,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-freeCamp-nodeJS-server" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      freeCamp-nodeJS-server
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/04/H5视频播放踩坑记录/" class="archive-article-date">
+  	<time datetime="2019-09-04T12:04:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/04/H5视频播放踩坑记录/">H5视频播放踩坑记录</a>
     </h1>
   
 
-        
-        <a href="/2017/01/03/freeCamp-nodeJS-server/" class="archive-article-date">
-  	<time datetime="2017-01-03T03:48:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>codefreecamp上的教程，具体实现使用的nodeschool中的learnyounode，因为都是英文，中间还是去参考了下其他示例。</p>
-<h3 id="HELLO-WORLD"><a href="#HELLO-WORLD" class="headerlink" title="HELLO WORLD"></a>HELLO WORLD</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- HELLO WORLD</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'HELLO WORLD'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="BABY-STEPS"><a href="#BABY-STEPS" class="headerlink" title="BABY STEPS"></a>BABY STEPS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- BABY STEPS</span></span><br><span class="line">输出参数和，process。argv前两个参数对应node和运行的js文件路径，后面才是真正用到的参数</span><br><span class="line"><span class="built_in">console</span>.log(process.argv.slice(<span class="number">2</span>).reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur</span>)</span>&#123;<span class="keyword">return</span> (+pre)+(+cur);&#125;));</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="MY-FIRST-I-O"><a href="#MY-FIRST-I-O" class="headerlink" title="MY FIRST I/O"></a>MY FIRST I/O</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- MY FIRST I/O</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> len = fs.readFileSync(process.argv[<span class="number">2</span>]).toString().split(<span class="string">'\n'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(len.length - <span class="number">1</span>);<span class="comment">//统计的时候会多一行</span></span><br></pre></td></tr></table></figure>
-<h3 id="MY-FIRST-ASYNC-I-O"><a href="#MY-FIRST-ASYNC-I-O" class="headerlink" title="MY FIRST ASYNC I/O"></a>MY FIRST ASYNC I/O</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- MY FIRST ASYNC I/O </span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = process.argv[<span class="number">2</span>];</span><br><span class="line">fs.readFile(path, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//or fs.readFile(path,'utf-8',callback);</span></span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString().split(<span class="string">'\n'</span>).length - <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="FILTERED-LS"><a href="#FILTERED-LS" class="headerlink" title="FILTERED LS"></a>FILTERED LS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- FILTERED LS  从指定目录中筛选指定格式的文件</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line">fs.readdir(process.argv[<span class="number">2</span>],<span class="function"><span class="keyword">function</span>(<span class="params">err, list</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</span><br><span class="line">    <span class="keyword">var</span> type = process.argv[<span class="number">3</span>];<span class="comment">//格式</span></span><br><span class="line">    list.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">val,n</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(path.extname(val) == <span class="string">'.'</span>+type)&#123;<span class="comment">//extname(file)  返回file的格式.md</span></span><br><span class="line">            <span class="built_in">console</span>.log(val);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="MAKE-IT-MODULAR"><a href="#MAKE-IT-MODULAR" class="headerlink" title="MAKE IT MODULAR"></a>MAKE IT MODULAR</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- MAKE IT MODULAR   模块化（写个函数然后引用、调用） </span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="built_in">require</span>(<span class="string">'./mkmodule.js'</span>);</span><br><span class="line"><span class="keyword">var</span> args = process.argv;</span><br><span class="line">fn(args[<span class="number">2</span>],args[<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">err,list</span>)</span>&#123;</span><br><span class="line">    list.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">filename,index</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(filename);    </span><br><span class="line">    &#125;)        </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//MKMODULE.JS</span></span><br></pre></td></tr></table></figure>
-<h3 id="HTTP-CLIENT"><a href="#HTTP-CLIENT" class="headerlink" title="HTTP CLIENT"></a>HTTP CLIENT</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- HTTP CLIENT http客户端</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">http.get(process.argv[<span class="number">2</span>],<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);<span class="comment">//不设置的话返回的是buffer数据</span></span><br><span class="line">    res.on(<span class="string">'data'</span>,<span class="built_in">console</span>.log);        </span><br><span class="line">&#125;).on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"err:"</span>+e.message);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="HTTP-COLLECT"><a href="#HTTP-COLLECT" class="headerlink" title="HTTP COLLECT"></a>HTTP COLLECT</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- HTTP COLLECT </span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> bl = <span class="built_in">require</span>(<span class="string">'bl'</span>);</span><br><span class="line">http.get(process.argv[<span class="number">2</span>],<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    res.pipe(bl(<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">console</span>.error(err);</span><br><span class="line">        data = data.toString();</span><br><span class="line">        <span class="built_in">console</span>.log(data.length);</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="JUGGLING-ASYNC"><a href="#JUGGLING-ASYNC" class="headerlink" title="JUGGLING ASYNC"></a>JUGGLING ASYNC</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-------------------- JUGGLING ASYNC </span></span><br><span class="line"><span class="comment">//大致意思就是题目跟上题一样 不过多了几个参数 请求的时候返回的先后顺序不一定是按参数的顺序 但是输出要 </span></span><br><span class="line"><span class="keyword">var</span> args = process.argv.slice(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> bl = <span class="built_in">require</span>(<span class="string">'bl'</span>);</span><br><span class="line"><span class="keyword">var</span> save = [];</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getHTTP</span>(<span class="params">url,index</span>)</span>&#123;</span><br><span class="line">    http.get(url,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        res.pipe(bl(<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">console</span>.error(err);</span><br><span class="line">            data = data.toString();</span><br><span class="line">            save[index] = data;</span><br><span class="line">            num++;</span><br><span class="line">            <span class="keyword">if</span>(num == args.length)&#123;</span><br><span class="line">                print();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;))        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    save.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">val,index</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(val);        </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">args.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">url,index</span>)</span>&#123;</span><br><span class="line">    getHTTP(url,index);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="TIME-SERVER"><a href="#TIME-SERVER" class="headerlink" title="TIME SERVER"></a>TIME SERVER</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//--------------------- TIME SERVER</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>);</span><br><span class="line"><span class="keyword">var</span> server = net.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> y = format(time.getFullYear());</span><br><span class="line">    <span class="keyword">var</span> m = format(time.getMonth()+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">var</span> d = format(time.getDate());</span><br><span class="line">    <span class="keyword">var</span> h = format(time.getHours());</span><br><span class="line">    <span class="keyword">var</span> mm = format(time.getMinutes());</span><br><span class="line">    <span class="keyword">var</span> now = y+<span class="string">"-"</span>+m+<span class="string">"-"</span>+d+<span class="string">" "</span>+h+<span class="string">":"</span>+ mm;</span><br><span class="line">    socket.end(now+<span class="string">'\n'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> o &gt; <span class="number">9</span> ? o : <span class="string">"0"</span>+o;</span><br><span class="line">&#125;</span><br><span class="line">server.listen(process.argv[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
-<h3 id="HTTP-FILE-SERVER"><a href="#HTTP-FILE-SERVER" class="headerlink" title="HTTP FILE SERVER"></a>HTTP FILE SERVER</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//---------------------- HTTP FILE SERVER</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>),</span><br><span class="line">    http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">    args = process.argv.slice(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>, &#123; <span class="string">'content-type'</span>: <span class="string">'text/plain'</span> &#125;)</span><br><span class="line">        fs.createReadStream(args[<span class="number">1</span>]).pipe(res);</span><br><span class="line">    &#125;);</span><br><span class="line">server.listen(+args[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-<h3 id="HTTP-UPPERCASERER"><a href="#HTTP-UPPERCASERER" class="headerlink" title="HTTP UPPERCASERER"></a>HTTP UPPERCASERER</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//---------------------- HTTP UPPERCASERER</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>),</span><br><span class="line">    args = process.argv.slice(<span class="number">2</span>),</span><br><span class="line">    map = <span class="built_in">require</span>(<span class="string">'through2-map'</span>),</span><br><span class="line">    server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(req.method != <span class="string">'POST'</span>)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">        req.pipe(map(<span class="function"><span class="keyword">function</span>(<span class="params">thunk</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> thunk.toString().toUpperCase();        </span><br><span class="line">        &#125;)).pipe(res);</span><br><span class="line">    &#125;);</span><br><span class="line">server.listen(+args[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-<p>###HTTP JSON API SERVER</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//---------------------- HTTP JSON API SERVER</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">codefreecamp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">video</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2017/01/03/freeCamp-nodeJS-server/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/01/03/vim命令收集/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vim命令收集
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/01/01/2016总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2016总结</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -343,9 +228,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
