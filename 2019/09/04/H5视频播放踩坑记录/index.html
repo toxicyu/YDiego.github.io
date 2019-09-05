@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="场景某H5页面，页面由图片组成，其中某张图片点击后将全屏播放视频(其中视频定位到非可视区域)。视频播放组件采用的第三方库video-react 问题app webview下安卓视频无法播放、ios需要点击两次才播放，微信环境下全屏播放问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T01:56:45.472Z">
+<meta property="og:updated_time" content="2019-09-05T02:04:48.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5视频播放踩坑记录">
 <meta name="twitter:description" content="场景某H5页面，页面由图片组成，其中某张图片点击后将全屏播放视频(其中视频定位到非可视区域)。视频播放组件采用的第三方库video-react 问题app webview下安卓视频无法播放、ios需要点击两次才播放，微信环境下全屏播放问题">
@@ -192,9 +192,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">imgClick (item) &#123;</span><br><span class="line">    const v = this.player</span><br><span class="line">    // 全屏跟播放顺序在app环境跟微信下是两个结果 ios默认播放全屏</span><br><span class="line">    if (bridge.isInApp()) &#123;</span><br><span class="line">      !this.$os.ios &amp;&amp; v.toggleFullscreen()   // 切换全屏</span><br><span class="line">      v.play()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      v.play()</span><br><span class="line">      !this.$os.ios &amp;&amp; setTimeout(() =&gt; &#123;v.toggleFullscreen()&#125;,500)  // 切换全屏</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><pre><code>ios 微信环境下视频初始化黑屏解决方案：
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><ul>
+<li><p>ios 微信环境下视频初始化黑屏解决方案：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// react ref</span><br><span class="line">...</span><br><span class="line">ref=&#123;player =&gt; &#123;</span><br><span class="line">    this.player = player</span><br><span class="line">    // 微信sdk</span><br><span class="line">    this.$JSBridge(&#123;</span><br><span class="line">      success: () =&gt; &#123;</span><br><span class="line">        this.player.pause();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, &quot;getNetworkType&quot;);</span><br><span class="line">&#125;&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-</code></pre>
+</li>
+<li><p>前面讲到的都是全屏模式下，全屏模式某些浏览器默认是以浏览器自身播放器去操作(比如Safari，微信)，其实也可以通过某些属性比如<code>playsInline</code>去控制使用html5的播放器，不过这样设置之后，上诉的一些方法将不再生效，需要通过其他方式再去处理</p>
+</li>
+</ul>
+
       
 
       
@@ -421,10 +426,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
@@ -445,19 +446,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,6 +471,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
               </li>
             
             <div class="clearfix"></div>
