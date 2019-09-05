@@ -176,7 +176,7 @@
 <p>附上scp命令和服务器定时备份脚本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P22 root@[ip]:/[path] . //复制文件到当前目录下</span><br></pre></td></tr></table></figure>
 <p>定时备份脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">cd</span> [path] </span></span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!bin/bash</span><br><span class="line"><span class="meta">#</span>cd [path] </span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -397,6 +397,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -406,10 +410,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -429,19 +429,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">

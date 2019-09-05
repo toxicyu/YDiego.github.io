@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="场景某H5页面，页面由图片组成，其中某张图片点击后将全屏播放视频(其中视频定位到非可视区域)。视频播放组件采用的第三方库video-react 问题app webview下安卓视频无法播放、ios需要点击两次才播放，微信环境下全屏播放问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-04T12:05:47.235Z">
+<meta property="og:updated_time" content="2019-09-05T01:56:45.472Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5视频播放踩坑记录">
 <meta name="twitter:description" content="场景某H5页面，页面由图片组成，其中某张图片点击后将全屏播放视频(其中视频定位到非可视区域)。视频播放组件采用的第三方库video-react 问题app webview下安卓视频无法播放、ios需要点击两次才播放，微信环境下全屏播放问题">
@@ -174,7 +174,7 @@
 <a id="more"></a>
 <h5 id="1-居然是样式"><a href="#1-居然是样式" class="headerlink" title="1.居然是样式"></a>1.居然是样式</h5><p>  首先测试的时候pc浏览器以及手机浏览器环境下测试都是ok，所以初步判断问题出在webview上，通过debug，打印点击事件以及相关视频的信息，发现都是正常的并且没有发生报错情况。</p>
 <p>  后猜测是否跟全屏播放有关，将视频取消定位后正常展示，此时播放正常。</p>
-<p>  这时对比前面异常情况发现有个变量定位，遂找到对应样式，发现其中某个属性<code>z-index: -1</code>，去掉后一切正常了，Android和iOS均正常播放。至于为什么会受这个属性影响，暂不清楚。</p>
+<p>  这时对比前面异常情况发现有个变量定位，遂找到对应样式，发现其中某个属性<code>z-index: -1</code>，去掉后一切正常了，Android和iOS均正常播放。</p>
 <h5 id="2-关于全屏自动播放"><a href="#2-关于全屏自动播放" class="headerlink" title="2.关于全屏自动播放"></a>2.关于全屏自动播放</h5><p>  视频点击后全屏播放，取消全屏播放后视频暂停(因为视频不在可视区域，没有对应的操作可点)。组件提供了播放以及切换全屏方法，但是并没有切换全屏后的回调事件，好在组件额外提供了<code>subscribeToStateChange</code>方法，可以监听组件的所有状态，一波操作后：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">imgClick (item) &#123;</span><br><span class="line">  const v = this.player // 视频组件实例</span><br><span class="line">  v.toggleFullscreen()  // 切换全屏</span><br><span class="line">  this.showVideoAndPlay = true</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/** 监听视频信息变化 */</span><br><span class="line">handleStateChange(state) &#123;</span><br><span class="line">  const v = this.player.player</span><br><span class="line">  if (!state.isFullscreen) &#123;</span><br><span class="line">    v.pause()</span><br><span class="line">    this.showVideoAndPlay = false</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  if (state.isFullscreen &amp;&amp; this.showVideoAndPlay)&#123;</span><br><span class="line">    v.play()</span><br><span class="line">    /** 这里要重置 不然会无限播放暂停循环*/</span><br><span class="line">    this.showVideoAndPlay = false</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line">  if (state.paused) &#123;</span><br><span class="line">    v.pause()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  this.player.subscribeToStateChange(this.handleStateChange.bind(this));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>  看到app表现良好，暗暗点了点头，表面很冷静，心里美滋滋。</p>
 <p>  但是，打脸这事，会迟到但是不会缺席，很快测试告知微信环境下播放有问题…</p>
@@ -189,10 +189,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">imgClick (item) &#123;</span><br><span class="line">    const v = this.player</span><br><span class="line">    // 全屏跟播放顺序在app环境跟微信下是两个结果 ios默认播放全屏</span><br><span class="line">    if (bridge.isInApp()) &#123;</span><br><span class="line">      !this.$os.ios &amp;&amp; v.toggleFullscreen()   // 切换全屏</span><br><span class="line">      v.play()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      v.play()</span><br><span class="line">      !this.$os.ios &amp;&amp; v.toggleFullscreen() // 切换全屏</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>其中对全屏方法做了环境判断是因为 iso 下默认播放全屏</p>
 <p>至此，app与微信环境下全屏展示基本一致，只剩下安卓微信环境下自动播放问题。这个问题最终采用延时方案解决，但并不是完美解决，还是会存在偶发的不能自动播放的情况。具体什么原因全靠猜，其中机制并不是特别清楚，有待后续研究。所以最后代码修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">imgClick (item) &#123;</span><br><span class="line">    const v = this.player</span><br><span class="line">    // 全屏跟播放顺序在app环境跟微信下是两个结果 ios默认播放全屏</span><br><span class="line">    if (bridge.isInApp()) &#123;</span><br><span class="line">      !this.$os.ios &amp;&amp; v.toggleFullscreen()   // 切换全屏</span><br><span class="line">      v.play()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      v.play()</span><br><span class="line">      v.toggleFullscreen()</span><br><span class="line">      !this.$os.ios &amp;&amp; setTimeout(() =&gt; &#123;v.toggleFullscreen()&#125;,500)  // 切换全屏</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">imgClick (item) &#123;</span><br><span class="line">    const v = this.player</span><br><span class="line">    // 全屏跟播放顺序在app环境跟微信下是两个结果 ios默认播放全屏</span><br><span class="line">    if (bridge.isInApp()) &#123;</span><br><span class="line">      !this.$os.ios &amp;&amp; v.toggleFullscreen()   // 切换全屏</span><br><span class="line">      v.play()</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      v.play()</span><br><span class="line">      !this.$os.ios &amp;&amp; setTimeout(() =&gt; &#123;v.toggleFullscreen()&#125;,500)  // 切换全屏</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><pre><code>ios 微信环境下视频初始化黑屏解决方案：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// react ref</span><br><span class="line">...</span><br><span class="line">ref=&#123;player =&gt; &#123;</span><br><span class="line">    this.player = player</span><br><span class="line">    // 微信sdk</span><br><span class="line">    this.$JSBridge(&#123;</span><br><span class="line">      success: () =&gt; &#123;</span><br><span class="line">        this.player.pause();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, &quot;getNetworkType&quot;);</span><br><span class="line">&#125;&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</code></pre>
       
 
       
@@ -411,6 +413,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -420,10 +426,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,19 +445,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
