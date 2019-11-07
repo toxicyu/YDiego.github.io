@@ -166,8 +166,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="从一个栗子开始"><a href="#从一个栗子开始" class="headerlink" title="从一个栗子开始"></a>从一个栗子开始</h3><p>实现一个组件，这个组件点击按钮会显示一个二维码，点击二维码之外的区域可以隐藏二维码，但是点击二维码本身却不会关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">class QrCode extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.handleClick = this.handleClick.bind(this);</span><br><span class="line">    this.handleClickQr = this.handleClickQr.bind(this);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      active: false,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    document.body.addEventListener(&apos;click&apos;, e =&gt; &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        active: false,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    document.body.removeEventListener(&apos;click&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      active: !this.state.active,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleClickQr(e) &#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;qr-wrapper&quot;&gt;</span><br><span class="line">        &lt;button className=&quot;qr&quot; onClick=&#123;this.handleClick&#125;&gt;召唤二维码&lt;/button&gt;</span><br><span class="line">        &lt;div</span><br><span class="line">          className=&quot;code&quot;</span><br><span class="line">          style=&#123;&#123; display: this.state.active ? &apos;block&apos; : &apos;none&apos; &#125;&#125;</span><br><span class="line">          onClick=&#123;this.handleClickQr&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;div style=&#123;&#123;width: &apos;100px&apos;, height: &apos;100px&apos;, background: &apos;#ff0050&apos;&#125;&#125;&gt;假装是二维码&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>看上去确实可以实现要求的组件，但事实上运行上述代码可以发现，点击二维码本身也会导致二维码的隐藏。好神奇啊，这是为什么呢？</p>
+        <h3 id="从一个栗子开始"><a href="#从一个栗子开始" class="headerlink" title="从一个栗子开始"></a>从一个栗子开始</h3><p>实现一个组件，这个组件点击按钮会显示一个二维码，点击二维码之外的区域可以隐藏二维码，但是点击二维码本身却不会关闭</p>
         
           <a class="article-more-a" href="/2019/11/06/React事件流程概述/#more">more >></a>
         
@@ -393,11 +392,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -891,11 +890,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">video</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -903,7 +898,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">video</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -923,11 +922,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
               </li>
              
               <li class="article-tag-list-item">
