@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="从一个栗子开始实现一个组件，这个组件点击按钮会显示一个二维码，点击二维码之外的区域可以隐藏二维码，但是点击二维码本身却不会关闭">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-07T06:39:33.448Z">
+<meta property="og:updated_time" content="2019-11-07T06:47:12.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React事件流程概述">
 <meta name="twitter:description" content="从一个栗子开始实现一个组件，这个组件点击按钮会显示一个二维码，点击二维码之外的区域可以隐藏二维码，但是点击二维码本身却不会关闭">
@@ -172,8 +172,13 @@
         <h3 id="从一个栗子开始"><a href="#从一个栗子开始" class="headerlink" title="从一个栗子开始"></a>从一个栗子开始</h3><p>实现一个组件，这个组件点击按钮会显示一个二维码，点击二维码之外的区域可以隐藏二维码，但是点击二维码本身却不会关闭</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Demo extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      active: false,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    document.body.addEventListener(&apos;click&apos;, e =&gt; &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        active: false,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    document.body.removeEventListener(&apos;click&apos;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleClick = () =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      active: !this.state.active,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  handleClickQr = (e) =&gt; &#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;qr-wrapper&quot;&gt;</span><br><span class="line">        &lt;button className=&quot;qr&quot; onClick=&#123;this.handleClick&#125;&gt;召唤二维码&lt;/button&gt;</span><br><span class="line">        &lt;div</span><br><span class="line">          className=&quot;code&quot;</span><br><span class="line">          style=&#123;&#123; display: this.state.active ? &apos;block&apos; : &apos;none&apos; &#125;&#125;</span><br><span class="line">          onClick=&#123;this.handleClickQr&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;div style=&#123;&#123;width: &apos;100px&apos;, height: &apos;100px&apos;, background: &apos;#ff0050&apos;&#125;&#125;&gt;假装是二维码&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>看上去确实可以实现要求，但事实上运行上述代码可以发现，点击二维码本身也会导致二维码的隐藏。好神奇啊，这是为什么呢？</p>
+<p>看上去确实可以实现要求，但事实上运行上述代码后可以发现，点击二维码本身也会导致二维码的隐藏。好神奇啊，这是为什么呢？</p>
 <p>react自身实现了一套自己的事件机制，包括事件注册、事件的合成、事件冒泡、事件派发等，虽然和原生的是两码事，但也是基于浏览器的事件机制下完成的。</p>
+<h3 id="为什么自定义一套事件系统"><a href="#为什么自定义一套事件系统" class="headerlink" title="为什么自定义一套事件系统"></a>为什么自定义一套事件系统</h3><ul>
+<li><strong>抹平浏览器之间的兼容性差异</strong>:   React根据W3C规范来定义这些合成事件<code>SyntheticEvent</code>,不会存在IE标准的兼容性问题，在各个浏览器之间达到统一，减少开发者的额外兼容工作。</li>
+<li><strong>跨平台</strong> : 跟<code>Virtual DOM</code>一样，<code>VirtualDOM</code>抽象了跨平台的渲染方式,对应的<code>SyntheticEvent</code>目的也是想提供一个抽象的跨平台事件机制。</li>
+<li><strong>原生事件升级、改造</strong>：事件合成除了处理兼容性问题，还对原生事件做了升级改造，比较典型的是React的onChange事件，它为表单元素定义了统一的值变动事件，例如<code>blur</code>、<code>change</code>、<code>focus</code>、<code>input</code>等。</li>
+</ul>
 <h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* Summary of `ReactBrowserEventEmitter` event handling:</span><br><span class="line">*</span><br><span class="line">*  - Top-level delegation is used to trap most native browser events. This</span><br><span class="line">*    may only occur in the main thread and is the responsibility of</span><br><span class="line">*    ReactDOMEventListener, which is injected and can therefore support</span><br><span class="line">*    pluggable event sources. This is the only work that occurs in the main</span><br><span class="line">*    thread.</span><br><span class="line">*</span><br><span class="line">*  - We normalize and de-duplicate events to account for browser quirks. This</span><br><span class="line">*    may be done in the worker thread.</span><br><span class="line">*</span><br><span class="line">*  - Forward these native events (with the associated top-level type used to</span><br><span class="line">*    trap it) to `EventPluginHub`, which in turn will ask plugins if they want</span><br><span class="line">*    to extract any synthetic events.</span><br><span class="line">*</span><br><span class="line">*  - The `EventPluginHub` will then process each event by annotating them with</span><br><span class="line">*    &quot;dispatches&quot;, a sequence of listeners and IDs that care about that event.</span><br><span class="line">*</span><br><span class="line">*  - The `EventPluginHub` then dispatches the events.</span><br><span class="line">*</span><br><span class="line">* Overview of React and the event system:</span><br><span class="line">*</span><br><span class="line">* +------------+    .</span><br><span class="line">* |    DOM     |    .</span><br><span class="line">* +------------+    .</span><br><span class="line">*       |           .</span><br><span class="line">*       v           .</span><br><span class="line">* +------------+    .</span><br><span class="line">* | ReactEvent |    .</span><br><span class="line">* |  Listener  |    .</span><br><span class="line">* +------------+    .                         +-----------+</span><br><span class="line">*       |           .               +--------+|SimpleEvent|</span><br><span class="line">*       |           .               |         |Plugin     |</span><br><span class="line">* +-----|------+    .               v         +-----------+</span><br><span class="line">* |     |      |    .    +--------------+                    +------------+</span><br><span class="line">* |     +-----------.---&gt;|EventPluginHub|                    |    Event   |</span><br><span class="line">* |            |    .    |              |     +-----------+  | Propagators|</span><br><span class="line">* | ReactEvent |    .    |              |     |TapEvent   |  |------------|</span><br><span class="line">* |  Emitter   |    .    |              |&lt;---+|Plugin     |  |other plugin|</span><br><span class="line">* |            |    .    |              |     +-----------+  |  utilities |</span><br><span class="line">* |     +-----------.---&gt;|              |                    +------------+</span><br><span class="line">* |     |      |    .    +--------------+</span><br><span class="line">* +-----|------+    .                ^        +-----------+</span><br><span class="line">*       |           .                |        |Enter/Leave|</span><br><span class="line">*       +           .                +-------+|Plugin     |</span><br><span class="line">* +-------------+   .                         +-----------+</span><br><span class="line">* | application |   .</span><br><span class="line">* |-------------|   .</span><br><span class="line">* |             |   .</span><br><span class="line">* |             |   .</span><br><span class="line">* +-------------+   .</span><br><span class="line">*                   .</span><br><span class="line">*    React Core     .  General Purpose Event Plugin System</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <p>以上内容来自<a href="https://github.com/facebook/react/blob/master/packages/react-dom/src/events/ReactBrowserEventEmitter.js" target="_blank" rel="noopener">ReactBrowserEventEmitter.js</a></p>
 <ul>
@@ -212,11 +217,6 @@
 </li>
 <li><p>至于如何解决，只要不混用react事件跟原生事件，或者在原生事件中添加一个<code>e.target</code>判断.</p>
 </li>
-</ul>
-<h3 id="为什么自定义一套事件系统"><a href="#为什么自定义一套事件系统" class="headerlink" title="为什么自定义一套事件系统"></a>为什么自定义一套事件系统</h3><ul>
-<li><strong>抹平浏览器之间的兼容性差异</strong>:   React根据W3C规范来定义这些合成事件<code>SyntheticEvent</code>,不会存在IE标准的兼容性问题，在各个浏览器之间达到统一，减少开发者的额外兼容工作。</li>
-<li><strong>跨平台</strong> : 跟<code>Virtual DOM</code>一样，<code>VirtualDOM</code>抽象了跨平台的渲染方式,对应的<code>SyntheticEvent</code>目的也是想提供一个抽象的跨平台事件机制。</li>
-<li><strong>原生事件升级、改造</strong>：事件合成除了处理兼容性问题，还对原生事件做了升级改造，比较典型的是React的onChange事件，它为表单元素定义了统一的值变动事件，例如<code>blur</code>、<code>change</code>、<code>focus</code>、<code>input</code>等。(<code>registrationNameModules</code>)</li>
 </ul>
 
       
@@ -433,14 +433,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -449,7 +441,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,11 +465,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
