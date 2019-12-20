@@ -146,6 +146,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-服务器上配置nginx-laravel遇到的几个问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/">服务器上配置nginx+laravel遇到的几个问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/" class="archive-article-date">
+  	<time datetime="2017-03-23T08:50:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>折腾了下新到手的服务器，从裸机到能正常访问，相比mac下的homebrew，linux上面装也是遇到了几个问题，不过所幸都解决了。在此记录下。<br>OS：centos 7 </p>
+<h2 id="1-composer-install"><a href="#1-composer-install" class="headerlink" title="1.composer install"></a>1.composer install</h2><p>composer 安装依赖的时候爆了以下错误<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">the requested PHP extension dom is missing from your system.</span><br></pre></td></tr></table></figure></p>
+<p>看报错跟stackoverflow上说查看extension是否启用什么的，不过这些个ini文件太多，干脆就直接装一个得了，事实证明是正确的，相比查看那么多ini文件，省下了不少时间，当然也有可能是已经安装了却没启用。</p>
+<p>解决方案：<br>
+        
+          <a class="article-more-a" href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">laravel</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/23/服务器上配置nginx-laravel遇到的几个问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-laravel5-4运行gulp报sass错误" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -736,74 +800,6 @@
 
 
   
-    <article id="post-Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/14/Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译/">Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/14/Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译/" class="archive-article-date">
-  	<time datetime="2016-12-14T14:33:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://dev.mobify.com/blog/domain-sharding-bad-news-mobile-performance/" target="_blank" rel="noopener">地址</a></p>
-<p>In this post we’ll review the results of a real-world test with over three million samples showing that domain sharding is at best neutral and at worst harmful for mobile websites.</p>
-<p>在本帖里,我们将通过超过三百万个样品实际测试的结果来说明域分片对于移动网站来说充其量是中立的和最坏的。</p>
-<p>If you’re already familiar with sharding, you may want to skip straight to our results. Otherwise, we’ll begin with a brief introduction to the subject.</p>
-<p>如果你已经熟悉分片,你可以跳过直接我们的结果。那么,我们开始简要介绍这个主题把。</p>
-<h3 id="What-is-Domain-Sharding"><a href="#What-is-Domain-Sharding" class="headerlink" title="What is Domain Sharding?"></a>What is Domain Sharding?</h3><p>Traditionally, web browsers place a limit on the number of simultaneous connections a browser can make to one domain. These limits were established in 1999 in the <a href="http://www.ietf.org/rfc/rfc2616.txt" target="_blank" rel="noopener">HTTP/1.1 specification</a> by the <a href="http://www.ietf.org/" target="_blank" rel="noopener">Internet Engineering Task Force (IETF)</a>. The intent of the limit was to avoid overloading web servers and to reduce internet congestion. The commonly used limit is no more than two simultaneous connections with any server or proxy.</p>
-<p>传统上的web浏览器会限制一个域的并发连接数。这些限制是互联网工程任务组(IETF)于1999年在HTTP / 1.1规范中成立。目的是为了避免重载web服务器和减少网络拥塞。常用的上限在任何服务器或代理中不超过两个并发连接。</p>
-<p>Domain sharding is a technique to accelerate page load times by tricking browsers into opening more simultaneous connections than are normally allowed. It’s a widely-used optimization tactic that enables browsers to make better use of high-bandwidth internet connections.</p>
-        
-          <a class="article-more-a" href="/2016/12/14/Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/14/Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -905,11 +901,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,6 +918,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -954,10 +954,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
             
             <div class="clearfix"></div>
