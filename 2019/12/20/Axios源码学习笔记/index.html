@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-20T08:57:09.847Z">
+<meta property="og:updated_time" content="2019-12-21T06:06:42.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axios源码学习笔记">
 <meta name="twitter:description" content="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
@@ -172,15 +172,15 @@
         <h3 id="为什么-axios-既可以当函数调用，也可以当对象使用，比如axios-、axios-get"><a href="#为什么-axios-既可以当函数调用，也可以当对象使用，比如axios-、axios-get" class="headerlink" title="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get"></a>为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get</h3><a id="more"></a>
 <p>本身axios就是个函数，对象调用是因为在axios的原型上挂载了这些方法</p>
 <h3 id="axios调用过程"><a href="#axios调用过程" class="headerlink" title="axios调用过程"></a>axios调用过程</h3><ol>
-<li>调用axios.request方法</li>
+<li>调用axios.request方法，该方法为bind返回的包裹函数,用于将request内部的this绑定到新建的Axios对象上</li>
 <li>如果有请求拦截器调用拦截器</li>
 <li>调用dispatchRequest</li>
 <li>执行适配器adapter</li>
-<li>调用dispatchXhrRequest</li>
+<li>调用dispatchXhrRequest，也就是真正的请求</li>
 <li>最后有响应拦截器调用响应拦截器</li>
 </ol>
 <h3 id="axios拦截器原理"><a href="#axios拦截器原理" class="headerlink" title="axios拦截器原理"></a>axios拦截器原理</h3><p> axios通过函数<code>InterceptorManager</code>管理拦截器，并提供了<code>use、reject、forEach</code>三个方法去使用和管理；</p>
-<p>在请求之前也就是<code>request</code>方法中定义一个数组<code>chain = [dispatchRequest, undefined]</code>，然后根据请求拦截器跟响应拦截器的配置情况分别在定义好的数组前(unshift)后(push)插入拦截器；最后处理这个数组，两两取出并通过<code>Promise.then(chian.shift(), chain.shift())</code>去执行。</p>
+<p>在请求之前也就是<code>request</code>方法中定义一个数组<code>chain = [dispatchRequest, undefined]</code>，然后根据请求拦截器跟响应拦截器的配置情况分别在定义好的数组前(unshift)后(push)插入拦截器；最后处理这个数组，两两取出并通过<code>Promise.then(chian.shift(), chain.shift())</code>去执行。根据插入方式，请求拦截器的执行顺序是先加入后执行，响应拦截器的执行顺序是先加入先执行</p>
 <p>注: <code>Promise.then</code>方法可以接收两个参数，一个是<code>resolve</code>回调函数，还有个是<code>reject</code>回调函数</p>
 <h3 id="axios取消功能是怎么实现的"><a href="#axios取消功能是怎么实现的" class="headerlink" title="axios取消功能是怎么实现的"></a>axios取消功能是怎么实现的</h3><p>主要就是通过传递配置参数<code>cancelToken</code>，取消时才会生成cancelToken，判断有，则抛出错误，使<code>Promise</code>走向<code>rejected</code>，让用户捕获到消息</p>
 <h3 id="为什么支持浏览器中发送请求也支持node发送请求"><a href="#为什么支持浏览器中发送请求也支持node发送请求" class="headerlink" title="为什么支持浏览器中发送请求也支持node发送请求"></a>为什么支持浏览器中发送请求也支持node发送请求</h3><p>根据当前环境引入，如果是浏览器环境引入xhr，是node环境则引入http</p>
@@ -387,11 +387,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -403,11 +403,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -423,11 +431,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,15 +443,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
