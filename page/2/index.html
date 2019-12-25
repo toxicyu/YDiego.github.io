@@ -146,6 +146,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nginx配https" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/nginx配https/">nginx配https</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/28/nginx配https/" class="archive-article-date">
+  	<time datetime="2017-03-28T07:24:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>调研了一波关于https的配置，然后今天也成功在服务器上配置，再次记录下整个配置过程。</p>
+<p>服务器系统用的是cenos7</p>
+<p>确保系统上有nginx跟openssl之后，就可以开始https的配置了。</p>
+<p>1.首先是生成密钥文件，一种是2048位，一种是1024位，请根据你的SSL商的要求来决定。现在大多是2048位了。密钥生成使用以下命令：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out privkey.key 2048</span><br><span class="line">openssl genrsa -out privkey.key 1024</span><br></pre></td></tr></table></figure></p>
+<p>2.然后根据这个密钥生成证书请求文件：</p>
+        
+          <a class="article-more-a" href="/2017/03/28/nginx配https/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/28/nginx配https/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-服务器上配置nginx-laravel遇到的几个问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -494,7 +559,7 @@
 <p>附上scp命令和服务器定时备份脚本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P22 root@[ip]:/[path] . //复制文件到当前目录下</span><br></pre></td></tr></table></figure>
 <p>定时备份脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!bin/bash</span><br><span class="line"><span class="meta">#</span>cd [path] </span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">cd</span> [path] </span></span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -733,73 +798,6 @@
 
 
   
-    <article id="post-2016总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/2016总结/">2016总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/01/2016总结/" class="archive-article-date">
-  	<time datetime="2017-01-01T10:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2016就这样过去了，感觉还停留年刚初过来一样，貌似工作之后时间概念快了好多。最后一个月松懈的有点过分，博客都没更，这是很不好的，刚好趁着2017元旦补一发（嗯？）。</p>
-<p>除了技术上的提升，最大的收获还是见识上的，了解了很多互联网方面的一些知识，创投圈的认识也从一无所知到略知一二。主要还是没少跟公司老板他们聊这方面的知识，虽然大部分时间旁听状态。</p>
-<p>也有一些是从不好的经历中学到的，创业不容易，尤其是互联网公司，再加上这两年资本寒冬，创业公司伤亡惨重，所以面试找工作的时候不能仅仅停留在薪资待遇上，还要了解他的业务，判断他的未来，公司发展了，业务自然就多，业务多了需要的技能也就上去了，不然没干几个月公司跪了，一切扯淡。当然，一个好老板也是非常重要的，比如某增X公司，害了一波人，辛亏跑得早。</p>
-<p>话说，现在看英文没有以前name排斥了，真是对不起以前的英语老师们啊。</p>
-<p>额外成就，单身年份+1！</p>
-<p>目标：</p>
-<p>其实定了好多目标，但是最终实现的也就几个，自控力确实有待提高，年底买了好多书，才看完两本技术书，这点完全不够，技术还是太菜了。 </p>
-<p>争取结束单身。</p>
-<p>扯一句：<br>年底这段时间挺迷惘的，想了很多，有点印象深刻，压力大了之后，做事好有干劲。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/01/2016总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -885,11 +883,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,35 +899,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,7 +919,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,11 +927,35 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
             
             <div class="clearfix"></div>
