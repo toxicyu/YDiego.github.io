@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="前言Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。（React-native 0.59，Taro 1.3开始已支持hooks）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T09:10:25.424Z">
+<meta property="og:updated_time" content="2019-12-25T13:22:22.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Hook">
 <meta name="twitter:description" content="前言Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。（React-native 0.59，Taro 1.3开始已支持hooks）">
@@ -193,12 +193,12 @@
 </ul>
 <h3 id="使用State-Hook"><a href="#使用State-Hook" class="headerlink" title="使用State Hook"></a>使用State Hook</h3><h4 id="从一个例子开始"><a href="#从一个例子开始" class="headerlink" title="从一个例子开始"></a>从一个例子开始</h4><p>一个简单的有状态组件，点击后次数加一：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123;Component&#125; from &apos;react&apos;</span><br><span class="line">class App extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props)</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      count: 0</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;Clicked &#123;this.state.count&#125; times&lt;/p&gt;</span><br><span class="line">        &lt;button onClick=&#123;</span><br><span class="line">            () =&gt; this.setState(&#123; count: this.state.count +1&#125;)</span><br><span class="line">        &#125;&gt;</span><br><span class="line">          Click me</span><br><span class="line">        &lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>经过Hooks改造后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import &#123;useState&#125; from &apos;react&apos;</span><br><span class="line">function App () &#123;</span><br><span class="line">    const [count,setCount] = useState(0)</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;p&gt;Clicked &#123;count&#125; times&lt;/p&gt;</span><br><span class="line">          &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">            Click me</span><br><span class="line">          &lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以看到，改造后的代码量简洁了很多，并且相比无状态组件多了个自己的state(count)，并且可以更新自己的状态(setCount)。其中<code>useState</code>就是Hook中的一个，就是通过他使得函数内部拥有自己的<code>state</code>。这里有点要说明，正常来说<strong>不考虑闭包的情况下，函数中定义的变量在执行完后就会被销毁</strong>，但是上面的App却不是，每次都是拿的上一次执行完的状态值作为初始值，说明这个变量被React保留了，至于其中机制，就需要深入去理解了。</p>
+<p>可以看到，改造后的代码量简洁了很多，并且相比无状态组件多了个自己的state(count)，并且可以更新自己的状态(setCount)。其中<code>useState</code>就是Hook中的一个，就是通过他使得函数内部拥有自己的<code>state</code>。这里有点要说明，正常来说<strong>不考虑闭包的情况下，函数中定义的变量在执行完后就会被销毁</strong>，但是上面的App却不是，每次都是拿的上一次执行完的状态值作为初始值，说明这个变量被React保留了，至于其中机制，就需要深入去理解了。(通过memorizedState去维护- 2019-12-25补充)</p>
 <p><code>useState</code>使用方式很简单，传入一个初始值<code>state</code>,返回一个数组,返回的数组包含当前state和一个更新state的函数。相比类组件的<code>this.setState</code>，这里有了<code>setCount</code>和<code>count</code>变量可以直接使用，所以说为什么Hook解决了this问题</p>
 <h4 id="组件有多个状态怎么办"><a href="#组件有多个状态怎么办" class="headerlink" title="组件有多个状态怎么办"></a>组件有多个状态怎么办</h4><p><code>useState</code>是可以使用多次的，所以多个状态只需调用多次<code>useState()</code>，就像下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function manyState() &#123;</span><br><span class="line">    const [num, setNum] = useState(0)</span><br><span class="line">    const [str, setStr] = useState(&apos;diego&apos;)</span><br><span class="line">    const [bool, setBool] = useState(true)</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>其次，useState接收的初始值没有规定一定要是string/number/boolean这种简单数据类型，它完全可以接收对象或者数组作为参数。另外在类组件中，<code>this.setState()</code>是合并状态后返回，而<code>useState</code>是直接替换老状态返回新状态。</p>
 <p>那么，如果组件内有多个<code>usreState</code>，那<code>useState</code>怎么知道哪一次调用返回哪一个<code>state</code>呢？</p>
-<p>答案是，react是根据useState出现的顺序来定的。如下：</p>
+<p>答案是，react是根据useState出现的顺序来定的(通过链表来实现)。如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function human() &#123;</span><br><span class="line">    //第一次渲染</span><br><span class="line">    //将money初始化为0</span><br><span class="line">    const [money, setMoney] = useState(0);</span><br><span class="line">    //将sex初始化为man</span><br><span class="line">    const [sex,setSex] = useState(&apos;man&apos;);</span><br><span class="line">    //...</span><br><span class="line">    const [info, setInfo] = useState([&#123; house: flse &#125;]);</span><br><span class="line"></span><br><span class="line">    //第二次渲染</span><br><span class="line">    //读取状态变量money的值（这时候传的参数0被忽略）</span><br><span class="line">    const [money, setMoney] = useState(0);</span><br><span class="line">    //读取状态变量sex的值（这时候传的参数man被忽略）</span><br><span class="line">    const [sex,setSex] = useState(&apos;man&apos;);</span><br><span class="line">    const [info, setInfo] = useState([&#123; house: flse &#125;]); //...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>修改以上代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let showSex = true;</span><br><span class="line">function human() &#123;</span><br><span class="line">  const [money, setMoney] = useState(0);</span><br><span class="line"></span><br><span class="line">  if(showSex) &#123;</span><br><span class="line">    const [sex,setSex] = useState(&apos;man&apos;);</span><br><span class="line">    showSex = false;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  const [info, setInfo] = useState([&#123; house: false &#125;]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>渲染结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//第一次渲染</span><br><span class="line">//将money初始化为0</span><br><span class="line">const [money, setMoney] = useState(0);</span><br><span class="line">//将sex初始化为man</span><br><span class="line">const [sex,setSex] = useState(&apos;man&apos;);</span><br><span class="line">//...</span><br><span class="line">const [info, setInfo] = useState([&#123; house: flse &#125;]);</span><br><span class="line"></span><br><span class="line">//第二次渲染</span><br><span class="line"></span><br><span class="line">//读取状态变量money的值（这时候传的参数0被忽略）</span><br><span class="line">const [money, setMoney] = useState(0);</span><br><span class="line"></span><br><span class="line">// const [sex,setSex] = useState(&apos;man&apos;);</span><br><span class="line"></span><br><span class="line">// 读取到状态变量Sex的值，报错</span><br><span class="line">const [info, setInfo] = useState([&#123; house: flse &#125;]);</span><br></pre></td></tr></table></figure></p>
@@ -453,7 +453,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,7 +489,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,19 +497,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,14 +506,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
             
             <div class="clearfix"></div>
