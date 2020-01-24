@@ -146,6 +146,129 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ReactHook" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/ReactHook/">React Hook</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/08/ReactHook/" class="archive-article-date">
+  	<time datetime="2019-08-08T09:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。<br>（React-native 0.59，Taro 1.3开始已支持hooks）<br>
+        
+          <a class="article-more-a" href="/2019/08/08/ReactHook/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/08/ReactHook/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-webpack打包优化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/12/webpack打包优化/">webpack打包优化</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/12/webpack打包优化/" class="archive-article-date">
+  	<time datetime="2018-12-12T09:36:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于vue项目webpack打包的一些优化"><a href="#关于vue项目webpack打包的一些优化" class="headerlink" title="关于vue项目webpack打包的一些优化"></a>关于vue项目webpack打包的一些优化</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><pre><code>一方面是随着项目的推进，项目中的内容愈加丰富，随之带来的项目体积也跟着愈发庞大，打包所完成的时间也变得开始以&apos;分&apos;作单位；另一方面是随着技术的不断迭代，最新版本的webpack4的打包速度较webpack3也是有了质的提升。
+</code></pre><h3 id="如何优化"><a href="#如何优化" class="headerlink" title="如何优化"></a>如何优化</h3><ol>
+<li>修改配置<ul>
+<li>减少检索</li>
+<li>并行压缩</li>
+<li>拆分</li>
+<li>缓存</li>
+<li>开发环境下减少无意义操作</li>
+</ul>
+</li>
+<li><p>升级工具</p>
+<ul>
+<li>新版配置上的一些改动
+        
+          <a class="article-more-a" href="/2018/12/12/webpack打包优化/#more">more >></a>
+        
+      
+
+      
+    </li></ul></li></ol></div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/12/webpack打包优化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-关于弹窗滚动问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -656,134 +779,6 @@
 
 
   
-    <article id="post-mysqldump数据备份" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/05/mysqldump数据备份/">mysqldump数据备份</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/05/mysqldump数据备份/" class="archive-article-date">
-  	<time datetime="2017-01-05T07:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>场景：<br>线下开发的时候发现很多数据都是旧数据，而且后来某些表的字段做了修改，使用接口的时候对不上，于是决定从线上拷一份数据。<br>于是用到mysql的mysqldump</p>
-<p>使用方法如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysqldump -uroot -pPassword [database name] &gt; [dump file]  //导出</span><br><span class="line"></span><br><span class="line">mysql [database name] &lt; [dump file]  //导入</span><br><span class="line"></span><br><span class="line">mysql -h[ip] -username -ppassword [database name] &gt; [dump file] //从线上导</span><br></pre></td></tr></table></figure>
-<p>不过应为数据库只能从内网访问。<br>所以在服务器上使用导出命令然后scp到本地</p>
-<p>附上scp命令和服务器定时备份脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P22 root@[ip]:/[path] . //复制文件到当前目录下</span><br></pre></td></tr></table></figure>
-<p>定时备份脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!bin/bash</span><br><span class="line"><span class="meta">#</span>cd [path] </span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/05/mysqldump数据备份/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-html5-contenteditable" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/html5-contenteditable/">html5-contenteditable</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/03/html5-contenteditable/" class="archive-article-date">
-  	<time datetime="2017-01-03T06:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在提交评论的时候我们常用input框活着textarea框输入内容，但是二者都有个问题，就是不能自适应高度，input只能在一行内输入，并且不能使用回车换行，textarea可以换行，但是超出设置高度后会产生滚动条，当内容较多的时候二者的体验都不太好，这时候就要用到html5的contenteditable属性了，它可以使设置了这个属性的标签变为可编辑状态，<code>contenteditabled=&#39;true&#39;</code>,结果就跟富文本编辑器一样了。但是当你打了一大段字，中间使用了几次换行后会发现，内容中多了很多并不需要的标签,在chrome中，只要设置<code>contenteditabled=&#39;plaintext-only&#39;</code>,这个问题就能解决，不过也只是在chrome中。其他浏览器并不支持。</p>
-<p>既然浏览器没提供这个功能，那就把标签去掉，使用正则表达式可以实现这一功能</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = str.replace(<span class="regexp">/&lt;[^&gt;].*?&gt;/g</span>,<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
-<p>但是同样有个问题就是，最后的内容又挤成一块了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/03/html5-contenteditable/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -877,14 +872,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -901,31 +888,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -933,7 +896,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,11 +936,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
               </li>
             
             <div class="clearfix"></div>

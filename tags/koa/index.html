@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>webpack换行符问题 | YDiego</title>
+  <title>Tag: koa | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
-<meta name="keywords" content="javascript,webpack">
-<meta property="og:type" content="article">
-<meta property="og:title" content="webpack换行符问题">
-<meta property="og:url" content="https://toxicyu.github.io/2016/11/04/webpack换行符问题/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="YDiego">
+<meta property="og:url" content="https://toxicyu.github.io/tags/koa/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-11-12T07:42:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack换行符问题">
-<meta name="twitter:description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
+<meta name="twitter:title" content="YDiego">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,175 +144,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-webpack换行符问题" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      webpack换行符问题
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/" class="archive-article-date">
+  	<time datetime="2020-01-24T06:50:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/">koa-bodyparser解析get请求中的数组参数问题</a>
     </h1>
   
 
-        
-        <a href="/2016/11/04/webpack换行符问题/" class="archive-article-date">
-  	<time datetime="2016-11-04T08:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天遇到一个奇怪的问题。</p>
-<p>webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge?</p>
-<p>git status 一下发现目标文件被修改了！</p>
-<p>然后一顿操作发现这么个提示</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIT] warning: LF will be replaced by CRLF]</span><br></pre></td></tr></table></figure>
-<p>原来提交的文件里面的换行符跟linux下的不同，window下的换行符为CRLF，而linux下的为LF，git自动给替换了。。。</p>
-<p>看来问题出在自动替换换行符上面，搜了下网上有种解决方案,取消自动替换</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git</span><br><span class="line">$ git config --gobal core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>不过实际操作下来似乎并不能解决这个问题，既然这个不行，那吧换行什么都去掉总可以了把！</p>
-<p>遂webpack打包的时候选择压缩，问题解决。</p>
-<p>或者修改编辑器的换行符号(10/12)</p>
-<p>开发环境：ATOM<br>打包工具：webpack<br>系统环境：MAC</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">koa</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2016/11/04/webpack换行符问题/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/11/20/流逝·改变/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          流逝·改变
-        
-      </div>
-    </a>
   
   
-    <a href="/2016/11/03/鼠标点击数字上升特效/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">鼠标点击数字上升特效</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -340,9 +224,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

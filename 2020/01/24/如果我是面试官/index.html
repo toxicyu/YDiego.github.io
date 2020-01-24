@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>webpack换行符问题 | YDiego</title>
+  <title>YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
-<meta name="keywords" content="javascript,webpack">
+  <meta name="description" content="title: 如果我是面试官date: 2020-01-24 14:51:27 tags: [面试，js]面试学习  script标签中的defer与async的区别 以下代码执行结果为？ 123456// a.jsconsole.log(&amp;apos;a&amp;apos;)...&amp;lt;script src=&amp;apos;a.js&amp;apos;&amp;gt;    console.log(&amp;apos;b&amp;apo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack换行符问题">
-<meta property="og:url" content="https://toxicyu.github.io/2016/11/04/webpack换行符问题/index.html">
+<meta property="og:title" content="YDiego">
+<meta property="og:url" content="https://toxicyu.github.io/2020/01/24/如果我是面试官/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
+<meta property="og:description" content="title: 如果我是面试官date: 2020-01-24 14:51:27 tags: [面试，js]面试学习  script标签中的defer与async的区别 以下代码执行结果为？ 123456// a.jsconsole.log(&amp;apos;a&amp;apos;)...&amp;lt;script src=&amp;apos;a.js&amp;apos;&amp;gt;    console.log(&amp;apos;b&amp;apo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-11-12T07:42:38.000Z">
+<meta property="og:updated_time" content="2020-01-24T06:53:38.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack换行符问题">
-<meta name="twitter:description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
+<meta name="twitter:title" content="YDiego">
+<meta name="twitter:description" content="title: 如果我是面试官date: 2020-01-24 14:51:27 tags: [面试，js]面试学习  script标签中的defer与async的区别 以下代码执行结果为？ 123456// a.jsconsole.log(&amp;apos;a&amp;apos;)...&amp;lt;script src=&amp;apos;a.js&amp;apos;&amp;gt;    console.log(&amp;apos;b&amp;apo">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,39 +148,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-webpack换行符问题" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-如果我是面试官" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      webpack换行符问题
-    </h1>
-  
-
-        
-        <a href="/2016/11/04/webpack换行符问题/" class="archive-article-date">
-  	<time datetime="2016-11-04T08:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-04</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天遇到一个奇怪的问题。</p>
-<p>webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge?</p>
-<p>git status 一下发现目标文件被修改了！</p>
-<p>然后一顿操作发现这么个提示</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIT] warning: LF will be replaced by CRLF]</span><br></pre></td></tr></table></figure>
-<p>原来提交的文件里面的换行符跟linux下的不同，window下的换行符为CRLF，而linux下的为LF，git自动给替换了。。。</p>
-<p>看来问题出在自动替换换行符上面，搜了下网上有种解决方案,取消自动替换</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git</span><br><span class="line">$ git config --gobal core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>不过实际操作下来似乎并不能解决这个问题，既然这个不行，那吧换行什么都去掉总可以了把！</p>
-<p>遂webpack打包的时候选择压缩，问题解决。</p>
-<p>或者修改编辑器的换行符号(10/12)</p>
-<p>开发环境：ATOM<br>打包工具：webpack<br>系统环境：MAC</p>
+        <hr>
+<p>title: 如果我是面试官<br>date: 2020-01-24 14:51:27</p>
+<h2 id="tags-面试，js"><a href="#tags-面试，js" class="headerlink" title="tags: [面试，js]"></a>tags: [面试，js]</h2><p>面试学习</p>
+<ul>
+<li>script标签中的defer与async的区别</li>
+<li><p>以下代码执行结果为？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// a.js</span><br><span class="line">console.log(&apos;a&apos;)</span><br><span class="line">...</span><br><span class="line">&lt;script src=&apos;a.js&apos;&gt;</span><br><span class="line">    console.log(&apos;b&apos;)</span><br><span class="line">&lt;/script</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>0.1 + 0.2 = ? 为什么</p>
+</li>
+<li>NaN 什么情况下出现</li>
+<li><p>以下代码执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">isNaN(NaN) ?</span><br><span class="line">isNaN(&apos;1&apos;) ?</span><br><span class="line">isNaN(&apos;true&apos;) ?</span><br><span class="line">isNaN(&#123;a: 1&#125;) ?</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Infinity * 0 = ?</p>
+</li>
+<li>Infinity / Infinity = ?</li>
+<li>0 / 0 = ?</li>
+<li>1 / 0 = ?</li>
+<li><code>var num = (1,5,3,9,0)</code> num = ?</li>
+<li>实现<code>sum(1,2)(3)(5).valueOf() == 11</code></li>
+<li>什么是引用类型?</li>
+<li>原型、原型链、作用域链</li>
+<li>callee, caller区别</li>
+<li><code>&#39;string&#39;.substring(2)</code> 基本类型是怎么实现方法调用的</li>
+<li><code>String.slice</code>、<code>String.substring</code>、<code>String.substr</code>第一个参数与第二个参数分别接收负值时的表现</li>
+<li><p>以下代码执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let p = &#123;&#125;</span><br><span class="line">Object.defineProperty(p, &apos;name&apos;, &#123;</span><br><span class="line">	value: &apos;hello&apos;</span><br><span class="line">&#125;)</span><br><span class="line">p.name = &apos;world&apos;</span><br><span class="line">console.log(p.name) ?</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建对象的几种模式</p>
+</li>
+<li>继承的几种方式以及优缺点</li>
+<li>什么是闭包，闭包的使用场景</li>
+<li>event loop</li>
+<li>DOM0的事件在什么阶段触发，DOM2又是怎么处理的</li>
+<li>如何自定义事件</li>
+<li>实现<code>sum(1)(2,3)(4)() === sum(1)(2,3)(4).valueOf() === 10</code></li>
+<li>浏览器存储有哪些以及它们的优缺点</li>
+<li><p>以下代码执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let obj = &#123;&#125;</span><br><span class="line">Object.defineProperty(obj, &apos;foo&apos;, &#123;</span><br><span class="line">	writable: false,</span><br><span class="line">	configurable: true,</span><br><span class="line">	enumerable: true,</span><br><span class="line">	value: 1</span><br><span class="line">&#125;)</span><br><span class="line">let cobj = Object.create(obj)</span><br><span class="line">cobj.foo = 2</span><br><span class="line">console.log(cobj.foo) ?</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>js中<code>new</code>关键字做了什么？如何实现？</p>
+</li>
+<li><p>以下代码执行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Foo() &#123;&#125;</span><br><span class="line">Foo.prototype = &#123;/*...*/&#125;</span><br><span class="line">var f = new Foo()</span><br><span class="line">f.constructor === Foo ? &amp; why</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>instance</code> 原理及局限性</p>
+</li>
+<li><code>class</code>的优缺点</li>
+<li>如何使<code>new foo() == new foo()</code></li>
+</ul>
 
       
 
@@ -211,21 +233,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -276,7 +283,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2016/11/04/webpack换行符问题/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2020/01/24/如果我是面试官/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +297,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/20/流逝·改变/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          流逝·改变
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/11/03/鼠标点击数字上升特效/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">鼠标点击数字上升特效</div>
+    <a href="/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">koa-bodyparser解析get请求中的数组参数问题</div>
       <i class="icon-circle-right"></i>
     </a>
   

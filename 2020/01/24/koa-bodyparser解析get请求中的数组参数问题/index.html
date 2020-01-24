@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>webpack换行符问题 | YDiego</title>
+  <title>koa-bodyparser解析get请求中的数组参数问题 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
-<meta name="keywords" content="javascript,webpack">
+  <meta name="description" content="对于/base/get?foo[]=bar&amp;amp;foo[]=baz地址，经过koa-bodyparser中间件之后返回的query结果为1234567&amp;#123;    &amp;quot;query&amp;quot;: &amp;#123;        &amp;quot;foo[]&amp;quot;:            [&amp;quot;bar&amp;quot;,&amp;quot;baz&amp;quot;]        &amp;#125;">
+<meta name="keywords" content="node,koa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack换行符问题">
-<meta property="og:url" content="https://toxicyu.github.io/2016/11/04/webpack换行符问题/index.html">
+<meta property="og:title" content="koa-bodyparser解析get请求中的数组参数问题">
+<meta property="og:url" content="https://toxicyu.github.io/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
+<meta property="og:description" content="对于/base/get?foo[]=bar&amp;amp;foo[]=baz地址，经过koa-bodyparser中间件之后返回的query结果为1234567&amp;#123;    &amp;quot;query&amp;quot;: &amp;#123;        &amp;quot;foo[]&amp;quot;:            [&amp;quot;bar&amp;quot;,&amp;quot;baz&amp;quot;]        &amp;#125;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2016-11-12T07:42:38.000Z">
+<meta property="og:updated_time" content="2020-01-24T06:50:50.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack换行符问题">
-<meta name="twitter:description" content="今天遇到一个奇怪的问题。 webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge? git status 一下发现目标文件被修改了！ 然后一顿操作发现这么个提示">
+<meta name="twitter:title" content="koa-bodyparser解析get请求中的数组参数问题">
+<meta name="twitter:description" content="对于/base/get?foo[]=bar&amp;amp;foo[]=baz地址，经过koa-bodyparser中间件之后返回的query结果为1234567&amp;#123;    &amp;quot;query&amp;quot;: &amp;#123;        &amp;quot;foo[]&amp;quot;:            [&amp;quot;bar&amp;quot;,&amp;quot;baz&amp;quot;]        &amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,39 +149,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-webpack换行符问题" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-koa-bodyparser解析get请求中的数组参数问题" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      webpack换行符问题
+      koa-bodyparser解析get请求中的数组参数问题
     </h1>
   
 
         
-        <a href="/2016/11/04/webpack换行符问题/" class="archive-article-date">
-  	<time datetime="2016-11-04T08:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-04</time>
+        <a href="/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/" class="archive-article-date">
+  	<time datetime="2020-01-24T06:50:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天遇到一个奇怪的问题。</p>
-<p>webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge?</p>
-<p>git status 一下发现目标文件被修改了！</p>
-<p>然后一顿操作发现这么个提示</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIT] warning: LF will be replaced by CRLF]</span><br></pre></td></tr></table></figure>
-<p>原来提交的文件里面的换行符跟linux下的不同，window下的换行符为CRLF，而linux下的为LF，git自动给替换了。。。</p>
-<p>看来问题出在自动替换换行符上面，搜了下网上有种解决方案,取消自动替换</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf .git</span><br><span class="line">$ git config --gobal core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>不过实际操作下来似乎并不能解决这个问题，既然这个不行，那吧换行什么都去掉总可以了把！</p>
-<p>遂webpack打包的时候选择压缩，问题解决。</p>
-<p>或者修改编辑器的换行符号(10/12)</p>
-<p>开发环境：ATOM<br>打包工具：webpack<br>系统环境：MAC</p>
+        <p>对于<code>/base/get?foo[]=bar&amp;foo[]=baz</code>地址，经过<code>koa-bodyparser</code>中间件之后返回的<code>query</code>结果为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;: &#123;</span><br><span class="line">        &quot;foo[]&quot;:</span><br><span class="line">            [&quot;bar&quot;,&quot;baz&quot;]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>该结果明显不是我们想要的，<br>后通过查找<code>koa-bodyparser</code>的issue<a href="https://github.com/koajs/bodyparser/issues/24" target="_blank" rel="noopener">#24</a>得知，该问题通过使用<code>koa-qs</code>解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const app = new Koa()</span><br><span class="line">require(&apos;koa-qs&apos;)(app)</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -216,11 +205,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">koa</a>
         		</li>
       		
 		</ul>
@@ -276,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2016/11/04/webpack换行符问题/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -290,18 +279,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/20/流逝·改变/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/24/如果我是面试官/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          流逝·改变
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2016/11/03/鼠标点击数字上升特效/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">鼠标点击数字上升特效</div>
+    <a href="/2020/01/03/记阿里面试算法题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记阿里面试算法题</div>
       <i class="icon-circle-right"></i>
     </a>
   

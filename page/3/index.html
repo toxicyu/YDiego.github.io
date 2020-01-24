@@ -146,6 +146,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysqldump数据备份" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/05/mysqldump数据备份/">mysqldump数据备份</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/05/mysqldump数据备份/" class="archive-article-date">
+  	<time datetime="2017-01-05T07:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>场景：<br>线下开发的时候发现很多数据都是旧数据，而且后来某些表的字段做了修改，使用接口的时候对不上，于是决定从线上拷一份数据。<br>于是用到mysql的mysqldump</p>
+<p>使用方法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysqldump -uroot -pPassword [database name] &gt; [dump file]  //导出</span><br><span class="line"></span><br><span class="line">mysql [database name] &lt; [dump file]  //导入</span><br><span class="line"></span><br><span class="line">mysql -h[ip] -username -ppassword [database name] &gt; [dump file] //从线上导</span><br></pre></td></tr></table></figure>
+<p>不过应为数据库只能从内网访问。<br>所以在服务器上使用导出命令然后scp到本地</p>
+<p>附上scp命令和服务器定时备份脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P22 root@[ip]:/[path] . //复制文件到当前目录下</span><br></pre></td></tr></table></figure>
+<p>定时备份脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">cd</span> [path] </span></span><br><span class="line">cd [back path]</span><br><span class="line">find data/ -mtime +7 -type f |xargs rm -f</span><br><span class="line">name=$(date +%s)</span><br><span class="line">mysqldump -hip -uusername -ppassword [database name] &gt;&gt; [name]$&#123;name&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/05/mysqldump数据备份/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-html5-contenteditable" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/03/html5-contenteditable/">html5-contenteditable</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/03/html5-contenteditable/" class="archive-article-date">
+  	<time datetime="2017-01-03T06:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在提交评论的时候我们常用input框活着textarea框输入内容，但是二者都有个问题，就是不能自适应高度，input只能在一行内输入，并且不能使用回车换行，textarea可以换行，但是超出设置高度后会产生滚动条，当内容较多的时候二者的体验都不太好，这时候就要用到html5的contenteditable属性了，它可以使设置了这个属性的标签变为可编辑状态，<code>contenteditabled=&#39;true&#39;</code>,结果就跟富文本编辑器一样了。但是当你打了一大段字，中间使用了几次换行后会发现，内容中多了很多并不需要的标签,在chrome中，只要设置<code>contenteditabled=&#39;plaintext-only&#39;</code>,这个问题就能解决，不过也只是在chrome中。其他浏览器并不支持。</p>
+<p>既然浏览器没提供这个功能，那就把标签去掉，使用正则表达式可以实现这一功能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str = str.replace(<span class="regexp">/&lt;[^&gt;].*?&gt;/g</span>,<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+<p>但是同样有个问题就是，最后的内容又挤成一块了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/03/html5-contenteditable/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-vim命令收集" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -731,134 +859,6 @@
 
 
   
-    <article id="post-webpack换行符问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/04/webpack换行符问题/">webpack换行符问题</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/04/webpack换行符问题/" class="archive-article-date">
-  	<time datetime="2016-11-04T08:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天遇到一个奇怪的问题。</p>
-<p>webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge?</p>
-<p>git status 一下发现目标文件被修改了！</p>
-<p>然后一顿操作发现这么个提示</p>
-        
-          <a class="article-more-a" href="/2016/11/04/webpack换行符问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/04/webpack换行符问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-鼠标点击数字上升特效" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/03/鼠标点击数字上升特效/">鼠标点击数字上升特效</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/03/鼠标点击数字上升特效/" class="archive-article-date">
-  	<time datetime="2016-11-03T02:07:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>直接上代码把。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-----------数字上升特效-------------*/</span></span><br><span class="line"><span class="keyword">var</span> _click_count = <span class="number">0</span>;</span><br><span class="line">$(<span class="string">"body"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//var n=Math.round(Math.random()*100);//随机数</span></span><br><span class="line">  <span class="keyword">var</span> $i = $(<span class="string">"&lt;b&gt;"</span>).text(<span class="string">"+"</span> + (++_click_count)); <span class="comment">//添加到页面的元素</span></span><br><span class="line">  <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">    y = e.pageY; <span class="comment">//鼠标点击的位置</span></span><br><span class="line">  $i.css(&#123;</span><br><span class="line">    <span class="string">"z-index"</span>: <span class="number">99999</span>,</span><br><span class="line">    <span class="string">"top"</span>: y - <span class="number">15</span>,</span><br><span class="line">    <span class="string">"left"</span>: x,</span><br><span class="line">    <span class="string">"position"</span>: <span class="string">"absolute"</span>,</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"#00BCF3"</span></span><br><span class="line">  &#125;);</span><br><span class="line">  $(<span class="string">"body"</span>).append($i);</span><br><span class="line">  $i.animate(&#123;</span><br><span class="line">      <span class="string">"top"</span>: y - <span class="number">180</span>,</span><br><span class="line">      <span class="string">"opacity"</span>: <span class="number">0.5</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="number">1500</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $i.remove();</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line">  e.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/03/鼠标点击数字上升特效/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -952,14 +952,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -976,31 +968,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,7 +976,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1016,11 +1016,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
   <title>Axios源码学习笔记 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
+  <meta name="description" content="axios的混合模式是怎么实现的？也就是 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Axios源码学习笔记">
 <meta property="og:url" content="https://toxicyu.github.io/2019/12/20/Axios源码学习笔记/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
+<meta property="og:description" content="axios的混合模式是怎么实现的？也就是 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-21T06:06:42.762Z">
+<meta property="og:updated_time" content="2020-01-24T06:49:09.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axios源码学习笔记">
-<meta name="twitter:description" content="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
+<meta name="twitter:description" content="axios的混合模式是怎么实现的？也就是 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -169,8 +169,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么-axios-既可以当函数调用，也可以当对象使用，比如axios-、axios-get"><a href="#为什么-axios-既可以当函数调用，也可以当对象使用，比如axios-、axios-get" class="headerlink" title="为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get"></a>为什么 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get</h3><a id="more"></a>
-<p>本身axios就是个函数，对象调用是因为在axios的原型上挂载了这些方法</p>
+        <h3 id="axios的混合模式是怎么实现的？也就是-axios-既可以当函数调用，也可以当对象使用，比如axios-、axios-get"><a href="#axios的混合模式是怎么实现的？也就是-axios-既可以当函数调用，也可以当对象使用，比如axios-、axios-get" class="headerlink" title="axios的混合模式是怎么实现的？也就是 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get"></a>axios的混合模式是怎么实现的？也就是 axios 既可以当函数调用，也可以当对象使用，比如axios({})、axios.get</h3><a id="more"></a>
+<p><del>本身axios就是个函数，对象调用是因为在axios的原型上挂载了这些方法 2020.1.16更新</del></p>
+<p>axios定义了一个类，类里面里面有<code>request(config)</code>、<code>get</code>、<code>post</code>、<code>options</code>等方法，我们使用的axios其实就是这个类实例里面的<code>request</code>方法，然后将类里面的其余方法都挂到这个实例上，也就是实现了混合模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Axios &#123;</span><br><span class="line">    request(config) &#123;&#125;</span><br><span class="line">    get(url,config)&#123;&#125;</span><br><span class="line">    post(url,data,condif)&#123;&#125;</span><br><span class="line">    // ... head options delete put patch</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createInstance() &#123;</span><br><span class="line">    const context = new Axios()</span><br><span class="line">    const instance = Axios.prototype.request.bind(context)</span><br><span class="line">    extend(instance, context)</span><br><span class="line">    </span><br><span class="line">    return instance  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="axios调用过程"><a href="#axios调用过程" class="headerlink" title="axios调用过程"></a>axios调用过程</h3><ol>
 <li>调用axios.request方法，该方法为bind返回的包裹函数,用于将request内部的this绑定到新建的Axios对象上</li>
 <li>如果有请求拦截器调用拦截器</li>
@@ -183,6 +185,11 @@
 <p>在请求之前也就是<code>request</code>方法中定义一个数组<code>chain = [dispatchRequest, undefined]</code>，然后根据请求拦截器跟响应拦截器的配置情况分别在定义好的数组前(unshift)后(push)插入拦截器；最后处理这个数组，两两取出并通过<code>Promise.then(chian.shift(), chain.shift())</code>去执行。根据插入方式，请求拦截器的执行顺序是先加入后执行，响应拦截器的执行顺序是先加入先执行</p>
 <p>注: <code>Promise.then</code>方法可以接收两个参数，一个是<code>resolve</code>回调函数，还有个是<code>reject</code>回调函数</p>
 <h3 id="axios取消功能是怎么实现的"><a href="#axios取消功能是怎么实现的" class="headerlink" title="axios取消功能是怎么实现的"></a>axios取消功能是怎么实现的</h3><p>主要就是通过传递配置参数<code>cancelToken</code>，取消时才会生成cancelToken，判断有，则抛出错误，使<code>Promise</code>走向<code>rejected</code>，让用户捕获到消息</p>
+<p>2020-01-24补充：<br><code>CancelToken</code>可以由以下方式创建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const CancelToken = axios.CancelToken</span><br><span class="line">const source = CancelToken.source()</span><br><span class="line">axios.get(&apos;/cancel/get&apos;, &#123;</span><br><span class="line">    cancelToken: source.token</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// use cancel</span><br><span class="line">source.cancel()</span><br><span class="line">// or</span><br><span class="line"></span><br><span class="line">let cancel</span><br><span class="line">axios.get(&apos;/cancel/get&apos;, &#123;</span><br><span class="line">    cancelToken: new CancelToken(c =&gt; &#123;</span><br><span class="line">      cancel = c</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>source</code>静态方法返回的是包含<code>CancelToken</code>的实例以及取消方法<code>cancel</code>(其实就跟第二种方法一样，只不过这个过程在静态方法内部处理了)</p>
+<p>在<code>CancelToken</code>实例化过程中创建了一个<code>Pending</code>状态的<code>Promise</code>，这个<code>Promise</code>的<code>resolve</code>方法被缓存并且被包装成一个方法抛出使用也就是上面的<code>source.cancel()</code>以及第二种方式的<code>cancel()</code>,此外在调用请求的过程中记录了该<code>Promise</code>状态改变后的处理逻辑也就是<code>abort</code>请求并且抛出异常</p>
+<p>处理过程大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// CancelToken</span><br><span class="line"></span><br><span class="line"> constructor(executor) &#123;</span><br><span class="line">    let resolvePromise</span><br><span class="line">    this.promise = new Promise(resolve =&gt; &#123;</span><br><span class="line">      resolvePromise = resolve</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    executor(message =&gt; &#123;</span><br><span class="line">      if (this.reason) return</span><br><span class="line">      this.reason = new Cancel(message)</span><br><span class="line">      resolvePromise(this.reason)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">// xhr</span><br><span class="line">//...</span><br><span class="line">if (config.cancelToken) &#123;</span><br><span class="line">  cancelToken.promise.then(reason =&gt; &#123;</span><br><span class="line">    request.abort()</span><br><span class="line">    reject(reason)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">//...</span><br></pre></td></tr></table></figure>
 <h3 id="为什么支持浏览器中发送请求也支持node发送请求"><a href="#为什么支持浏览器中发送请求也支持node发送请求" class="headerlink" title="为什么支持浏览器中发送请求也支持node发送请求"></a>为什么支持浏览器中发送请求也支持node发送请求</h3><p>根据当前环境引入，如果是浏览器环境引入xhr，是node环境则引入http</p>
 
       
@@ -404,14 +411,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -428,31 +427,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +435,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,11 +475,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
               </li>
             
             <div class="clearfix"></div>

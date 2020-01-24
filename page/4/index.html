@@ -146,6 +146,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-webpack换行符问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/04/webpack换行符问题/">webpack换行符问题</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/04/webpack换行符问题/" class="archive-article-date">
+  	<time datetime="2016-11-04T08:19:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天遇到一个奇怪的问题。</p>
+<p>webpack打包好的文件上传到git仓库的时候一切正常，但是从服务器上pull下来的时候总是提示merge，奇怪，并没有改怎么会需要merge?</p>
+<p>git status 一下发现目标文件被修改了！</p>
+<p>然后一顿操作发现这么个提示</p>
+        
+          <a class="article-more-a" href="/2016/11/04/webpack换行符问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/04/webpack换行符问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-鼠标点击数字上升特效" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/03/鼠标点击数字上升特效/">鼠标点击数字上升特效</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/03/鼠标点击数字上升特效/" class="archive-article-date">
+  	<time datetime="2016-11-03T02:07:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>直接上代码把。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-----------数字上升特效-------------*/</span></span><br><span class="line"><span class="keyword">var</span> _click_count = <span class="number">0</span>;</span><br><span class="line">$(<span class="string">"body"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//var n=Math.round(Math.random()*100);//随机数</span></span><br><span class="line">  <span class="keyword">var</span> $i = $(<span class="string">"&lt;b&gt;"</span>).text(<span class="string">"+"</span> + (++_click_count)); <span class="comment">//添加到页面的元素</span></span><br><span class="line">  <span class="keyword">var</span> x = e.pageX,</span><br><span class="line">    y = e.pageY; <span class="comment">//鼠标点击的位置</span></span><br><span class="line">  $i.css(&#123;</span><br><span class="line">    <span class="string">"z-index"</span>: <span class="number">99999</span>,</span><br><span class="line">    <span class="string">"top"</span>: y - <span class="number">15</span>,</span><br><span class="line">    <span class="string">"left"</span>: x,</span><br><span class="line">    <span class="string">"position"</span>: <span class="string">"absolute"</span>,</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"#00BCF3"</span></span><br><span class="line">  &#125;);</span><br><span class="line">  $(<span class="string">"body"</span>).append($i);</span><br><span class="line">  $i.animate(&#123;</span><br><span class="line">      <span class="string">"top"</span>: y - <span class="number">180</span>,</span><br><span class="line">      <span class="string">"opacity"</span>: <span class="number">0.5</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="number">1500</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      $i.remove();</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line">  e.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/03/鼠标点击数字上升特效/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-解忧杂货店" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -622,14 +750,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -646,31 +766,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,7 +774,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">laravel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,11 +814,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
               </li>
             
             <div class="clearfix"></div>
