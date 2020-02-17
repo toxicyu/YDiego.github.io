@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YDiego">
 <meta property="og:description" content="《前端面试之道》学习记录">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-17T05:21:35.322Z">
+<meta property="og:updated_time" content="2020-02-17T07:31:42.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试学习一">
 <meta name="twitter:description" content="《前端面试之道》学习记录">
@@ -249,10 +249,9 @@
 </li>
 </ol>
 </li>
-<li><p><strong>箭头函数</strong><br>  严格来说箭头函数它没有this，它的this来自外层(函数或者全局)作用域。就像外层使用<code>const that = this</code>，然后箭头函数内部使用了that,而外层的this则是延续上面哪几种规则</p>
-</li>
-</ul>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<li><p><strong>箭头函数</strong></p>
+<p>  严格来说箭头函数它没有this，它的this来自外层(函数或者全局)作用域，它跟普通变量一样会向上逐级寻找，所以改变作用域中的this也会改变箭头函数中的this。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3></li>
 <li><a href="https://www.jianshu.com/p/4f07ef18b5d7" target="_blank" rel="noopener">MessageChannel是什么，怎么使用？</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="noopener">继承与原型链</a></li>
 <li><a href="https://www.cnblogs.com/waitforyou/p/7080591.html" target="_blank" rel="noopener">JavaScript ES6 Symbol.hasInstance的理解。</a></li>
@@ -367,6 +366,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/02/17/V8垃圾回收原理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          V8垃圾回收原理
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/01/24/如果我是面试官/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">如果我是面试官</div>
@@ -466,11 +474,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,19 +518,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,6 +538,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
@@ -542,15 +550,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
             
             <div class="clearfix"></div>

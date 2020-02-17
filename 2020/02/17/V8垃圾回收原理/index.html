@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>Tag: codefreecamp | YDiego</title>
+  <title>V8垃圾回收原理 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="YDiego">
-<meta property="og:url" content="https://toxicyu.github.io/tags/codefreecamp/index.html">
+  <meta name="description" content="根据世代假说，V8根据对象的存活时间将内存分为两类新生代(new),和旧生代(old)。  新生代为存活时间较短，或只经历过一次垃圾回收的对象。 旧生代为存活时间较长，经历过一次以上垃圾回收的对象">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="V8垃圾回收原理">
+<meta property="og:url" content="https://toxicyu.github.io/2020/02/17/V8垃圾回收原理/index.html">
 <meta property="og:site_name" content="YDiego">
+<meta property="og:description" content="根据世代假说，V8根据对象的存活时间将内存分为两类新生代(new),和旧生代(old)。  新生代为存活时间较短，或只经历过一次垃圾回收的对象。 旧生代为存活时间较长，经历过一次以上垃圾回收的对象">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-17T07:30:38.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YDiego">
+<meta name="twitter:title" content="V8垃圾回收原理">
+<meta name="twitter:description" content="根据世代假说，V8根据对象的存活时间将内存分为两类新生代(new),和旧生代(old)。  新生代为存活时间较短，或只经历过一次垃圾回收的对象。 旧生代为存活时间较长，经历过一次以上垃圾回收的对象">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -144,158 +149,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-V8垃圾回收原理" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/freeCamp-nodeJS-server/" class="archive-article-date">
-  	<time datetime="2017-01-03T03:48:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/freeCamp-nodeJS-server/">freeCamp-nodeJS-server</a>
+    <h1 class="article-title" itemprop="name">
+      V8垃圾回收原理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/17/V8垃圾回收原理/" class="archive-article-date">
+  	<time datetime="2020-02-17T07:29:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据世代假说，V8根据对象的存活时间将内存分为两类新生代(new),和旧生代(old)。</p>
+<ul>
+<li>新生代为存活时间较短，或只经历过一次垃圾回收的对象。</li>
+<li>旧生代为存活时间较长，经历过一次以上垃圾回收的对象<a id="more"></a>
+<h3 id="回收算法"><a href="#回收算法" class="headerlink" title="回收算法"></a>回收算法</h3></li>
+</ul>
+<h5 id="新生代"><a href="#新生代" class="headerlink" title="新生代"></a>新生代</h5><p>新生代中，所属的内存被分为两半，from和to。其中from为使用中，to为闲置。它的回收流程如下：</p>
+<ul>
+<li>从from中分配对象，如果from空间已满，则进行辣鸡回收</li>
+<li>检查from中的存活对象，如果存活就检查该对象是否满足晋升条件，满足就移至旧生代，否则移动到to。</li>
+<li>对象不存活则将改对象释放</li>
+<li>复制完成后，将from跟to翻转</li>
+</ul>
+<p>晋升条件：to空间使用超过25%或者根据内存地址判断该对象是否经历过回收<br>缺点： 只能使用一半的内存空间，不过新生代中的对象生存周期短切对象少，所以实际上使用成本不高，完全可以接受</p>
+<h3 id="旧生代"><a href="#旧生代" class="headerlink" title="旧生代"></a>旧生代</h3><p>旧生代中的回收算法使用了<strong>标记清除</strong>跟<strong>标记整理</strong></p>
+<ul>
+<li><p><strong>标记清除</strong></p>
+<p>  在标记阶段标记所有对象中的存活对象，在清除阶段对未标记对象回收</p>
+<p>  缺点是经历清除后，内存空间变得碎片化，此时如果需要分配较大对象时，可能没有能容纳的内存碎片，这将提前一次没必要的回收操作</p>
+</li>
+<li><p><strong>标记整理</strong></p>
+<p>  针对标记清除问题，它不会马上回收对象，而是先将存活对象整理后再做清除</p>
+<p>  缺点是需要移动对象，所以执行速度较慢</p>
+</li>
+</ul>
+<p>综上，V8的回收主要使用标记清除，在内存不足的时候使用标记整理</p>
+<h3 id="标记优化"><a href="#标记优化" class="headerlink" title="标记优化"></a>标记优化</h3><ul>
+<li>增量标记<br>  早期的时候，V8采用的是<code>全停顿</code>策略，只有等回收完成之后才能继续其他的引用逻辑，如果回收比较耗时的话，就会出现应用暂停无响应。为了减少全停顿的时间，V8对标记进行了优化，将一次停顿进行的标记过程，分成了很多小步。每执行完一小步就让应用逻辑执行一会儿，这样交替多次后完成标记：<br>  JS-&gt;GC-&gt;JS-&gt;GC-&gt;JS…</li>
+<li><p>延迟清理</p>
+<p>  在增量标记之后，堆可以确切地知道有多少空间能被释放，因此页面的清理可以根据需要进行清理，当延迟清理完成后，增量标记将重新开始。</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">codefreecamp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2020/02/17/V8垃圾回收原理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/11/29/codefreecamp-Intermediate-Algorithm-Scripting/" class="archive-article-date">
-  	<time datetime="2016-11-29T08:37:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-29</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/11/29/codefreecamp-Intermediate-Algorithm-Scripting/">codefreecamp-Intermediate-Algorithm-Scripting</a>
-    </h1>
+  
+    <a href="/2020/02/17/面试学习一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试学习一</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">codefreecamp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/19/codefreecamp-Basic-Algorithm-Scripting/" class="archive-article-date">
-  	<time datetime="2016-10-19T07:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/19/codefreecamp-Basic-Algorithm-Scripting/">codefreecamp-Basic Algorithm Scripting</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">codefreecamp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -318,9 +346,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
