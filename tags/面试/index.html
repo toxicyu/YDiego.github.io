@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>前端性能优化1 | YDiego</title>
+  <title>Tag: 面试 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Head标签dns-prefetch123&amp;lt;!-- 预解析DNS 减少访问对应网址时处理dns的时间 --&amp;gt;&amp;lt;link rel=&quot;dns-prefetch&quot; href=&quot;//example.com&quot;&amp;gt;` preconnect12345&amp;lt;!-- 预先建立连接 如果href合法 --&amp;gt;&amp;lt;!-- 如果当前页面host不同于href属性中的host,crossor">
-<meta name="keywords" content="学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="前端性能优化1">
-<meta property="og:url" content="https://toxicyu.github.io/2019/12/25/前端性能优化1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="YDiego">
+<meta property="og:url" content="https://toxicyu.github.io/tags/面试/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="Head标签dns-prefetch123&amp;lt;!-- 预解析DNS 减少访问对应网址时处理dns的时间 --&amp;gt;&amp;lt;link rel=&quot;dns-prefetch&quot; href=&quot;//example.com&quot;&amp;gt;` preconnect12345&amp;lt;!-- 预先建立连接 如果href合法 --&amp;gt;&amp;lt;!-- 如果当前页面host不同于href属性中的host,crossor">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-25T07:34:11.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端性能优化1">
-<meta name="twitter:description" content="Head标签dns-prefetch123&amp;lt;!-- 预解析DNS 减少访问对应网址时处理dns的时间 --&amp;gt;&amp;lt;link rel=&quot;dns-prefetch&quot; href=&quot;//example.com&quot;&amp;gt;` preconnect12345&amp;lt;!-- 预先建立连接 如果href合法 --&amp;gt;&amp;lt;!-- 如果当前页面host不同于href属性中的host,crossor">
+<meta name="twitter:title" content="YDiego">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,174 +144,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-前端性能优化1" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      前端性能优化1
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/17/面试学习一/" class="archive-article-date">
+  	<time datetime="2020-02-17T05:18:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/17/面试学习一/">面试学习一</a>
     </h1>
   
 
-        
-        <a href="/2019/12/25/前端性能优化1/" class="archive-article-date">
-  	<time datetime="2019-12-25T07:33:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Head标签"><a href="#Head标签" class="headerlink" title="Head标签"></a>Head标签</h3><h4 id="dns-prefetch"><a href="#dns-prefetch" class="headerlink" title="dns-prefetch"></a>dns-prefetch</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 预解析DNS 减少访问对应网址时处理dns的时间 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//example.com"</span>&gt;</span></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<h4 id="preconnect"><a href="#preconnect" class="headerlink" title="preconnect"></a>preconnect</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 预先建立连接 如果href合法 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果当前页面host不同于href属性中的host,</span></span><br><span class="line"><span class="comment">crossorigin会被设置为anonymous(就是不带cookie了)，</span></span><br><span class="line"><span class="comment">如果希望带上cookie等信息可以加上crossorign属性,corssorign就等同于设置为use-credentials --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"preconnect"</span> <span class="attr">href</span>=<span class="string">"//example.com"</span> <span class="attr">crossorigin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="prefetch"><a href="#prefetch" class="headerlink" title="prefetch"></a>prefetch</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">预加载一个资源（HTML，JS，CSS或者图片等）</span></span><br><span class="line"><span class="comment">加载后不会去处理</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prefetch"</span> <span class="attr">href</span>=<span class="string">"//example.com/xx.html"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="prerender"><a href="#prerender" class="headerlink" title="prerender"></a>prerender</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">跟prefetch一样 prerender会去提前加载资源</span></span><br><span class="line"><span class="comment">不同点是它回去处理资源，比如渲染html，执行js</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prerender"</span> <span class="attr">href</span>=<span class="string">"//example.com/xxx.html"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><p>如何优化cdn对于静态资源的缓存</p>
-<h4 id="首次访问很慢"><a href="#首次访问很慢" class="headerlink" title="首次访问很慢"></a>首次访问很慢</h4><p>cdn存在<code>缓存</code>跟<code>回源</code>两个机制或者说<code>缓存刷新</code>与<code>缓存预热</code>，首次访问慢那就是可能临近的cdn节点中还没有该资源，因此去更远的节点去获取所以导致的慢，因此可以通过<code>缓存预热</code>方式，也就是在添加新的资源时，及时将该资源主动同步到各个cdn节点，而不是在需要的时候才去处理</p>
-<h4 id="非首次访问"><a href="#非首次访问" class="headerlink" title="非首次访问"></a>非首次访问</h4><p>可能存在以下几种情况：</p>
-<ol>
-<li>资源访问量较低，预热不够，cdn收到的请求较少无法命中缓存</li>
-<li>资源配置时间不合理，导致频繁回流</li>
-<li>Http header无法缓存</li>
-<li>资源url带了参数(过滤参数处理)</li>
-<li>大文件未做切片range</li>
-</ol>
-<p>因此只要根据以上情况做对应处理就好了</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2019/12/25/前端性能优化1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/12/26/浏览器缓存机制简介/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          浏览器缓存机制简介
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/12/20/Axios源码学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Axios源码学习笔记</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -339,9 +224,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

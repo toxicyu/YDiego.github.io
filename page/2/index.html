@@ -146,6 +146,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-React组件不同状态下生命周期执行顺序" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/React组件不同状态下生命周期执行顺序/">React组件不同状态下生命周期执行顺序</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/01/React组件不同状态下生命周期执行顺序/" class="archive-article-date">
+  	<time datetime="2019-09-01T07:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>初次挂载： <code>getDefaultProps</code>、<code>getInitialState</code>、<code>componentWillMount</code>、<code>render</code>、<code>componentDidMount</code></li>
+<li>卸载：<code>componentWillUnmount</code></li>
+<li>重新挂载： <code>getInitialState</code>、<code>componentWillMount</code>、<code>render</code>、<code>componentDidMount</code></li>
+<li>组件更新：<code>componentWillReceiveProps</code>、<code>shouldCompnentUpdate</code>、<code>componentWillUpdate</code>、<code>componentDidUpdate</code></li>
+</ol>
+<p>为什么重新挂载的时候没有<code>getDefaultProps</code>,因为React的生命周期主要通过3个阶段进行管理：MOUNTING,RECEIVE_PROPS和UNMOUNTING,3个阶段分别对应3个方法：mountComponent,updateComponent和ummountComponent;其中mountComponent负责管理生命周期中的<code>getInitialState</code>、<code>componentWillMount</code>、<code>render</code>、<code>componentDidMount</code>，由于<code>getDefaultProps</code>是通过构造函数进行管理，也是整个生命周期中最先开始执行的，而mountComponent无法调用到<code>getDefaultProps</code>，所以为什么<code>getDefaultProps</code>只执行一次的原因。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/01/React组件不同状态下生命周期执行顺序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-ReactHook" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -716,69 +785,6 @@
 
 
   
-    <article id="post-flex伸缩布局盒模型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/14/flex伸缩布局盒模型/">flex伸缩布局盒模型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/14/flex伸缩布局盒模型/" class="archive-article-date">
-  	<time datetime="2017-02-14T02:38:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>新年第一发，貌似今天还是个特殊的日子？但是 It doesn’t matter, i have code！</p>
-<p>这段时间一直在搞混合APP开发，话说hotcss确实好用啊！</p>
-<p>对于响应式布局,09年的时候，W3C提出了一个新的布局方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。这里简要的介绍下关于flex的各个属性以及用法。</p>
-        
-          <a class="article-more-a" href="/2017/02/14/flex伸缩布局盒模型/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/14/flex伸缩布局盒模型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -864,11 +870,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,15 +886,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,15 +918,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,7 +934,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -940,7 +942,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
