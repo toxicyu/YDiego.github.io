@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>浏览器缓存机制简介 | YDiego</title>
+  <title>h5小程序测试工具简介与使用 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言作为性能优化中简单高效的一种优化方式，一个优秀的缓存策略可以缩短网页请求资源的距离，减少延迟，并且由于缓存文件可以重复利用，还可以减少带宽，降低网络负荷。">
-<meta name="keywords" content="学习">
+  <meta name="description" content="为什么测试 降低bug发生几率，快速定位bug，减少重复的手工测试。 提高代码质量，为项目带来更高的代码可维护性。 方便项目的交接工作，代码即注释  h5测试Vue-Test-Utils为什么选它，因为Vue-Test-Utils是Vue.js官方的单元测试实用工具库(捂脸)。 使用案例12345678910111213141516171819202122232425262728293031323">
+<meta name="keywords" content="前端，测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器缓存机制简介">
-<meta property="og:url" content="https://toxicyu.github.io/2019/12/26/浏览器缓存机制简介/index.html">
+<meta property="og:title" content="h5小程序测试工具简介与使用">
+<meta property="og:url" content="https://toxicyu.github.io/2020/07/30/h5小程序测试工具简介与使用/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="前言作为性能优化中简单高效的一种优化方式，一个优秀的缓存策略可以缩短网页请求资源的距离，减少延迟，并且由于缓存文件可以重复利用，还可以减少带宽，降低网络负荷。">
+<meta property="og:description" content="为什么测试 降低bug发生几率，快速定位bug，减少重复的手工测试。 提高代码质量，为项目带来更高的代码可维护性。 方便项目的交接工作，代码即注释  h5测试Vue-Test-Utils为什么选它，因为Vue-Test-Utils是Vue.js官方的单元测试实用工具库(捂脸)。 使用案例12345678910111213141516171819202122232425262728293031323">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-26T12:37:37.272Z">
+<meta property="og:updated_time" content="2020-07-30T12:10:45.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器缓存机制简介">
-<meta name="twitter:description" content="前言作为性能优化中简单高效的一种优化方式，一个优秀的缓存策略可以缩短网页请求资源的距离，减少延迟，并且由于缓存文件可以重复利用，还可以减少带宽，降低网络负荷。">
+<meta name="twitter:title" content="h5小程序测试工具简介与使用">
+<meta name="twitter:description" content="为什么测试 降低bug发生几率，快速定位bug，减少重复的手工测试。 提高代码质量，为项目带来更高的代码可维护性。 方便项目的交接工作，代码即注释  h5测试Vue-Test-Utils为什么选它，因为Vue-Test-Utils是Vue.js官方的单元测试实用工具库(捂脸)。 使用案例12345678910111213141516171819202122232425262728293031323">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,54 +149,178 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-浏览器缓存机制简介" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-h5小程序测试工具简介与使用" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      浏览器缓存机制简介
+      h5小程序测试工具简介与使用
     </h1>
   
 
         
-        <a href="/2019/12/26/浏览器缓存机制简介/" class="archive-article-date">
-  	<time datetime="2019-12-26T12:36:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
+        <a href="/2020/07/30/h5小程序测试工具简介与使用/" class="archive-article-date">
+  	<time datetime="2020-07-30T12:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为性能优化中简单高效的一种优化方式，一个优秀的缓存策略可以缩短网页请求资源的距离，减少延迟，并且由于缓存文件可以重复利用，还可以减少带宽，降低网络负荷。<br><a id="more"></a></p>
-<h3 id="缓存位置"><a href="#缓存位置" class="headerlink" title="缓存位置"></a>缓存位置</h3><p>从缓存位置上来说分为四种，并且各自有优先级，当依次查找缓存且都没有命中的时候，才会去请求网络。</p>
-<h4 id="1-Service-Worker"><a href="#1-Service-Worker" class="headerlink" title="1. Service Worker"></a>1. Service Worker</h4><p><code>Service Worker</code> 是运行在浏览器背后的独立线程,且<strong>只有传输协议为 HTTPS</strong>下才可以使用，主要是因为涉及到内部的请求拦截。</p>
-<p><strong>Service Worker 的缓存与浏览器其他内建的缓存机制不同，它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的。</strong></p>
-<h4 id="2-Memory-Cache"><a href="#2-Memory-Cache" class="headerlink" title="2. Memory Cache"></a>2. Memory Cache</h4><p><code>Memory Cache</code> 也就是内存中的缓存, 内存的读取速度很快，但它的<strong>时效性</strong>不长，一般来讲在<strong>关闭tab也就是当前页面的时候相关资源就会被释放了</strong>。其中有个比较重要的资源是通过preload加载的一些资源比如<code>&lt;link rel=&quot;prefetch&quot;&gt;</code></p>
-<h4 id="3-Disk-Cache"><a href="#3-Disk-Cache" class="headerlink" title="3. Disk Cache"></a>3. Disk Cache</h4><p>Disk Cache 也就是存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，对比比 <code>Memory Cache</code> 胜在容量和存储时效性上。</p>
-<h4 id="4-Push-Cache"><a href="#4-Push-Cache" class="headerlink" title="4. Push Cache"></a>4. Push Cache</h4><p><code>Push Cache</code>（推送缓存）是 HTTP/2 中的内容，当以上三种缓存都没有命中时，它才会被使用。它只在会话（Session）中存在，一旦会话结束就被释放，并且缓存时间也很短暂，在Chrome浏览器中只有5分钟左右，同时它也并非严格执行HTTP头中的缓存指令。</p>
-<p>当以上4种都未命中时，就会去服务器请求资源了</p>
-<h3 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h3><p>浏览器在获取资源时首先回去查看改资源是否有缓存记录，有且缓存有效就可以拿来直接使用，否则就去服务器请求资源。至于是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是<code>强缓存</code>和<code>协商缓存</code>。</p>
-<h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>强缓存不会向服务器发送请求，而是直接从缓存资源中获取使用。如何确定是否是强缓存可以通过http header中的<code>Expires</code>跟<code>Cache-Control</code>来实现。</p>
-<ul>
-<li><code>Expires</code>以服务器时间为准设置过期时间，但如果修改了本地设备时间的话，那么就可能造成缓存失效</li>
-<li><code>Cache-Control</code>只要用户控制网页缓存，常用的属性是<code>max-age=300</code>,表示在这个请求正确返回时间（浏览器也会记录下来）的5分钟内再次加载资源，就会命中强缓存。对应的还有其他属性如<code>no-cache(走协商缓存)</code>，<code>public(客户端服务端都缓存)</code>，<code>private(仅客户端缓存)</code>，<code>no-store(不缓存)</code>等</li>
-<li><code>Cache-Control</code>的优先级大于<code>Expires</code></li>
+        <h3 id="为什么测试"><a href="#为什么测试" class="headerlink" title="为什么测试"></a>为什么测试</h3><ul>
+<li>降低bug发生几率，快速定位bug，减少重复的手工测试。</li>
+<li>提高代码质量，为项目带来更高的代码可维护性。</li>
+<li>方便项目的交接工作，代码即注释</li>
 </ul>
-<h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><p>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程，同样的它由<code>Last-Modified</code> 和 <code>ETag</code>影响</p>
-<ul>
-<li><p><code>Last-Modified</code>为服务器返回资源时携带，浏览器检测的这个header之后，再次请求资源时会带上<code>If-Modified-Since</code>,也就是前面<code>Last-Modified</code>的值，服务器则会根据<code>If-Modified-Since</code>来决定返回304还是200。</p>
-<p>  但是<code>Last-Modified</code>的确定是短时间内资源的修改不会改变<code>Last-Modified</code>的值，并且如果资源周期性的变化，它的值还是会变，也就是之前的资源不会再复用</p>
+<h3 id="h5测试"><a href="#h5测试" class="headerlink" title="h5测试"></a>h5测试</h3><h4 id="Vue-Test-Utils"><a href="#Vue-Test-Utils" class="headerlink" title="Vue-Test-Utils"></a>Vue-Test-Utils</h4><p>为什么选它，因为Vue-Test-Utils是Vue.js官方的单元测试实用工具库(捂脸)。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// shallowMount 方法只挂载一个组件而不渲染其子组件</span><br><span class="line">import &#123; shallowMount &#125; from &apos;@vue/test-utils&apos;;</span><br><span class="line">import vRadio from &apos;@/components/vRadio&apos;;</span><br><span class="line"></span><br><span class="line">describe(&apos;Component vRadio&apos;, function() &#123;</span><br><span class="line">  it(&apos;the radio  should be selected while props of select is true&apos;, function() &#123;</span><br><span class="line">    const wrapper = shallowMount(vRadio, &#123;</span><br><span class="line">      propsData: &#123;</span><br><span class="line">        select: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    const radio = wrapper.find(&apos;span.iconxuanzhong&apos;)</span><br><span class="line">    expect(radio.exists()).toBe(true)</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  it(&apos;the radio should be unselected while props of select is false&apos;, function() &#123;</span><br><span class="line">    const wrapper = shallowMount(vRadio, &#123;</span><br><span class="line">      propsData: &#123;</span><br><span class="line">        select: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    const radio = wrapper.find(&apos;span.iconweixuanzhong&apos;)</span><br><span class="line">    expect(radio.exists()).toBe(true)</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  // 模拟用户交互</span><br><span class="line">  it(&apos;should emit event while click&apos;, function() &#123;</span><br><span class="line">    const wrapper = shallowMount(vRadio)</span><br><span class="line">    const radio = wrapper.find(&apos;span.v-radio&apos;)</span><br><span class="line">    radio.trigger(&apos;click&apos;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.emitted().click).toBeTruthy()</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&apos;test radio select&apos;,async () =&gt; &#123;</span><br><span class="line">    const wrapper = shallowMount(vRadio)</span><br><span class="line">    const radio = wrapper.find(&apos;span.v-radio&apos;)</span><br><span class="line">    await radio.trigger(&apos;click&apos;)</span><br><span class="line"></span><br><span class="line">    expect(wrapper.emitted().click).toBeTruthy()</span><br><span class="line">    </span><br><span class="line">    await wrapper.setProps(&#123;</span><br><span class="line">      select: true</span><br><span class="line">    &#125;)</span><br><span class="line">    const SelectRadio = wrapper.find(&apos;span.iconxuanzhong&apos;)</span><br><span class="line">    expect(SelectRadio.exists()).toBe(true)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</code></pre><h5 id="可能会有的问题"><a href="#可能会有的问题" class="headerlink" title="可能会有的问题"></a>可能会有的问题</h5><ul>
+<li><p>createLocalVue<br>  为了防止污染全局的Vue类，在使用vuex或者vue-router的时候使用createLocalVue,官网示例</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createLocalVue, shallowMount &#125; from &apos;@vue/test-utils&apos;</span><br><span class="line">import MyPlugin from &apos;my-plugin&apos;</span><br><span class="line">import Foo from &apos;./Foo.vue&apos;</span><br><span class="line"></span><br><span class="line">const localVue = createLocalVue()</span><br><span class="line">localVue.use(MyPlugin)</span><br><span class="line">const wrapper = shallowMount(Foo, &#123;</span><br><span class="line">  localVue,</span><br><span class="line">  mocks: &#123; foo: true &#125;</span><br><span class="line">&#125;)</span><br><span class="line">expect(wrapper.vm.foo).toBe(true)</span><br><span class="line"></span><br><span class="line">const freshWrapper = shallowMount(Foo)</span><br><span class="line">expect(freshWrapper.vm.foo).toBe(false)</span><br></pre></td></tr></table></figure>
 </li>
-<li><code>Etag</code>是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)，只要资源有变化，<code>Etag</code>就会重新生成。因此对比<code>Last-Modified</code>它的精确度会更高，且优先级更高，但是性能上相对逊色</li>
+<li><p>异步生命周期</p>
+<p>  <a href="https://vue-test-utils.vuejs.org/zh/guides/testing-async-components.html" target="_blank" rel="noopener">文档有相关说明</a><br>  也可以用下面方式</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 假设在异步生命周期方法中，调用的函数是init，那我们就通过jest.fn()提供的方法进行mock</span><br><span class="line">init.default = jest.fn().mockImplementation(() =&gt; Promise.resolve(yourValue))</span><br><span class="line"></span><br><span class="line">// 在Jest提供的全局方法中，调用异步生命周期的方法，以保证每个断言都是在生命周期之后</span><br><span class="line">beforeEach(async () =&gt; &#123;</span><br><span class="line">  init.default.mockClear()</span><br><span class="line">  await wrapper.vm.$mount() // 异步生命周期里会调用init方法</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试文件中包含require.context</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 插件解决：babel-plugin-require-context-hook</span><br><span class="line">// 在babel.config.js中加上这个插件</span><br><span class="line">...</span><br><span class="line">plugins: [..., &apos;require-context-hook&apos;]</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// 在jest.config.json中配置一下setupFiles </span><br><span class="line">// setupFiles表示在每个运行文件前添加的额外配置</span><br><span class="line">...</span><br><span class="line">&quot;setupFiles&quot;: [&quot;&lt;rootDir&gt;/jest.setup.js&quot;],</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// 创建.jest/register-context.js文件，引入时进行全局的注册</span><br><span class="line">import registerRequireContextHook from &apos;babel-plugin-require-context-hook/register&apos;;</span><br><span class="line">registerRequireContextHook();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自动执行测试</p>
+<p>  在脚本命令中加入<code>--auto-watch</code></p>
+</li>
 </ul>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>针对比较频繁改动的资源，设置<code>Cache-Control: no-cache</code>，而不常变化的设置<code>Cache-Control:max-age=100000</code></p>
-<p>另外用户的行为也会影响浏览器使用缓存的策略。</p>
+<p>按照设想，单元测试主要是为了测试组件UI，使数据驱动后UI的变化在可控范围之内；测试组件应以纯组件为主（业务组件逻辑过于复杂或经常变动，涉及到的引入文件过多，不便于测试所有的功能性），纯组件作为项目的基础组件功能性上基本不变化。所以以上<code>异步生命周期</code>以及<code>require.context</code>问题一般来说不怎么会用到</p>
+<h3 id="e2e测试"><a href="#e2e测试" class="headerlink" title="e2e测试"></a>e2e测试</h3><p>站在用户角度的测试</p>
+<p>e2e测试是把我们的程序看成是一个黑盒子，我不管你内部是怎么实现的，只负责打开浏览器，根据测试内容走一遍，看是不是想要得到的结果。</p>
+<h4 id="e2e测试应该有的"><a href="#e2e测试应该有的" class="headerlink" title="e2e测试应该有的"></a>e2e测试应该有的</h4><ul>
+<li>安装简易：非常容易安装，最好可以一行命令就可以安装完毕</li>
+<li>依赖较少：我只想做个E2E测试，不想安装jdk, python之类的东西</li>
+<li>速度很快：运行测试用例的速度要快</li>
+<li>报错详细：详细的报错</li>
+<li>API完备：鼠标键盘操作接口，DOM查询接口等</li>
+<li>Debug方便：出错了可以很方便的调试，而不是去猜</li>
+</ul>
+<h4 id="Cypress"><a href="#Cypress" class="headerlink" title="Cypress"></a>Cypress</h4><p><code>cypress</code> 除了以上优点，Cypress还有以下优点</p>
 <ul>
-<li>访问网址，看是否有<code>Disk Cache</code></li>
-<li>普通刷新，优先<code>Memory Cache</code>然后在<code>Disk Cache</code></li>
-<li>强制刷新或无痕模式，不使用缓存</li>
+<li>时光穿梭 测试运行时，Cypress会自动截图，你可以轻易的查看每个时间的截图</li>
+<li>Debug友好 不需要再去猜测为什么测试有失败了，Cypress提供Chrome DevTools, 所以Debug是非常方便的。</li>
+<li>实时刷新 Cypress检测测试用例改变后，会自动刷新</li>
+<li>自动等待 不需要在使用wait类似的方法等待某个DOM出现，Cypress会自动帮你做这些</li>
+<li>接口拦截，可以自定义接口返回数据，开发友好</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li><p>除了cy对象外的所有操作都是同步的</p>
+<p>  使用cypress-promise这个库 如上述代码在返回最外层使用 promisify(）方法，在使用ES7 promise语法 async await 就可以转换成为异步操作。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">async getElementsText(selector) &#123;</span><br><span class="line">    return await promisify(Cypress.$(fxConfig[selector]).map(function () &#123;</span><br><span class="line">        return Cypress.$(this).text()</span><br><span class="line">    &#125;).get()))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>并发测试需要收费</p>
+<ul>
+<li>利用concurrently这个库或者GNU命令起多个进程去执行不同测试文件，从而绕过cypress的限制。</li>
+<li>测试设计层面，利用cucumber的tag 将测试分类，再利用CI 设计不同pipeline 来并发运行不同tag的测试，进而绕开收费限制。</li>
+</ul>
+</li>
+<li><p>当元素不存在或者没有找到时，测试会失败<br>  利用jquery 查找元素的length是否大于0，然后利用if或while循环进行判断</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (Cypress.$(&quot;.show-more-button&quot;).length &gt; 0) &#123;</span><br><span class="line">    cy.get(&apos;.show-more-button a&apos;).click();</span><br><span class="line">&#125; else&#123;</span><br><span class="line">    // do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不支持多浏览器测试</p>
+</li>
+</ul>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p><code>Cypress</code>建立在<code>Mocha</code> 和 <code>Chai</code>之上。因此支持<code>Chai</code>的 <code>BDD</code> 和 <code>TDD</code> 断言风格。</p>
+<p><a href="https://docs.cypress.io/zh-cn/guides/references/best-practices.html" target="_blank" rel="noopener">最佳实践</a></p>
+<ul>
+<li>简单案例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">添加全局命令</span><br><span class="line">// cypress/support/commands</span><br><span class="line">// 模拟删除所有地址</span><br><span class="line">Cypress.Commands.add(&apos;clear_address&apos;, function() &#123;</span><br><span class="line">  cy.visit(&apos;/setting/address/list&apos;);</span><br><span class="line">  cy.get(&apos;[data-cy=delBtn]&apos;)</span><br><span class="line">    .each(address =&gt; &#123;</span><br><span class="line">      address.click();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">// 自动添加地址</span><br><span class="line">Cypress.Commands.add(&apos;add_address&apos;, () =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Cypress.Commands.add(&apos;login&apos;, (phone) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">describe(&apos;order&apos;, function() &#123;</span><br><span class="line"></span><br><span class="line">  beforeEach(function() &#123;</span><br><span class="line">    cy.login(&apos;15757111111&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  it(&apos;remove all address &apos;, function() &#123;</span><br><span class="line">    cy.clear_address()</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(&apos;test add address&apos;, function() &#123;</span><br><span class="line">    cy.add_address()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="小程序测试"><a href="#小程序测试" class="headerlink" title="小程序测试"></a>小程序测试</h3><p>总的来说小程序测试工具使用体验并没有h5来的好。</p>
+<h4 id="miniprogram-simulate-jest"><a href="#miniprogram-simulate-jest" class="headerlink" title="miniprogram-simulate + jest"></a>miniprogram-simulate + jest</h4><p>官方提供的单测工具，不过实际应用中可能只适合组件类的测试，page级的比较难，工具文档中也提到了<code>因为在此测试环境中没有小程序根路径的概念，所以原本支持绝对路径的地方必须改为相对路径方可进行测试</code></p>
+<h5 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">import path from &apos;path&apos;</span><br><span class="line">import simulate from &apos;miniprogram-simulate&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">describe(&apos;comLabels&apos;, function () &#123;</span><br><span class="line">  const comLabels = simulate.load(path.resolve(__dirname, &apos;../index&apos;))</span><br><span class="line"></span><br><span class="line">  const renderComponent = (props = &#123;&#125;) =&gt; &#123;</span><br><span class="line">    return simulate.render(comLabels, Object.assign(&#123;&#125;, props))</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  describe(&apos;test component lifetime&apos;, function () &#123;</span><br><span class="line">    const comp = renderComponent()</span><br><span class="line">    test(&apos;trigger lifeTime: created&apos;, () =&gt; &#123;</span><br><span class="line">      comp.triggerLifeTime(&apos;created&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">    test(&apos;trigger lifeTime: attached&apos;, () =&gt; &#123;</span><br><span class="line">      comp.triggerLifeTime(&apos;attached&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">    test(&apos;trigger lifeTime: ready&apos;, () =&gt; &#123;</span><br><span class="line">      comp.triggerLifeTime(&apos;ready&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  describe(&apos;render labels&apos;, function () &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    test(&apos;should render \&apos;自营\&apos; if shopType is 1&apos;, async () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">      const comp = renderComponent(&#123;</span><br><span class="line">        data: &#123;</span><br><span class="line">          shopType: 1</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      comp.attach(document.createElement(&apos;wrapper&apos;))</span><br><span class="line">      await simulate.sleep(0)</span><br><span class="line">      expect(comp.toJSON()).toMatchSnapshot()</span><br><span class="line"></span><br><span class="line">      const labels = comp.querySelectorAll(&apos;.label&apos;)</span><br><span class="line">      expect(labels.length).toEqual(1)</span><br><span class="line">      expect(labels[0].dom.innerHTML).toBe(&apos;自营&apos;)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    it(&apos;should render 0 label for empty props&apos;, () =&gt; &#123;</span><br><span class="line">      const comp = renderComponent()</span><br><span class="line">      comp.attach(document.createElement(&apos;wrapper&apos;))</span><br><span class="line">      const labels = comp.querySelectorAll(&apos;.label&apos;)</span><br><span class="line">      expect(labels.length).toEqual(0);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    it(&apos;should override default props&apos;, function () &#123;</span><br><span class="line">      const comp = renderComponent(&#123;</span><br><span class="line">        priority: false,</span><br><span class="line">        ignoreMerchantLabel: true,</span><br><span class="line">        size: &apos;big&apos;,</span><br><span class="line">        filterList: [&apos;tao&apos;]</span><br><span class="line">      &#125;)</span><br><span class="line">      comp.attach(document.createElement(&apos;wrapper&apos;))</span><br><span class="line"></span><br><span class="line">      const &#123; priority, ignoreMerchantLabel, labelLength, filterList, size &#125; = comp.data</span><br><span class="line"></span><br><span class="line">      expect(priority).not.toBeTruthy()</span><br><span class="line">      expect(ignoreMerchantLabel).toBeTruthy()</span><br><span class="line">      expect(labelLength).toBe(0)</span><br><span class="line">      expect(filterList).toHaveLength(1)</span><br><span class="line">      expect(filterList).toEqual([&apos;tao&apos;])</span><br><span class="line">      expect(size).toBe(&apos;big&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="API"><a href="#API" class="headerlink" title="API"></a>API</h5><ul>
+<li>behavior<ul>
+<li>自定义组件可以共享代码的<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/behaviors.html" target="_blank" rel="noopener">方案</a></li>
+<li>注册并返回一个<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Behavior.html" target="_blank" rel="noopener">behavior对象</a>，直接调用的 j-component的 behavior 生成</li>
+</ul>
+</li>
+<li>load<ul>
+<li>加载自定义组件，返回 componentId</li>
+<li>可以设置编译器为官方编译器还是js的编译器，在karma的场景下，只能使用官方编译器</li>
+</ul>
+</li>
+<li>render<ul>
+<li>见 DEMO 演示</li>
+</ul>
+</li>
+<li>match<ul>
+<li>dom 节点的内容是否符合给定的 html 结构</li>
+</ul>
+</li>
+<li>sleep<ul>
+<li>延迟等待执行</li>
+</ul>
+</li>
+<li>scroll<ul>
+<li>模拟滚动，触发scroll事件</li>
+</ul>
+</li>
+<li>Class: Component<ul>
+<li>组件实例（有jsdom的一些方法和小程序本身的方法）</li>
+<li>属性<ul>
+<li>dom</li>
+<li>data</li>
+<li>instance：组件实例的this（可以直接调用组件的某些方法）</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>querySelector</li>
+<li>querySelectorAll</li>
+<li>setData</li>
+<li>dispatchEvent</li>
+<li>triggerLifeTime</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Class: RootComponent<ul>
+<li>继承自Class: Component，所有renderf返回的内容就是该实例<ul>
+<li>方法<ul>
+<li>attach：挂载</li>
+<li>detach：卸载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="e2e-miniprogram-automator"><a href="#e2e-miniprogram-automator" class="headerlink" title="e2e  miniprogram-automator"></a>e2e  miniprogram-automator</h4><h5 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h5><ul>
+<li>打开微信开发者工具-&gt;设置-安全设置-&gt;勾选服务端口</li>
+<li>调用开发者工具命令行打开项目与指定自动化操作服务端口<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> macOS: &lt;安装路径&gt;/Contents/MacOS/cli | /Applications/wechatwebdevtools.app/Contents/MacOS</span><br><span class="line">./cli auto --project /Users/ydiego/Desktop/your-project --auto-port 9420</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Windows: &lt;安装路径&gt;/cli.bat</span><br><span class="line">./cli.bat --auto your-project-path --auto-port 9420</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h5><ul>
+<li>不能使用__开头的文件夹，在小程序中为保留文件，否则无法正常预览，会报错</li>
+<li><p>配置相对复杂，在测试的时候可以通过命令启动开发者工具，但是启动项目完成的时间不同机器不尽相同，很容易超时。这个问题在开启自动化端口切开发者工具运行时可以解决，但是每次测试都需要手动执行对应的命令行操作。</p>
+</li>
+<li><p>测试用例中大量用到<code>await</code>,包括节点获取这些都要使用</p>
+</li>
+<li>获取页面中的组件只能采用page.$()或page.$$()方法，经尝试选择器仅支持组件名和类名。无法直接获取自定义组件内部组件元素，需要在类名前增加前缀。实际项目的页面中大量使用自定义组件，对于自定义组件内部的结构判断非常不方便，只能通过wxml()方法将自定义组件内部结构打印出来才能确认内部的子组件的实际情况。且无法调用自定义组件内部的方法。</li>
+<li>Jest的snapshot功能对于结构相对固定的组件或页面是一种非常好的测试方式，但用起来有坑。在小程序中snapshot的对照内容通常是通过组件的wxml方法打印的字符串，但实际在运行时，wxml方法返回结果可能会不同，组件可能会被自动添加上wx:nodeid属性，但有时返回字符串中又不添加，会导致snapshot测试不通过。</li>
+<li>目前只能在开发者工具环境下测试，导致直播功能无法测试且云点播会自动降级为腾讯视频点播，直播也无法测试。（工具更新后支持真机调试，应该有所改善）<br>登陆、扫码等功能无法测试，因为自动化控制工具无法扫描和点击授权弹窗。</li>
+<li><code>&lt;web-view&gt;</code>组件获取不到任何内部信息，也无法自动化控制。</li>
+<li><strong>依赖包过大需要做打包优化</strong></li>
+</ul>
+<h3 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h3><ul>
+<li><p>在日常的业务系统开发中，而不是伟大软件开发中，经常会出现为了开发速度牺牲质量(bug)的权衡，写单元测试完全浪费时间。如果把开发活动框在从研发到打包这段过程的话，单元测试的确是影响了开发进度的。但是如果你把软件的发布，运营，bug反馈，定位，修复，再发布这些环节考虑进来，单元测试又是很有用的。而且经常碰到当前项目完成后，二期或者修改改由其他人接手的情况，这个时候如果有相关测试脚本，那么对前面的业务了解以及在改动之后对之前代码的影响是否有直观体现。</p>
+</li>
+<li><p>“为了开发速度牺牲质量”，其实最终会发发现这其实是个伪命题来的，因为软件质量是第一位的。如果软件万一真的有 bug，即使不考虑业务损失，当这个 bug 出现的时候，你需要马上放下手上正在开发的工作，去排查定位，重建环境，代码修复，测试，打包，发布等，这一系列的工作牵扯到的不只是写出这个 bug 的那一位研发人员，而是牵扯到运维，测试等一系列人员。将人力成本，时间成本，沟通成本等考虑进来之后，其实整个团队的研发效能非常低的。</p>
+</li>
+<li><p>还有关于单元测试以及e2e测试用哪个的问题，以个人浅薄的认知来看，公共类的使用比如公共组件以及公共工具方法这样的会大量使用的用单元测试较好，而业务类的用户只关心看到的则是用e2e测试。</p>
+</li>
+<li><p>写测试最大的阻力是——<strong>时间</strong>。</p>
+</li>
 </ul>
 
       
@@ -232,7 +356,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端，测试</a>
         		</li>
       		
 		</ul>
@@ -288,7 +412,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2019/12/26/浏览器缓存机制简介/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2020/07/30/h5小程序测试工具简介与使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +426,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/03/记阿里面试算法题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          记阿里面试算法题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/25/前端性能优化1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端性能优化1</div>
+    <a href="/2020/03/16/linux部署blog-kvr/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux部署blog-kvr</div>
       <i class="icon-circle-right"></i>
     </a>
   

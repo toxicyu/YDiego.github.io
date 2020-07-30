@@ -146,6 +146,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2016总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/01/2016总结/">2016总结</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/01/2016总结/" class="archive-article-date">
+  	<time datetime="2017-01-01T10:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2016就这样过去了，感觉还停留年刚初过来一样，貌似工作之后时间概念快了好多。最后一个月松懈的有点过分，博客都没更，这是很不好的，刚好趁着2017元旦补一发（嗯？）。</p>
+<p>除了技术上的提升，最大的收获还是见识上的，了解了很多互联网方面的一些知识，创投圈的认识也从一无所知到略知一二。主要还是没少跟公司老板他们聊这方面的知识，虽然大部分时间旁听状态。</p>
+<p>也有一些是从不好的经历中学到的，创业不容易，尤其是互联网公司，再加上这两年资本寒冬，创业公司伤亡惨重，所以面试找工作的时候不能仅仅停留在薪资待遇上，还要了解他的业务，判断他的未来，公司发展了，业务自然就多，业务多了需要的技能也就上去了，不然没干几个月公司跪了，一切扯淡。当然，一个好老板也是非常重要的，比如某增X公司，害了一波人，辛亏跑得早。</p>
+<p>话说，现在看英文没有以前name排斥了，真是对不起以前的英语老师们啊。</p>
+<p>额外成就，单身年份+1！</p>
+<p>目标：</p>
+<p>其实定了好多目标，但是最终实现的也就几个，自控力确实有待提高，年底买了好多书，才看完两本技术书，这点完全不够，技术还是太菜了。 </p>
+<p>争取结束单身。</p>
+<p>扯一句：<br>年底这段时间挺迷惘的，想了很多，有点印象深刻，压力大了之后，做事好有干劲。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/01/2016总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Why-Domain-Sharding-is-Bad-News-for-Mobile-Performance-and-Users-译" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -781,74 +848,6 @@
 
 
   
-    <article id="post-Google-Share-API" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/25/Google-Share-API/">Google Share API</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/25/Google-Share-API/" class="archive-article-date">
-  	<time datetime="2016-10-25T03:25:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>新版Chrome 55 支持Web Share API  ，现在可以用js代码调用系统的“分享”对话框了！！<a href="https://developers.google.com/web/updates/2016/10/navigator-share" target="_blank" rel="noopener">网页链接</a></p>
-<p>考虑到翻墙，把原文转来。</p>
-<p>Good news, everybody! <a href="https://twitter.com/mgiuca" target="_blank" rel="noopener">Matt Giuca</a> on the Chrome team has been working on a simple API called <a href="https://github.com/WICG/web-share/blob/master/docs/explainer.md" target="_blank" rel="noopener">Web Share</a> that allows websites to invoke the native sharing capabilities of the host platform.</p>
-<p>There have been a number of ways to invoke native sharing capabilities on the platform, but they all have significant drawbacks. There was <a href="https://en.wikipedia.org/wiki/Paul_Kinlan" target="_blank" rel="noopener">Web Intents</a> (dead), there is protocol handling via <code>registerProtocolHandler</code> but this has zero support on mobile, there is direct sharing to a well-known service URL such as Twitter’s, and there is also the <a href="https://paul.kinlan.me/sharing-natively-on-android-from-the-web/" target="_blank" rel="noopener">Android intent: URL syntax</a> (which was, unfortunately, Android-only, and required apps to opt-in).</p>
-<p>The Web Share API is important because it gives the user control of how and where the data is shared.</p>
-<p>In Chrome 55 (Beta as of October 2016), we’ve enabled an <a href="https://github.com/jpchase/OriginTrials/blob/gh-pages/developer-guide.md" target="_blank" rel="noopener">Origin Trial</a> that lets you integrate the Web Share API into your site. The “Origin Trial” means this API is only available to sites in an opt-in basis; instead you need to register to get access during the trial phase. Over this time, the API may undergo breaking changes, which is why we are looking for as much feedback as possible.</p>
-<p>The Web Share API is a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises" target="_blank" rel="noopener">promise</a>-based, single method API that takes an object with properties named title, text and url.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigator.share(&#123;</span><br><span class="line">    title: <span class="built_in">document</span>.title,</span><br><span class="line">    text: <span class="string">"Hello World"</span>,</span><br><span class="line">    url: <span class="built_in">window</span>.location.href</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Successful share'</span>))</span><br><span class="line">.catch(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Error sharing:'</span>, error));</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/10/25/Google-Share-API/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/25/Google-Share-API/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -950,11 +949,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -970,19 +969,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">codefreecamp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -990,11 +977,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端，测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1014,11 +1013,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">面试，算法</a>
               </li>
             
             <div class="clearfix"></div>
