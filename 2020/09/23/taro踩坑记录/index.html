@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://toxicyu.github.io">
-  <title>记阿里面试算法题 | YDiego</title>
+  <title>taro踩坑记录 | YDiego</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="给定1个对象(如下):  var input = { a: 1,b: [ 1, 2, { c: true }, [ 3 ] ], d: { e: 2, f: 3 },g: null,}    经过扁平化处理后，得到以下结果: var output = { &amp;quot;a&amp;quot;: 1,&amp;quot;b[0]&amp;quot;: 1, &amp;quot;b[1]&amp;quot;: 2, &amp;quot;b[2].c&amp;">
-<meta name="keywords" content="面试，算法">
+  <meta name="description" content="记录taro使用过程中遇到的一些问题以及解决方案 taro版本2.x">
+<meta name="keywords" content="js,taro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记阿里面试算法题">
-<meta property="og:url" content="https://toxicyu.github.io/2020/01/03/记阿里面试算法题/index.html">
+<meta property="og:title" content="taro踩坑记录">
+<meta property="og:url" content="https://toxicyu.github.io/2020/09/23/taro踩坑记录/index.html">
 <meta property="og:site_name" content="YDiego">
-<meta property="og:description" content="给定1个对象(如下):  var input = { a: 1,b: [ 1, 2, { c: true }, [ 3 ] ], d: { e: 2, f: 3 },g: null,}    经过扁平化处理后，得到以下结果: var output = { &amp;quot;a&amp;quot;: 1,&amp;quot;b[0]&amp;quot;: 1, &amp;quot;b[1]&amp;quot;: 2, &amp;quot;b[2].c&amp;">
+<meta property="og:description" content="记录taro使用过程中遇到的一些问题以及解决方案 taro版本2.x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-03T13:54:52.640Z">
+<meta property="og:updated_time" content="2020-09-23T14:42:28.945Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记阿里面试算法题">
-<meta name="twitter:description" content="给定1个对象(如下):  var input = { a: 1,b: [ 1, 2, { c: true }, [ 3 ] ], d: { e: 2, f: 3 },g: null,}    经过扁平化处理后，得到以下结果: var output = { &amp;quot;a&amp;quot;: 1,&amp;quot;b[0]&amp;quot;: 1, &amp;quot;b[1]&amp;quot;: 2, &amp;quot;b[2].c&amp;">
+<meta name="twitter:title" content="taro踩坑记录">
+<meta name="twitter:description" content="记录taro使用过程中遇到的一些问题以及解决方案 taro版本2.x">
   
     <link rel="alternative" href="/atom.xml" title="YDiego" type="application/atom+xml">
   
@@ -149,33 +149,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-记阿里面试算法题" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-taro踩坑记录" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      记阿里面试算法题
+      taro踩坑记录
     </h1>
   
 
         
-        <a href="/2020/01/03/记阿里面试算法题/" class="archive-article-date">
-  	<time datetime="2020-01-03T13:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-03</time>
+        <a href="/2020/09/23/taro踩坑记录/" class="archive-article-date">
+  	<time datetime="2020-09-23T14:41:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="给定1个对象-如下"><a href="#给定1个对象-如下" class="headerlink" title="给定1个对象(如下):"></a>给定1个对象(如下):</h3><p>  <code>var input = { a: 1,b: [ 1, 2, { c: true }, [ 3 ] ], d: { e: 2, f: 3 },g: null,}</code></p>
-<p>   经过扁平化处理后，得到以下结果:</p>
-<p><code>var output = { &quot;a&quot;: 1,&quot;b[0]&quot;: 1, &quot;b[1]&quot;: 2, &quot;b[2].c&quot;: true, &quot;b[3][0]&quot;: 3, &quot;d.e&quot;: 2, &quot;d.f&quot;: 3};</code></p>
-<p>值为null或者undefined，丢弃</p>
-<p>请实现 flatten(input)函数，input为一个javascript对象，返回值为扁平化后的结果</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">function isObject(obj) &#123;</span><br><span class="line">	return Object.prototype.toString.call(obj) === &apos;[object Object]&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function flatten(input) &#123;</span><br><span class="line">    let result = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    function f(key, param) &#123;</span><br><span class="line">        let ret = &#123;&#125;</span><br><span class="line">        if (Array.isArray(param)) &#123;</span><br><span class="line">            param.forEach((v, i) =&gt; &#123;</span><br><span class="line">                if (isObject(v) || Array.isArray(v)) &#123;</span><br><span class="line">                    ret = Object.assign(&#123;&#125;, ret, f(`$&#123;key&#125;[$&#123;i&#125;]`, v))</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    ret[`$&#123;key&#125;[$&#123;i&#125;]`] = v</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else if(isObject(param)) &#123;</span><br><span class="line">            for(let _key in param) &#123;</span><br><span class="line">                ret[`$&#123;key&#125;.$&#123;_key&#125;`] = param[_key]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ret</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	for(let key in input) &#123;</span><br><span class="line">      	let value = input[key]</span><br><span class="line">    	if (!value) continue;</span><br><span class="line">      	if (Array.isArray(value) || isObject(value)) &#123;</span><br><span class="line">            result = Object.assign(&#123;&#125;, result, f(key, value))</span><br><span class="line">        &#125;  else &#123;</span><br><span class="line">          	result[key] = value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  	return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>记录taro使用过程中遇到的一些问题以及解决方案</p>
+<p>taro版本2.x<br><a id="more"></a></p>
+<h3 id="1-css公共样式合并"><a href="#1-css公共样式合并" class="headerlink" title="1. css公共样式合并"></a>1. css公共样式合并</h3><p>开发前css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.comRadio</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.comRadio</span> <span class="selector-class">.select--no</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'domain/f106c464-2d70-4fb8-af58-3ba4e33906c9-key0afzy.png'</span>) no-repeat center;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.comRadio</span> <span class="selector-class">.select--yes</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'domain/2567e9a9-addf-4993-a1b9-a0c1662dee57-key0aap6.png?v1'</span>) no-repeat center;</span><br><span class="line">  <span class="attribute">background-size</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在taro编译成正式包后:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.comRadio .select--no, .comRadio .select--yes &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  width: 40px;</span><br><span class="line">  height: 40px;</span><br><span class="line">&#125;</span><br><span class="line">.comRadio .select--no, .comRadio .select--yes &#123;</span><br><span class="line">  background-size: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.comRadio .select--no &#123;</span><br><span class="line">  background: url(&apos;domain/f106c464-2d70-4fb8-af58-3ba4e33906c9-key0afzy.png&apos;) no-repeat center;</span><br><span class="line">&#125;</span><br><span class="line">.comRadio .select--yes &#123;</span><br><span class="line"> background: url(&apos;domain/2567e9a9-addf-4993-a1b9-a0c1662dee57-key0aap6.png?v1&apos;) no-repeat center;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>导致了背景图不能正常展示</p>
+<p>如果只是单个图片不受影响，解决方案为<code>background</code>与<code>background-size</code>混写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: url(&apos;domain/f106c464-2d70-4fb8-af58-3ba4e33906c9-key0afzy.png&apos;) no-repeat center / 100%</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-Cannot-read-property-‘dispatch’-of-undefined"><a href="#2-Cannot-read-property-‘dispatch’-of-undefined" class="headerlink" title="2. Cannot read property ‘dispatch’ of undefined"></a>2. Cannot read property ‘dispatch’ of undefined</h3><p>项目中B页面引用了使用了taro-redux的某个组件C,组件C在小程序中编译使用正常，h5编译抛出标题错误。但是这个组件再另一个页面A中使用正常，经过各种排查最终对比页面才发现，A页面使用了redux，而B页面没有使用</p>
+<p>解决方案：</p>
+<ol>
+<li>给B页面添加了redux后组件C正常使用</li>
+<li>新增.h5文件 同时将taro-redux换成对应的h5版本</li>
+</ol>
+<h3 id="3-taro-2-2-11-二级页调用switchTab返回tab页白屏"><a href="#3-taro-2-2-11-二级页调用switchTab返回tab页白屏" class="headerlink" title="3. taro 2.2.11 二级页调用switchTab返回tab页白屏"></a>3. taro 2.2.11 二级页调用switchTab返回tab页白屏</h3><p>编译成h5页面后发现如上问题，后在<br><a href="https://github.com/NervJS/taro/issues/6878" target="_blank" rel="noopener">issue6878</a><br>发现该问题，并且升级到2.2.14后问题解决</p>
+<p>但是升级之后遇到另一个问题，小程序无法正常build，taro-ui编译报错, 经过排查发现在版本2.2.14修复了一个<a href="https://github.com/NervJS/taro/commit/3453ca7e9e0a9dc75b98dfc62265bf366e9926ae" target="_blank" rel="noopener">babel-preset-env 配置不起作用问题</a></p>
+<p>经过验证后将配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">babel: &#123;</span><br><span class="line">  presets: [</span><br><span class="line">      [&apos;env&apos;, &#123; modules: false&#125;]   </span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改成如下配置就可以正常build<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">babel: &#123;</span><br><span class="line">  presets: [</span><br><span class="line">      &apos;env&apos;</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -210,7 +219,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">面试，算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">taro</a>
         		</li>
       		
 		</ul>
@@ -266,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2020/01/03/记阿里面试算法题/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://toxicyu.github.io/2020/09/23/taro踩坑记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/24/koa-bodyparser解析get请求中的数组参数问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          koa-bodyparser解析get请求中的数组参数问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/26/浏览器缓存机制简介/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浏览器缓存机制简介</div>
+    <a href="/2020/07/30/h5小程序测试工具简介与使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">h5小程序测试工具简介与使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
